@@ -27,7 +27,7 @@ ATM Banking Application
 7. Check if the Card is stored in the system or not:
 	- Card Found: Continue the process 
 	- Card Not Found: Reject the transaction 	
-	
+
 8. Check if the amount is less than the balance or not:
 	- Balance is larger than or equal: Accept the transaction 
 	- Balance is less than amount: Reject the transaction 
