@@ -1,8 +1,8 @@
-# Requirements:
+## Requirements:
 
 Build X-O Game 3*3 between two players
 
-# Steps:
+## Steps:
 
 1. Determine the symbols for each player
 2. Draw the board
