@@ -1,12 +1,8 @@
-#Title:
-
-X-O Game
-
-#Requirements:
+# Requirements:
 
 Build X-O Game 3*3 between two players
 
-#Steps:
+# Steps:
 
 1. Determine the symbols for each player
 2. Draw the board
@@ -15,4 +11,4 @@ Build X-O Game 3*3 between two players
 	  number  is equal to initial value of the table.	  
    - Then write  the symbol.
 4. Determine the winner
-4. Display the winner
+5. Display the winner
