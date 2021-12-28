@@ -1,8 +1,8 @@
-#Title:
+## Requirements:
 
 ATM Banking Application
 
-#Requirements:
+## Steps:
 
 1. Welcoming messages
 
