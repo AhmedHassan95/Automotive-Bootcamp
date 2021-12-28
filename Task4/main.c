@@ -4,9 +4,9 @@
  *
  * [AUTHOR(S)] : Ahmed Hassan
  *
- * [DATE CREATED] :	DEC 22, 2021
+ * [DATE CREATED] : DEC 22, 2021
  *
- * [DESCRIPTION] :	This Project is to design an ATM application
+ * [DESCRIPTION] : This Project is to design an ATM application
  *
  ************************************************************************************/
 
@@ -25,7 +25,7 @@ int main(void)
     terminal_Data.maxTransAmount = MAX_AMOUNT_PER_DATE;
 	
 	/********************************************************************************
-	 *                        APPLICATION	(SUPER LOOP)						    *
+	 *                        APPLICATION	(SUPER LOOP)			        *
 	 ********************************************************************************/
 
     do
