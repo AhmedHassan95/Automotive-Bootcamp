@@ -27,7 +27,7 @@ struct node * stack = NULL;
  ************************************************************************************/
 
 void push(uint16 data);
-uint16 pull(void);
+sint16 pull(void);
 void printStack(void);
 uint8 * balancedParenthses(uint8 * expression);
 bool check_matching(uint8 character1, uint8 character2);
@@ -62,7 +62,7 @@ void push(uint16 data)
 	stack = link;
 }
 
-uint16 pull(void)
+sint16 pull(void)
 {
 	uint16 data;
 	struct node * delete_node = stack;
