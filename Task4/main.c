@@ -68,7 +68,7 @@ int main(void)
 
     printf("\nDo you want to continue (y/n)?: ");
 
-    }while( (choice = getchar()) != '\n' && choice != 'n');
+    }while( ((choice = getchar()) != '\n') && (choice != 'n') && (choice != 'N'));
 
 	return 0;
 }

@@ -28,16 +28,16 @@
  *                                GLOBAL VARIABLES                                  *
  ************************************************************************************/
 
-extern char player1[20];
-extern char player2[20];
-extern uint8 board[9];
+extern uint8_t player1[20];
+extern uint8_t player2[20];
+extern uint8_t gau8_board[9];
 
 /************************************************************************************
  *                                FUNCTION PROTOTYPES                               *
  ************************************************************************************/
 
 void create_board(void);
-uint8 draw_userChoice(uint16 choice, uint8 pattern);
-sint8 check_winner(void);
+uint8_t draw_userChoice(uint16_t choice, uint8_t pattern);
+sint8_t check_winner(void);
 
 #endif /* APPLICATION_FUNCTIONS_H_ */
