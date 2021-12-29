@@ -25,20 +25,20 @@
  *                         Types DECLARATION                                  *
  ******************************************************************************/
 
-struct node
+typedef struct strNode_t
 {
-	uint8 data;
-	struct node * next;
-};
+	uint8_t data;
+	struct strNode_t * next;
+}strNode_t;
 
 /************************************************************************************
  *                                FUNCTION PROTOTYPES                               *
  ************************************************************************************/
 
-void push(uint8 data);
-sint8 pull(void);
-void printStack(void);
-uint8 * balancedParenthses(uint8 * expression);
-bool check_matching(uint8 character1, uint8 character2);
+void push(uint8_t data);
+sint8_t pull(void);
+void print_Stack(void);
+uint8_t * balanced_Parenthses(uint8_t * expression);
+bool check_Matching(uint8_t character1, uint8_t character2);
 
 #endif /* APPLICATION_FUNCTIONS_H_ */

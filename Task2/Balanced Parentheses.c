@@ -1,6 +1,6 @@
 /************************************************************************************
  *
- * [FILE NAME] : main.c
+ * [FILE NAME] : Balanced_Parentheses.c
  *
  * [AUTHOR(S)] : Ahmed Hassan.
  *
@@ -19,9 +19,9 @@
 /* Driver code */
 int main(void)
 {
-	uint8 exp[100] = "{({2+10}}*11}"; //"(2*3+(5/2+(4*3)))";
+	uint8_t exp[100] = "{({2+10}}*11}"; //"(2*3+(5/2+(4*3)))";
 
-	uint8 * ptr = balancedParenthses(exp);
+	uint8_t * ptr = balanced_Parenthses(exp);
 
 	printf("\n%s\n", ptr);
 
