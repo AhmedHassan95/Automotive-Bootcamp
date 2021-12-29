@@ -4,9 +4,9 @@
  *
  * [AUTHOR(S)] : Ahmed Hassan.
  *
- * [DATE CREATED] :	DEC 22, 2021
+ * [DATE CREATED] : DEC 22, 2021
  *
- * [DESCRIPTION] :	This Project is to design X - O game between two players
+ * [DESCRIPTION] : This Project is to design X - O game between two players
  *
  ************************************************************************************/
 
