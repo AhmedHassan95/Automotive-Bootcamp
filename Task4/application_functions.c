@@ -25,10 +25,10 @@ ST_terminalData_t terminal_Data;
 ST_transaction_t transaction_Data;
 
 ST_accountBalance_t accountBalance[10] = {{100.00, "123456789"}, {6000.00, "234567891"},
-										   {3250.25, "567891234"}, {1500.12, "456789123"},
-										   {500.00, "258649173"}, {2100.00, "654823719"},
-										   {0.00, "971362485"}, {1.00, "793148625"},
-										   {10.12, "123123456"}, {0.55, "456789321"}
+					  {3250.25, "567891234"}, {1500.12, "456789123"}, 
+					  {500.00, "258649173"}, {2100.00, "654823719"}, 
+					  {0.00, "971362485"}, {1.00, "793148625"}, 
+					  {10.12, "123123456"}, {0.55, "456789321"}
                                           };
 
 /************************************************************************************
@@ -161,10 +161,10 @@ bool Linear_Search(uint8 * account_number, float amount)
            if((int)accountBalance[index].balance >= (int)amount)
            {
                /* PAN is found in the database, and the balance is larger than the Amount */
-			   return FOUND; 
+		   return FOUND; 
            }
            /* PAN is found in the database, but the balance is smaller than the Amount */
-		   return NOT_FOUND;	
+	       return NOT_FOUND;	
        }
    }
     return NOT_FOUND;	/* PAN is not found in the database */
