@@ -24,10 +24,11 @@ sint8 binarySearch(uint32 * arr, uint8 size, uint32 number)
 	uint8 check_sortedOrNot;
 
     check_sortedOrNot = arraySortedOrNot(arr, size);
-
+	
+	/* Check first if the array is sorted or not */
     if(check_sortedOrNot == UNSORTED)
     {
-        bubbleSort(arr);	/* Sort the array first */
+        bubbleSort(arr);	
     }
 
     while(left <= right)
