@@ -47,11 +47,11 @@ void get_userInput(void)
     printf("\nPlease Enter Card Data: \n\n");
 
     printf("Please Enter the Card Holder Name: ");
-    gets(user_cardData.cardHolderName);
+    gets((char *)user_cardData.cardHolderName);
     printf("Please Enter the Primary Account Number: ");
-    gets(user_cardData.primaryAccountNumber);
+    gets((char *)user_cardData.primaryAccountNumber);
     printf("Please Enter Card Expiry Date in Formate MM/YY: ");
-    gets(user_cardData.cardExpirationDate);
+    gets((char *)user_cardData.cardExpirationDate);
 }
 
 
@@ -67,7 +67,7 @@ bool get_terminalInput(void)
     if(terminal_Data.maxTransAmount >= terminal_Data.transAmount)
     {
         printf("Please Enter transaction Date in Formate DD/MM/YY: ");
-        gets(terminal_Data.transAmountDate);
+        gets((char *)terminal_Data.transAmountDate);
         return OK;
     }
     return N_OK;
@@ -76,7 +76,7 @@ bool get_terminalInput(void)
 
 bool check_cardValidity(void)
 {
-    int result;
+    uint8 result;
     uint8 Date[6];
 
     Date[0] = terminal_Data.transAmountDate[3];
@@ -86,7 +86,7 @@ bool check_cardValidity(void)
     Date[4] = terminal_Data.transAmountDate[9];
     Date[5] = '\0';
 
-    result = strcmp(user_cardData.cardExpirationDate, Date);
+    result = strcmp((char *)user_cardData.cardExpirationDate, (char *)Date);
 
     if(result >= IDENTICAL)
     {
@@ -98,7 +98,7 @@ bool check_cardValidity(void)
 
 bool send_DataToServer(void)
 {
-    int result;
+    uint8 result;
 
     /*
      * First, Send the data taken from the user to the server:
@@ -108,16 +108,16 @@ bool send_DataToServer(void)
      */
 
     /* Send the user primary account number to the server */
-    strcpy(transaction_Data.cardHolderData.primaryAccountNumber,
-           user_cardData.primaryAccountNumber);
+    strcpy((char *)transaction_Data.cardHolderData.primaryAccountNumber,
+           (char *)user_cardData.primaryAccountNumber);
 
     /* Send the card expiration date to the server */
-    strcpy(transaction_Data.cardHolderData.cardExpirationDate,
-           user_cardData.cardExpirationDate);
+    strcpy((char *)transaction_Data.cardHolderData.cardExpirationDate,
+           (char *)user_cardData.cardExpirationDate);
 
     /* Send the user name to the server */
-    strcpy(transaction_Data.cardHolderData.cardHolderName,
-           user_cardData.cardHolderName);
+    strcpy((char *)transaction_Data.cardHolderData.cardHolderName,
+           (char *)user_cardData.cardHolderName);
 
     /*
      * Second, Send the data taken from the terminal to the server:
@@ -126,8 +126,8 @@ bool send_DataToServer(void)
      */
 
     /* Send the terminal transaction date to the server */
-    strcpy(transaction_Data.transData.transAmountDate,
-            terminal_Data.transAmountDate);
+    strcpy((char *)transaction_Data.transData.transAmountDate,
+           (char *)terminal_Data.transAmountDate);
 
     /* Send the terminal transaction amount to the server */
     transaction_Data.transData.transAmount = terminal_Data.transAmount;
@@ -149,22 +149,24 @@ bool send_DataToServer(void)
 
 bool Linear_Search(uint8 * account_number, float amount)
 {
-   int index;
-   int result;
+   uint8 index;
+   uint8 result;
 
    for(index = 0; index < MAX_USERS ;index++)
    {
-       result = strcmp(accountBalance[index].primaryAccountNumber, account_number);
+       result = strcmp((char *)accountBalance[index].primaryAccountNumber, (char *)account_number);
 
        if(result == IDENTICAL)
        {
            if((int)accountBalance[index].balance >= (int)amount)
            {
-               return FOUND;
+               /* PAN is found in the database, and the balance is larger than the Amount */
+			   return FOUND; 
            }
-           return NOT_FOUND;
+           /* PAN is found in the database, but the balance is smaller than the Amount */
+		   return NOT_FOUND;	
        }
    }
-    return NOT_FOUND;
+    return NOT_FOUND;	/* PAN is not found in the database */
 }
 

@@ -18,14 +18,14 @@
 
 int main(void)
 {
-    char choice;
-    int result;
-    int answer;
-    int terminal_status;
+    uint8 choice;
+    uint8 result;
+    uint8 answer;
+    uint8 terminal_status;
     terminal_Data.maxTransAmount = MAX_AMOUNT_PER_DATE;
-	
+
 	/********************************************************************************
-	 *                        APPLICATION	(SUPER LOOP)			        *
+	 *                         APPLICATION	(SUPER LOOP)			                *
 	 ********************************************************************************/
 
     do
