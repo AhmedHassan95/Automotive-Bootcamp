@@ -18,7 +18,7 @@
  *                                FUNCTION PROTOTYPES                               *
  ************************************************************************************/
 
-uint8 binarySearch(uint32 * arr, uint8 size, uint32 number);
+sint8 binarySearch(uint32 * arr, uint8 size, uint32 number);
 static void bubbleSort(uint32 * arr);
 
 
@@ -30,9 +30,9 @@ static void bubbleSort(uint32 * arr);
 int main(void)
 {
 	uint32 arr[15] = {8, 6, 1, 7, 4, 5, 3, 2, 9, 14, 12, 13, 11, 10, 15}; 
-	uint8 result;
+	sint8 result;
 	
-	result = binarySearch(arr, ARR_SIZE, 14);
+	result = binarySearch(arr, ARR_SIZE, -1);
 	
 	if(result != -1)
 	{
@@ -50,7 +50,7 @@ int main(void)
  *                                  FUNCTION DEFINITIONS                            *
  ************************************************************************************/
 
-uint8 binarySearch(uint32 * arr, uint8 size, uint32 number)
+sint8 binarySearch(uint32 * arr, uint8 size, uint32 number)
 {
 	bubbleSort(arr);	/* Sort the array first */
 	uint8 mid;

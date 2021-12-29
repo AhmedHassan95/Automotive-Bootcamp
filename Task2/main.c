@@ -39,7 +39,7 @@ bool check_matching(uint8 character1, uint8 character2);
 /* Driver code */
 int main(void)
 {
-	uint8 exp[100] = "{1+(2+5)+2}";
+	uint8 exp[100] =  "{({2+10}}*11}";
 	
 	uint8 * ptr = balancedParenthses(exp);
 	
