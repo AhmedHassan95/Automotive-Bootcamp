@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include "std_types.h"
+
 #define ARR_SIZE    15
 #define SORTED      1
 #define UNSORTED    0
@@ -24,8 +25,8 @@
  *                                FUNCTION PROTOTYPES                               *
  ************************************************************************************/
 
-sint8 binarySearch(uint32 * arr, uint8 arr_size, uint32 number);
-void bubbleSort(uint32 * arr);
-uint8 arraySortedOrNot(uint32 * arr, uint8 arr_size);
+sint8_t binary_Search(uint32_t * arr, uint8_t arr_size, uint32_t number);
+void bubble_Sort(uint32_t * arr);
+uint8_t array_SortedOrNot(uint32_t * arr, uint8_t arr_size);
 
 #endif /* APPLICATION_FUNCTIONS_H_ */

@@ -16,19 +16,19 @@
  *                                  FUNCTION DEFINITIONS                            *
  ************************************************************************************/
 
-sint8 binarySearch(uint32 * arr, uint8 size, uint32 number)
+sint8_t binary_Search(uint32_t * arr, uint8_t size, uint32_t number)
 {
-	uint8 mid;
-	uint8 left = 0;
-	uint8 right = size-1;
-	uint8 check_sortedOrNot;
+	uint8_t mid;
+	uint8_t left = 0;
+	uint8_t right = size-1;
+	uint8_t check_sortedOrNot;
 
-    check_sortedOrNot = arraySortedOrNot(arr, size);
-	
+    check_sortedOrNot = array_SortedOrNot(arr, size);
+
 	/* Check first if the array is sorted or not */
     if(check_sortedOrNot == UNSORTED)
     {
-        bubbleSort(arr);	
+        bubble_Sort(arr);
     }
 
     while(left <= right)
@@ -52,7 +52,7 @@ sint8 binarySearch(uint32 * arr, uint8 size, uint32 number)
 	return NOT_FOUND;	/* Number not found in the array */
 }
 
-void bubbleSort(uint32 * arr)
+void bubble_Sort(uint32_t * arr)
 {
 	int i, j, temp;
 
@@ -70,7 +70,7 @@ void bubbleSort(uint32 * arr)
 	}
 }
 
-uint8 arraySortedOrNot(uint32 * arr, uint8 arr_size)
+uint8_t array_SortedOrNot(uint32_t * arr, uint8_t arr_size)
 {
     /* Array has one or no element or the rest are already checked and approved */
     if (arr_size == 1 || arr_size == 0)
@@ -85,5 +85,5 @@ uint8 arraySortedOrNot(uint32 * arr, uint8 arr_size)
     }
 
     /* Last pair was sorted Keep on checking */
-    return arraySortedOrNot(arr, arr_size - 1);
+    return array_SortedOrNot(arr, arr_size - 1);
 }
