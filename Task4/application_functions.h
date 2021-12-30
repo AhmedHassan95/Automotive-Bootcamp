@@ -72,6 +72,8 @@ typedef struct ST_transaction_t
  *                                GLOBAL VARIABLES                                  *
  ************************************************************************************/
 
+extern uint8_t g8_Index;
+
 extern EN_transStat_t tras_state;
 
 extern ST_cardData_t user_cardData;

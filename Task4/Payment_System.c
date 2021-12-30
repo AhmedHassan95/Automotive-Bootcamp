@@ -22,7 +22,7 @@ int main(void)
     uint8_t result; /* Local variable to store card validity status */
     uint8_t answer; /* Local variable to store server response */
     uint8_t terminal_status;    /* Local variable to store terminal status */
-    terminal_Data.maxTransAmount = MAX_AMOUNT_PER_DATE;
+    terminal_Data.maxTransAmount = MAX_AMOUNT_PER_DATE;     /* Define Maximum Amount per day */
 
 	/********************************************************************************
 	 *                          APPLICATION	(SUPER LOOP)			                *
@@ -50,6 +50,7 @@ int main(void)
                 if(answer == APPROVED)
                 {
                     printf("\nThe transaction is APPROVED.\n");
+                    printf("Your Balance Now Is : %0.2f L.E\n", accountBalance[g8_Index].balance);
                 }
                 else
                 {

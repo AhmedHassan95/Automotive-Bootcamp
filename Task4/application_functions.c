@@ -16,6 +16,8 @@
  *                                GLOBAL VARIABLES                                  *
  ************************************************************************************/
 
+uint8_t g8_Index;
+
 EN_transStat_t tras_state;
 
 ST_cardData_t user_cardData;
@@ -70,6 +72,7 @@ bool get_terminalInput(void)
         gets((char *)terminal_Data.transAmountDate);
         return OK;
     }
+    printf("\nThe Maximum Amount per Day is 5000 L.E");
     return N_OK;
 }
 
@@ -92,6 +95,7 @@ bool check_cardValidity(void)
     {
         return OK;
     }
+    printf("\nCARD IS EXPIRED");
     return N_OK;
 }
 
@@ -132,7 +136,6 @@ bool send_dataToServer(void)
     /* Send the terminal transaction amount to the server */
     transaction_Data.transData.transAmount = terminal_Data.transAmount;
 
-
     /*
      * Then, Search for these data in the server, and return the result of search
      */
@@ -160,13 +163,19 @@ bool Linear_search(uint8_t * account_number, float32_t amount)
        {
            if(accountBalance[index].balance >= amount)
            {
+               /* Update the user account balance after discount the amount */
+               accountBalance[index].balance = accountBalance[index].balance - amount;
+               /* Store the address of the card found in the database in a global Index */
+               g8_Index = index;
                /* PAN is found in the database, and the balance is larger than the Amount */
-		   return FOUND;
+               return FOUND;
            }
            /* PAN is found in the database, but the balance is smaller than the Amount */
+	       printf("\nInsufficient balance...");
 	       return NOT_FOUND;
        }
    }
+    printf("\nThere are no Data for your Card, Please Contact the Bank.");
     return NOT_FOUND;	/* PAN is not found in the database */
 }
 
