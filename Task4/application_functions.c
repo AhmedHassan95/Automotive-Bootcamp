@@ -25,11 +25,11 @@ ST_terminalData_t terminal_Data;
 ST_transaction_t transaction_Data;
 
 ST_accountBalance_t accountBalance[10] = {{100.00, "123456789"}, {6000.00, "234567891"},
-					  {3250.25, "567891234"}, {1500.12, "456789123"}, 
-					  {500.00, "258649173"}, {2100.00, "654823719"}, 
-					  {0.00, "971362485"}, {1.00, "793148625"}, 
-					  {10.12, "123123456"}, {0.55, "456789321"}
-                                          };
+                                          {3250.25, "567891234"}, {1500.12, "456789123"},
+                                          {500.00, "258649173"}, {2100.00, "654823719"},
+                                          {0.00, "971362485"}, {1.00, "793148625"},
+                                          {10.12, "123123456"}, {0.55, "456789321"}
+                                         };
 
 /************************************************************************************
  *                                  FUNCTION DEFINITIONS                            *
@@ -76,8 +76,8 @@ bool get_terminalInput(void)
 
 bool check_cardValidity(void)
 {
-    uint8 result;
-    uint8 Date[6];
+    uint8_t result;
+    uint8_t Date[6];
 
     Date[0] = terminal_Data.transAmountDate[3];
     Date[1] = terminal_Data.transAmountDate[4];
@@ -96,9 +96,9 @@ bool check_cardValidity(void)
 }
 
 
-bool send_DataToServer(void)
+bool send_dataToServer(void)
 {
-    uint8 result;
+    uint8_t result;
 
     /*
      * First, Send the data taken from the user to the server:
@@ -136,7 +136,7 @@ bool send_DataToServer(void)
     /*
      * Then, Search for these data in the server, and return the result of search
      */
-    result = Linear_Search(transaction_Data.cardHolderData.primaryAccountNumber,
+    result = Linear_search(transaction_Data.cardHolderData.primaryAccountNumber,
                            transaction_Data.transData.transAmount);
 
     if(result == TRUE)
@@ -147,10 +147,10 @@ bool send_DataToServer(void)
 }
 
 
-bool Linear_Search(uint8 * account_number, float amount)
+bool Linear_search(uint8_t * account_number, float32_t amount)
 {
-   uint8 index;
-   uint8 result;
+   uint8_t index;
+   uint8_t result;
 
    for(index = 0; index < MAX_USERS ;index++)
    {
@@ -158,13 +158,13 @@ bool Linear_Search(uint8 * account_number, float amount)
 
        if(result == IDENTICAL)
        {
-           if((int)accountBalance[index].balance >= (int)amount)
+           if(accountBalance[index].balance >= amount)
            {
                /* PAN is found in the database, and the balance is larger than the Amount */
-		   return FOUND; 
+		   return FOUND;
            }
            /* PAN is found in the database, but the balance is smaller than the Amount */
-	       return NOT_FOUND;	
+	       return NOT_FOUND;
        }
    }
     return NOT_FOUND;	/* PAN is not found in the database */

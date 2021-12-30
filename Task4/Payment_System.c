@@ -1,6 +1,6 @@
 /************************************************************************************
  *
- * [FILE NAME] : main.c
+ * [FILE NAME] : Payment_System.c
  *
  * [AUTHOR(S)] : Ahmed Hassan
  *
@@ -18,14 +18,14 @@
 
 int main(void)
 {
-    uint8 choice;
-    uint8 result;
-    uint8 answer;
-    uint8 terminal_status;
+    uint8_t choice; /* Local variable to store user choice */
+    uint8_t result; /* Local variable to store card validity status */
+    uint8_t answer; /* Local variable to store server response */
+    uint8_t terminal_status;    /* Local variable to store terminal status */
     terminal_Data.maxTransAmount = MAX_AMOUNT_PER_DATE;
 
 	/********************************************************************************
-	 *                         APPLICATION	(SUPER LOOP)			        *
+	 *                          APPLICATION	(SUPER LOOP)			                *
 	 ********************************************************************************/
 
     do
@@ -45,7 +45,7 @@ int main(void)
                 /* Send transaction data to the server */
                 /* Check if the Account number is found or not */
                 /* Check the amount is less than the balance */
-                answer = send_DataToServer();
+                answer = send_dataToServer();
 
                 if(answer == APPROVED)
                 {
@@ -66,6 +66,7 @@ int main(void)
             printf("\nThe transaction is DECLINED!!!\n");
         }
 
+    /* Ask user if he/she needed to perform another process */
     printf("\nDo you want to continue (y/n)?: ");
 
     }while( ((choice = getchar()) != '\n') && (choice != 'n') && (choice != 'N'));

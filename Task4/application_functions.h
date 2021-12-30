@@ -39,24 +39,24 @@
 
 typedef struct ST_cardData_t
 {
-	uint8 cardHolderName[25];
-	uint8 primaryAccountNumber[20];
-	uint8 cardExpirationDate[6];
+	uint8_t cardHolderName[25];
+	uint8_t primaryAccountNumber[20];
+	uint8_t cardExpirationDate[6];
 }ST_cardData_t;
 
 
 typedef struct ST_terminalData_t
 {
-    float transAmount;
-    float maxTransAmount;
-	uint8 transAmountDate[11];
+    float32_t transAmount;
+    float32_t maxTransAmount;
+	uint8_t transAmountDate[11];
 }ST_terminalData_t;
 
 
 typedef struct ST_accountBalance_t
 {
-	float balance;
-	uint8 primaryAccountNumber[20];
+	float32_t balance;
+	uint8_t primaryAccountNumber[20];
 }ST_accountBalance_t;
 
 
@@ -89,7 +89,7 @@ extern ST_accountBalance_t accountBalance[10];
 void get_userInput(void);
 bool get_terminalInput(void);
 bool check_cardValidity(void);
-bool send_DataToServer(void);
-bool Linear_Search(uint8 * account_number, float amount);
+bool send_dataToServer(void);
+bool Linear_search(uint8_t * account_number, float32_t amount);
 
 #endif /* APPLICATION_FUNCTIONS_H_ */
