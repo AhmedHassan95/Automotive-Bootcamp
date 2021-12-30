@@ -76,7 +76,7 @@ bool get_terminalInput(void)
 
 bool check_cardValidity(void)
 {
-    uint8_t result;
+    sint8_t result;
     uint8_t Date[6];
 
     Date[0] = terminal_Data.transAmountDate[3];
