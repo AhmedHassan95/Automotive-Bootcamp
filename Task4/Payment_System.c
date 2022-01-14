@@ -25,7 +25,7 @@ int main(void)
     terminal_Data.maxTransAmount = MAX_AMOUNT_PER_DATE;     /* Define Maximum Amount per day */
 
 	/********************************************************************************
-	 *                          APPLICATION	(SUPER LOOP)			                *
+	 *                          APPLICATION	(SUPER LOOP)			        *
 	 ********************************************************************************/
 
     do
