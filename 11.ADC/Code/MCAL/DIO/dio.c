@@ -19,18 +19,18 @@
 /******************************************************************************
  * [Function Name]: DIO_setPortDirection
  *
- * [Description]: 	Function to set the direction of all pins in the port (INPUT, OUTPUT)
+ * [Description]: Function to set the direction of all pins in the port (INPUT, OUTPUT)
  *
- * [Args]:			port_ID, port_Direction
+ * [Args]:	port_ID, port_Direction
  *
- * [in]			  	port_ID: Enumerator to DIO ID
- * 					port_Direction: Enumerator to DIO direction
+ * [in]		port_ID: Enumerator to DIO ID
+ * 		port_Direction: Enumerator to DIO direction
  *
- * [out]		  	None
+ * [out]	None
  *
- * [in/out]		 	None
+ * [in/out]	None
  *
- * [Returns]:       Error state
+ * [Returns]:   Error state
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_setPortDirection(enuDIO_PortId_t enu_portID, enuDIO_DirectionType_t enu_portDirection)
 {
