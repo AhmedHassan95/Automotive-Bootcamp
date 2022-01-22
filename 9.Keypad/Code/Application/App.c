@@ -25,17 +25,17 @@ uint8_t gu8_key;	/* Global variable to store the key value */
 /*******************************************************************************
  * [Function Name]: App_init
  *
- * [Description]: 	Function to Initialize the application to test keypad Driver
+ * [Description]: Function to Initialize the application to test keypad Driver
  *
- * [Args]:			None
+ * [Args]:	None
  *
- * [in]			  	None
+ * [in]		None
  *
- * [out]		  	None
+ * [out]	None
  *
- * [in/out]		 	None
+ * [in/out]	None
  *
- * [Returns]:       None
+ * [Returns]:   None
  *******************************************************************************/
 void App_init(void)
 {
@@ -53,17 +53,17 @@ void App_init(void)
 /*******************************************************************************
  * [Function Name]: App_Update
  *
- * [Description]: 	Function to update the state of the application
+ * [Description]: Function to update the state of the application
  *
- * [Args]:			None
+ * [Args]:	None
  *
- * [in]			  	None
+ * [in]		None
  *
- * [out]		  	None
+ * [out]	None
  *
- * [in/out]		 	None
+ * [in/out]	None
  *
- * [Returns]:       None
+ * [Returns]:   None
  *******************************************************************************/
 void App_Update(void)
 {
