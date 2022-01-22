@@ -301,7 +301,7 @@ enuDIO_E_STATE_t DIO_writePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pin
 			}
 		}
 		else
-        {
+        	{
 			enu_ErrorState = DIO_E_PARAM_INVALID_PORT_DIR;	/* Invalid port direction */
 		}
 	}
