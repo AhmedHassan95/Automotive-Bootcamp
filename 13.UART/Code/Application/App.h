@@ -42,17 +42,17 @@ void App_init(void);
 /*******************************************************************************
  * [Function Name]: App_Update
  *
- * [Description]: 	Function to update the state of the application
+ * [Description]: Function to update the state of the application
  *
- * [Args]: None
+ * [Args]:     None
  *
- * [in] None
+ * [in]        None
  *
- * [out] None
- *  
- * [in/out] None
+ * [out]       None
  *
- * [Returns]: None
+ * [in/out]    None
+ *
+ * [Returns]:  None
  *******************************************************************************/
 void App_Update(void);
 
