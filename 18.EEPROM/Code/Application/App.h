@@ -32,15 +32,15 @@
  *
  * [Description]: Function to Initialize the application to test i2c driver
  *
- * [Args]: None
+ * [Args]:  None
  *
- * [in]		None
+ * [in]		   None
  *
- * [out]		None
+ * [out]		  None
  *
  * [in/out]		None
  *
- * [Returns]:    None
+ * [Returns]: None
  *******************************************************************************/
 void App_init(void);
 
@@ -57,7 +57,7 @@ void App_init(void);
  *
  * [in/out]		None
  *
- * [Returns]:  Unsigned long that contains the decimal value
+ * [Returns]: Unsigned long that contains the decimal value
  *******************************************************************************/
 uint16_t APP_convertDecimal(uint16_t au16_num);
 
