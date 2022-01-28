@@ -71,7 +71,7 @@ uint16_t APP_convertDecimal(uint16_t au16_num);
  * [in]	       au16_base: Unsigned long to store base of the value
  *             au16_exponent: Unsigned long to store the exponent of the value
  *
- * [out]   None
+ * [out]      None
  *
  * [in/out]    None
  *
