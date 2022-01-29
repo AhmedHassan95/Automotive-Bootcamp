@@ -31,7 +31,7 @@
  *
  * [Args]:	None
  *
- * [in]	    None
+ * [in]	        None
  *
  * [out]	None
  *
