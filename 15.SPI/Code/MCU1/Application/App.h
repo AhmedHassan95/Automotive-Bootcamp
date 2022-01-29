@@ -26,17 +26,17 @@
 /*******************************************************************************
  * [Function Name]: App_init
  *
- * [Description]: 	Function to Initialize the application to test spi Driver
+ * [Description]: Function to Initialize the application to test spi Driver
  *
- * [Args]:			None
+ * [Args]:	None
  *
- * [in]			  	None
+ * [in]			None
  *
- * [out]		  	None
+ * [out]		None
  *
- * [in/out]		 	None
+ * [in/out]	None
  *
- * [Returns]:       None
+ * [Returns]:   None
  *******************************************************************************/
 void App_init(void);
 
