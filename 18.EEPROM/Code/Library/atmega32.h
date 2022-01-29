@@ -68,7 +68,7 @@
 #define GICR       	*((volatile uint8_t*)0x5B)
 
 *****************************************************************************
- *							TIMER registers (TIMER1)
+ *				TIMER registers (TIMER1)
  *****************************************************************************
  
 #define ICR1L      *((volatile uint8_t*)0x46)
@@ -93,16 +93,16 @@
 #define OCR2      	*((volatile uint8_t*)0x43)
 
 *****************************************************************************
- *					TWI registers 
+ *				TWI registers 
  *****************************************************************************
  
-#define TWDR      	*((volatile uint8_t*)0x23)
+#define TWDR      	   *((volatile uint8_t*)0x23)
 #define TWAR       	*((volatile uint8_t*)0x22)
 #define TWSR      	*((volatile uint8_t*)0x21)
 #define TWBR      	*((volatile uint8_t*)0x20)
 
 *****************************************************************************
- *					ADC registers 
+ *				ADC registers 
  *****************************************************************************
 
 #define ADMUX      	*((volatile uint8_t*)0x27)
@@ -117,7 +117,7 @@
 #define ACSR       	*((volatile uint8_t*)0x28)
 
 *****************************************************************************
- *					USART registers 
+ *				USART registers 
  *****************************************************************************
  
 #define UDR      	*((volatile uint8_t*)0x2C)
@@ -126,7 +126,7 @@
 #define UBRRL      	*((volatile uint8_t*)0x29)
 
 *****************************************************************************
- *					SPI registers 
+ *				SPI registers 
  *****************************************************************************
 
 #define SPDR    	*((volatile uint8_t*)0x2F)
@@ -150,7 +150,7 @@
 #define WDTCR      	*((volatile uint8_t*)0x41)
 
 *****************************************************************************
- *					Additional registers
+ *			Additional registers
  *****************************************************************************
  
 #define SREG     	*((volatile uint8_t*)0x5F)
