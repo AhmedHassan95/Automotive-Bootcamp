@@ -29,34 +29,34 @@
 /*******************************************************************************
  * [Function Name]: App_init
  *
- * [Description]: 	Function to Initialize the application
+ * [Description]: Function to Initialize the application
  *
- * [Args]:			None
+ * [Args]:	None
  *
- * [in]			  	None
+ * [in]			None
  *
- * [out]		  	None
+ * [out]		None
  *
- * [in/out]		 	None
+ * [in/out]		None
  *
- * [Returns]:       None
+ * [Returns]:      None
  *******************************************************************************/
 void App_init(void);
 
 /*******************************************************************************
  * [Function Name]: App_Update
  *
- * [Description]: 	Function to update the state of the application
+ * [Description]: Function to update the state of the application
  *
- * [Args]:			None
+ * [Args]:	None
  *
- * [in]			  	None
+ * [in]		None
  *
- * [out]		  	None
+ * [out]	None
  *
- * [in/out]		 	None
+ * [in/out]	None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void App_Update(void);
 
