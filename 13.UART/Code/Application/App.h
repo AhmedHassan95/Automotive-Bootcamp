@@ -54,6 +54,6 @@ void App_init(void);
  *
  * [Returns]:       None
  *******************************************************************************/
-void App_Update(void);
+void App_Update(void); 
 
 #endif /* APP_H_ */
