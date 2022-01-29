@@ -15,7 +15,7 @@
 /*******************************************************************************
  *                              Global Variables                               *
  *******************************************************************************/
-
+#define ADDRESS_SIZE 7
 uint8_t gStr8_message[10];	/* Global string to be sent and received through the uart */
 uint8_t gStr8_address[10];	/* Global string to be store the value of the address */
 uint8_t gu8_WriteData;		/* Global variable to store the value of written data on it */
@@ -49,65 +49,6 @@ void App_init(void)
 }
 
 /*******************************************************************************
- * [Function Name]: APP_convertDecimal
- *
- * [Description]: 	Function to convert from binary to decimal
- *
- * [Args]:			au16_num
- *
- * [in]			  	au16_num: Unsigned long to store the decimal value
- *
- * [out]		  	None
- *
- * [in/out]		 	None
- *
- * [Returns]:       Unsigned long that contains the decimal value
- *******************************************************************************/
-uint16_t APP_convertDecimal(uint16_t au16_num)
-{
-    uint16_t decimal = 0;
-    uint16_t i = 0;
-    uint16_t reminder;
-
-    while (au16_num != 0)
-    {
-        reminder = au16_num % 10;
-        au16_num /= 10;
-        decimal += reminder *  power(2, i);
-        ++i;
-    }
-
-  return decimal;
-}
-
-/*******************************************************************************
- * [Function Name]: power
- *
- * [Description]: 	Function to get the power of a certain value
- *
- * [Args]:			au16_base, au16_exponent
- *
- * [in]			  	au16_base: Unsigned long to store base of the value
- * 					au16_exponent: Unsigned long to store the exponent of the value
- *
- * [out]		  	None
- *
- * [in/out]		 	None
- *
- * [Returns]:       Unsigned long that contains the power of the number
- *******************************************************************************/
-uint16_t power(uint16_t au16_base, uint16_t au16_exponent)
-{
-	uint16_t result = 1;
-
-	for(; au16_exponent > 0; au16_exponent--)
-	{
-		result = result * au16_base;
-	}
-	return result;
-}
-
-/*******************************************************************************
  * [Function Name]: App_Update
  *
  * [Description]: 	Function to update the state of the application
@@ -132,9 +73,8 @@ void App_Update(void)
 	if(strcmp(gStr8_message, "WRITE") == IDENTICAL)
 	{
 		UART_receiveString(gStr8_address);	/* Receive address from terminal */
-		au8_value = atoi(gStr8_address);
-
-		au8_value = APP_convertDecimal(au8_value);/* Convert the value from binary to decimal */
+		/* Convert the value from binary to decimal */
+		au8_value = strtol(gStr8_address, NULL_PTR, BASE_2);
 
 		UART_sendString("OK\r");			/* Receive acknowledge from terminal */
 		gu8_WriteData = UART_recieveByte();	/* Receive data from terminal */
@@ -145,9 +85,8 @@ void App_Update(void)
 	else if(strcmp(gStr8_message, "READ") == IDENTICAL)
 	{
 		UART_receiveString(gStr8_address);	/* Receive string from terminal */
-		au8_value = atoi(gStr8_address);
-
-		au8_value = APP_convertDecimal(au8_value);/* Convert the value from binary to decimal */
+		/* Convert the value from binary to decimal */
+		au8_value = strtol(gStr8_address, NULL_PTR, BASE_2);
 
 		UART_sendString("OK\r");				/* Receive acknowledge from terminal */
 		EEPROM_readByte(au8_value, &gu8_ReadData);	/* Read data in the external EEPROM */
