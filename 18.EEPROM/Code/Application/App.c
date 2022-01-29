@@ -28,17 +28,17 @@ uint8_t gu8_ReadData;		/* Global variable to store the value of read data on it 
 /*******************************************************************************
  * [Function Name]: App_init
  *
- * [Description]: 	Function to Initialize the application to test eeprom driver
+ * [Description]: Function to Initialize the application to test eeprom driver
  *
- * [Args]:			None
+ * [Args]:	None
  *
- * [in]			  	None
+ * [in]		None
  *
- * [out]		  	None
+ * [out]	None
  *
- * [in/out]		 	None
+ * [in/out]	None
  *
- * [Returns]:       None
+ * [Returns]:   None
  *******************************************************************************/
 void App_init(void)
 {
@@ -51,17 +51,17 @@ void App_init(void)
 /*******************************************************************************
  * [Function Name]: App_Update
  *
- * [Description]: 	Function to update the state of the application
+ * [Description]: Function to update the state of the application
  *
- * [Args]:			None
+ * [Args]:	None
  *
- * [in]			  	None
+ * [in]		None
  *
- * [out]		  	None
+ * [out]	None
  *
- * [in/out]		 	None
+ * [in/out]	None
  *
- * [Returns]:       None
+ * [Returns]:   None
  *******************************************************************************/
 void App_Update(void)
 {
@@ -76,10 +76,10 @@ void App_Update(void)
 		/* Convert the value from binary to decimal */
 		au8_value = strtol(gStr8_address, NULL_PTR, BASE_2);
 
-		UART_sendString("OK\r");			/* Receive acknowledge from terminal */
+		UART_sendString("OK\r");		/* Receive acknowledge from terminal */
 		gu8_WriteData = UART_recieveByte();	/* Receive data from terminal */
 
-		EEPROM_writeByte(au8_value, gu8_WriteData);	/* Write data in the external EEPROM */
+		EEPROM_writeByte(au8_value, gu8_WriteData);/* Write data in the external EEPROM */
 		UART_sendString("\rOK\r\r");
 	}
 	else if(strcmp(gStr8_message, "READ") == IDENTICAL)
@@ -88,7 +88,7 @@ void App_Update(void)
 		/* Convert the value from binary to decimal */
 		au8_value = strtol(gStr8_address, NULL_PTR, BASE_2);
 
-		UART_sendString("OK\r");				/* Receive acknowledge from terminal */
+		UART_sendString("OK\r");			/* Receive acknowledge from terminal */
 		EEPROM_readByte(au8_value, &gu8_ReadData);	/* Read data in the external EEPROM */
 
 		UART_sendString("The data stored is ");
