@@ -88,7 +88,7 @@
  *				TIMER registers (TIMER2)
  *****************************************************************************
 
-#define TCCR2       *((volatile uint8_t*)0x45)
+#define TCCR2          *((volatile uint8_t*)0x45)
 #define TCNT2      	*((volatile uint8_t*)0x44)
 #define OCR2      	*((volatile uint8_t*)0x43)
 
@@ -96,7 +96,7 @@
  *				TWI registers 
  *****************************************************************************
  
-#define TWDR      	   *((volatile uint8_t*)0x23)
+#define TWDR      	 *((volatile uint8_t*)0x23)
 #define TWAR       	*((volatile uint8_t*)0x22)
 #define TWSR      	*((volatile uint8_t*)0x21)
 #define TWBR      	*((volatile uint8_t*)0x20)
@@ -106,12 +106,12 @@
  *****************************************************************************
 
 #define ADMUX      	*((volatile uint8_t*)0x27)
-#define ADCSRA         *((volatile uint8_t*)0x26)
+#define ADCSRA          *((volatile uint8_t*)0x26)
 #define ADCH       	*((volatile uint8_t*)0x25)
 #define ADCL      	*((volatile uint8_t*)0x24)
 
 *****************************************************************************
- *				Analog Comparator registers 
+ *			Analog Comparator registers 
  *****************************************************************************
 
 #define ACSR       	*((volatile uint8_t*)0x28)
@@ -143,7 +143,7 @@
 #define EECR      	*((volatile uint8_t*)0x3C)
 
 #define UBRRH      	*((volatile uint8_t*)0x32)
-#define UCSRC          *((volatile uint8_t*)0x31)
+#define UCSRC           *((volatile uint8_t*)0x31)
 
 #define ASSR       	*((volatile uint8_t*)0x42)
 
