@@ -14,7 +14,7 @@
 #define ATMEGA32_H_
 
 /*****************************************************************************
- *							DIO registers (PORTA)
+ *				DIO registers (PORTA)
  *****************************************************************************/
 
 #define PORTA_DATA_R     	*((volatile uint8_t*)0x3B)
@@ -22,7 +22,7 @@
 #define PINA_INPUT_R      	*((volatile uint8_t*)0x39)
 
 /*****************************************************************************
- * 							DIO registers (PORTB)
+ * 				DIO registers (PORTB)
  *****************************************************************************/
 
 #define PORTB_DATA_R       	*((volatile uint8_t*)0x38)
@@ -30,7 +30,7 @@
 #define PINB_INPUT_R      	*((volatile uint8_t*)0x36)
 
 /*****************************************************************************
- *							DIO registers (PORTC)
+ *				DIO registers (PORTC)
  *****************************************************************************/
 
 #define PORTC_DATA_R       	*((volatile uint8_t*)0x35)
@@ -38,7 +38,7 @@
 #define PINC_INPUT_R      	*((volatile uint8_t*)0x33)
 
 /*****************************************************************************
- *							DIO registers (PORTD)
+ *				DIO registers (PORTD)
  *****************************************************************************/
  
 #define PORTD_DATA_R       	*((volatile uint8_t*)0x32)
@@ -47,15 +47,15 @@
 
 /*
  *****************************************************************************
- *							TIMER registers (TIMER0)
+ *				TIMER registers (TIMER0)
  *****************************************************************************
 
 #define TCCR0      	*((volatile uint8_t*)0x53)
-#define TCNT0       *((volatile uint8_t*)0x52)
+#define TCNT0          *((volatile uint8_t*)0x52)
 #define OCR0     	*((volatile uint8_t*)0x5C)
 
-#define MCUCR       *((volatile uint8_t*)0x55)
-#define MCUCSR      *((volatile uint8_t*)0x54)
+#define MCUCR          *((volatile uint8_t*)0x55)
+#define MCUCSR         *((volatile uint8_t*)0x54)
 
 #define TWCR      	*((volatile uint8_t*)0x56)
 
