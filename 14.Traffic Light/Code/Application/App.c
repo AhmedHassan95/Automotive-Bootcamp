@@ -90,6 +90,6 @@ void App_Update(void)
 	}
 	else
 	{
-		UART_sendString("Please enter a vaild input\r"); /* No thing to do */
+		UART_sendString("Please enter a vaild input\r"); /* Error Message */
 	}
 }
