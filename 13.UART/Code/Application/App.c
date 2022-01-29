@@ -25,17 +25,17 @@ uint8_t gStr_message[20];	/* Global variable to store the uart value */
 /*******************************************************************************
  * [Function Name]: App_init
  *
- * [Description]: 	Function to Initialize the application to test uart Driver
+ * [Description]: Function to Initialize the application to test uart Driver
  *
- * [Args]:			None
+ * [Args]:	None
  *
- * [in]			  	None
+ * [in]		None
  *
- * [out]		  	None
+ * [out]	None
  *
- * [in/out]		 	None
+ * [in/out]	None
  *
- * [Returns]:       None
+ * [Returns]:   None
  *******************************************************************************/
 void App_init(void)
 {
@@ -46,21 +46,21 @@ void App_init(void)
 /*******************************************************************************
  * [Function Name]: App_Update
  *
- * [Description]: 	Function to update the state of the application
+ * [Description]: Function to update the state of the application
  *
- * [Args]:			None
+ * [Args]	None
  *
- * [in]			  	None
+ * [in]		None
  *
- * [out]		  	None
+ * [out]	None
  *
- * [in/out]		 	None
+ * [in/out]	None
  *
- * [Returns]:       None
+ * [Returns]:   None
  *******************************************************************************/
 void App_Update(void)
 {
 	UART_receiveString(gStr_message);/* Receive String from terminal */
-    UART_sendString(gStr_message);	 /* Resends the string to terminal */
-    UART_sendByte('\r');			 /* Send the new line to the terminal */
+    	UART_sendString(gStr_message);	 /* Resends the string to terminal */
+    	UART_sendByte('\r');		 /* Send the new line to the terminal */
 }
