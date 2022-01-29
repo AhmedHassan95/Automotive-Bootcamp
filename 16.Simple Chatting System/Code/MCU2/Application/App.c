@@ -25,17 +25,17 @@ uint8_t gStr_message[20];	/* Global string to be received through the spi */
 /*******************************************************************************
  * [Function Name]: App_init
  *
- * [Description]: 	Function to Initialize the application
+ * [Description]: Function to Initialize the application
  *
- * [Args]:			None
+ * [Args]:	  None
  *
- * [in]			  	None
+ * [in]		  None
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void App_init(void)
 {
@@ -48,17 +48,17 @@ void App_init(void)
 /*******************************************************************************
  * [Function Name]: App_Update
  *
- * [Description]: 	Function to update the state of the application
+ * [Description]: Function to update the state of the application
  *
- * [Args]:			None
+ * [Args]:	  None
  *
- * [in]			  	None
+ * [in]		  None
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void App_Update(void)
 {
@@ -68,5 +68,5 @@ void App_Update(void)
 
 	UART_sendString(gStr_message);		/* Send string to the terminal */
 
-	UART_sendByte('\r');				/* Send new line to the terminal */
+	UART_sendByte('\r');			/* Send new line to the terminal */
 }
