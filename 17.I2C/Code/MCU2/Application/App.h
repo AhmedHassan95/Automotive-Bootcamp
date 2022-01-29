@@ -33,7 +33,7 @@
  *
  * [Args]:	None
  *
- * [in]	       None
+ * [in]	        None
  *
  * [out]	None
  *
@@ -50,7 +50,7 @@ void App_init(void);
  *
  * [Args]:	 None
  *
- * [in]	     None
+ * [in]	       None
  *
  * [out]	None
  *
