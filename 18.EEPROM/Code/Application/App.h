@@ -31,34 +31,108 @@
 /*******************************************************************************
  * [Function Name]: App_init
  *
- * [Description]: 	Function to Initialize the application to test i2c driver
+ * [Description]: Function to Initialize the application to test i2c driver
  *
- * [Args]:			None
+ * [Args]:      None
  *
- * [in]			  	None
+ * [in]		None
  *
- * [out]		  	None
+ * [out]	None
  *
- * [in/out]		 	None
+ * [in/out]	None
  *
- * [Returns]:       None
+ * [Returns]:   None
  *******************************************************************************/
 void App_init(void);
 
 /*******************************************************************************
- * [Function Name]: App_Update
+<<<<<<< HEAD
+||||||| aed60b3
+ * [Function Name]: APP_convertDecimal
  *
- * [Description]: 	Function to update the state of the application
+ * [Description]: 	Function to convert from binary to decimal
  *
- * [Args]:			None
+ * [Args]:			au16_num
  *
- * [in]			  	None
+ * [in]			  	au16_num: Unsigned long to store the decimal value
  *
  * [out]		  	None
  *
  * [in/out]		 	None
  *
- * [Returns]:       None
+ * [Returns]:       Unsigned long that contains the decimal value
+ *******************************************************************************/
+uint16_t APP_convertDecimal(uint16_t au16_num);
+
+/*******************************************************************************
+ * [Function Name]: power
+ *
+ * [Description]: 	Function to get the power of a certain value
+ *
+ * [Args]:			au16_base, au16_exponent
+ *
+ * [in]			  	au16_base: Unsigned long to store base of the value
+ * 					au16_exponent: Unsigned long to store the exponent of the value
+ *
+ * [out]		  	None
+ *
+ * [in/out]		 	None
+ *
+ * [Returns]:       Unsigned long that contains the power of the number
+ *******************************************************************************/
+uint16_t power(uint16_t au16_base, uint16_t au16_exponent);
+
+/*******************************************************************************
+=======
+ * [Function Name]: APP_convertDecimal
+ *
+ * [Description]: Function to convert from binary to decimal
+ *
+ * [Args]:      au16_num
+ *
+ * [in]		au16_num: Unsigned long to store the decimal value
+ *
+ * [out]	None
+ *
+ * [in/out]	None
+ *
+ * [Returns]:   Unsigned long that contains the decimal value
+ *******************************************************************************/
+uint16_t APP_convertDecimal(uint16_t au16_num);
+
+/*******************************************************************************
+ * [Function Name]: power
+ *
+ * [Description]: Function to get the power of a certain value
+ *
+ * [Args]:	au16_base, au16_exponent
+ *
+ * [in]	       au16_base: Unsigned long to store base of the value
+ *             au16_exponent: Unsigned long to store the exponent of the value
+ *
+ * [out]       None
+ *
+ * [in/out]    None
+ *
+ * [Returns]:  Unsigned long that contains the power of the number
+ *******************************************************************************/
+uint16_t power(uint16_t au16_base, uint16_t au16_exponent);
+
+/*******************************************************************************
+>>>>>>> 55f5f4b1b0afe5b7586e35d2246153b2761e2870
+ * [Function Name]: App_Update
+ *
+ * [Description]: Function to update the state of the application
+ *
+ * [Args]:	None
+ *
+ * [in]		None
+ *
+ * [out]	None
+ *
+ * [in/out]	None
+ *
+ * [Returns]:   None
  *******************************************************************************/
 void App_Update(void);
 
