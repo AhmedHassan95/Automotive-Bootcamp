@@ -27,15 +27,15 @@ uint8_t gStr_message[20];	/* Global string to be sent through uart */
  *
  * [Description]: Function to Initialize the application
  *
- * [Args]:	None
+ * [Args]:	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  *******************************************************************************/
 void App_init(void)
 {
