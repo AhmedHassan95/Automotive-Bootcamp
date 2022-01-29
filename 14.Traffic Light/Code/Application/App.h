@@ -23,7 +23,7 @@
 #define IDENTICAL	0
 
 #define LED_GREEN	0
-#define LED_YELLOW     1
+#define LED_YELLOW       1
 #define LED_RED		2
 
 /*******************************************************************************
@@ -37,13 +37,13 @@
  *
  * [Args]:	None
  *
- * [in]			None
+ * [in]	None
  *
- * [out]		None
+ * [out]	None
  *
  * [in/out]	None
  *
- * [Returns]:    None
+ * [Returns]:   None
  *******************************************************************************/
 void App_init(void);
 
@@ -54,13 +54,13 @@ void App_init(void);
  *
  * [Args]:	None
  *
- * [in]		None
+ * [in]	None
  *
- * [out]		None
+ * [out]	None
  *
  * [in/out]		None
  *
- * [Returns]:    None
+ * [Returns]:   None
  *******************************************************************************/
 void App_Update(void);
 
