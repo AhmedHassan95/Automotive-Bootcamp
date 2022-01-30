@@ -25,17 +25,17 @@ uint8_t gStr_message;	/* Global variable to be sent through the i2c */
 /*******************************************************************************
  * [Function Name]: App_init
  *
- * [Description]: Function to Initialize the application to test i2c driver
+ * [Description]: 	Function to Initialize the application to test i2c driver
  *
- * [Args]:	  None
+ * [Args]:			None
  *
- * [in]		  None
+ * [in]			  	None
  *
- * [out]	  None
+ * [out]		  	None
  *
- * [in/out]	  None
+ * [in/out]		 	None
  *
- * [Returns]:     None
+ * [Returns]:       None
  *******************************************************************************/
 void App_init(void)
 {
@@ -48,24 +48,22 @@ void App_init(void)
 /*******************************************************************************
  * [Function Name]: App_Update
  *
- * [Description]: Function to update the state of the application
- * 
- * [Args]:	  None
+ * [Description]: 	Function to update the state of the application
  *
- * [in]		  None
+ * [Args]:			None
  *
- * [out]	  None
+ * [in]			  	None
  *
- * [in/out]	  None
+ * [out]		  	None
  *
- * [Returns]:     None
+ * [in/out]		 	None
+ *
+ * [Returns]:       None
  *******************************************************************************/
 void App_Update(void)
 {
-	while(TWI_getStatus() != TW_SLA_DATA_ACK)
-	{
-		TWI_start();
-	}
+
+	TWI_start();						/* Start the Slave MCU */
 
 	gStr_message = TWI_readWithACK();	/* Read the data sent by the Master MCU */
 
