@@ -26,34 +26,34 @@
 /*******************************************************************************
  * [Function Name]: App_init
  *
- * [Description]: 	Function to Initialize the application to test the DIO Driver
+ * [Description]: Function to Initialize the application to test the DIO Driver
  *
- * [Args]:			None
+ * [Args]:	None
  *
- * [in]			  	None
+ * [in]				None
  *
- * [out]		  	None
+ * [out]			None
  *
- * [in/out]		 	None
+ * [in/out]		None
  *
- * [Returns]:       None
+ * [Returns]:      None
  *******************************************************************************/
 void App_init(void);
 
 /*******************************************************************************
  * [Function Name]: App_update
  *
- * [Description]: 	Function to update the application status
+ * [Description]: Function to update the application status
  *
- * [Args]:			None
+ * [Args]		None
  *
- * [in]			  	None
+ * [in]				None
  *
- * [out]		  	None
+ * [out]			None
  *
- * [in/out]		 	None
+ * [in/out]		None
  *
- * [Returns]:       None
+ * [Returns]:      None
  *******************************************************************************/
 void App_update(void);
 
