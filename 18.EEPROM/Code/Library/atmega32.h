@@ -54,8 +54,8 @@
 #define TCNT0           *((volatile uint8_t*)0x52)
 #define OCR0    	*((volatile uint8_t*)0x5C)
 
-#define MCUCR          *((volatile uint8_t*)0x55)
-#define MCUCSR         *((volatile uint8_t*)0x54)
+#define MCUCR           *((volatile uint8_t*)0x55)
+#define MCUCSR          *((volatile uint8_t*)0x54)
 
 #define TWCR      	*((volatile uint8_t*)0x56)
 
@@ -96,7 +96,7 @@
  *				TWI registers 
  *****************************************************************************
  
-#define TWDR           *((volatile uint8_t*)0x23)
+#define TWDR            *((volatile uint8_t*)0x23)
 #define TWAR       	*((volatile uint8_t*)0x22)
 #define TWSR      	*((volatile uint8_t*)0x21)
 #define TWBR      	*((volatile uint8_t*)0x20)
