@@ -35,7 +35,7 @@
  *
  * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  *******************************************************************************/
 void App_init(void);
 
@@ -52,7 +52,7 @@ void App_init(void);
  *
  * [in/out]       None
  *
- * [Returns]:    None
+ * [Returns]:     None
  *******************************************************************************/
 void App_Update(void); 
 
