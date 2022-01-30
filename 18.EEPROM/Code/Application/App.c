@@ -30,15 +30,15 @@ uint8_t gu8_ReadData;		/* Global variable to store the value of read data on it 
  *
  * [Description]: Function to Initialize the application to test eeprom driver
  *
- * [Args]:	None
+ * [Args]:	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  *******************************************************************************/
 void App_init(void)
 {
@@ -53,15 +53,15 @@ void App_init(void)
  *
  * [Description]: Function to update the state of the application
  *
- * [Args]:	None
+ * [Args]:	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  *******************************************************************************/
 void App_Update(void)
 {
