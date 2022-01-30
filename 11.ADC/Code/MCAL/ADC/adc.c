@@ -37,11 +37,11 @@ ISR(ADC_vect)
  *******************************************************************************/
 /*
  * Description : Function to initialize the ADC driver
- * 					- Set the required clock
- * 					- Set the required reference
- * 					- Set the required adjust
- * 					- Enable the ADC Module
- * 					- Enable the ADC Interrupt
+ * 		 - Set the required clock
+ * 		 - Set the required reference
+ * 		 - Set the required adjust
+ * 		 - Enable the ADC Module
+ * 		 - Enable the ADC Interrupt
  */
 void ADC_init(const ADC_ConfigType * Config_Ptr)
 {
@@ -58,7 +58,7 @@ void ADC_init(const ADC_ConfigType * Config_Ptr)
 	ADMUX = (ADMUX & 0x3F) | ((Config_Ptr->reference)<<6);
 	
 	/*
-     * Insert the required adjust type in ADLAR bit in ADMUX Register
+     	 * Insert the required adjust type in ADLAR bit in ADMUX Register
 	 */
 	ADMUX = (ADMUX & 0xDF) | ((Config_Ptr->adjust)<<5);
 	 
