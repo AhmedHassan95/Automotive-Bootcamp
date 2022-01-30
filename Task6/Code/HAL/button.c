@@ -19,17 +19,17 @@
 /*******************************************************************************
  * [Function Name]: BUTTON_init
  *
- * [Description]: 	Function to Initialize the BUTTON Driver
+ * [Description]: Function to Initialize the BUTTON Driver
  *
- * [Args]:			None
+ * [Args]:	  None
  *
- * [in]			  	None
+ * [in]	  	  None
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void BUTTON_init(void)
 {
@@ -40,17 +40,17 @@ void BUTTON_init(void)
 /*******************************************************************************
  * [Function Name]: BUTTON_read
  *
- * [Description]: 	Function to read the value of the BUTTON
+ * [Description]: Function to read the value of the BUTTON
  *
- * [Args]:			None
+ * [Args]:	  None
  *
- * [in]			  	None
+ * [in]		  None
  *
- * [out]		  	uint8
+ * [out]	  uint8
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Unsigned character that hold the BUTTON state
+ * [Returns]:     Unsigned character that hold the BUTTON state
  *******************************************************************************/
 uint8_t BUTTON_read(void)
 {
