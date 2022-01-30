@@ -39,11 +39,11 @@
  *
  * [in]	           None
  *
- * [out]          None
+ * [out]           None
  *
- * [in/out]       None
+ * [in/out]        None
  *
- * [Returns]:     None
+ * [Returns]:      None
  *******************************************************************************/
 void LED_init(void);
 
@@ -73,11 +73,11 @@ void LED_turnOn(void);
  *
  * [in]	           None
  * 
- * [out]  	  None
+ * [out]  	   None
  *
- * [in/out]  	  None
+ * [in/out]  	   None
  *
- * [Returns]:     None
+ * [Returns]:      None
  *******************************************************************************/
 void LED_turnOff(void);
 
