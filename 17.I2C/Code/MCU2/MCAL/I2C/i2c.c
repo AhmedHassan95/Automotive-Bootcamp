@@ -19,21 +19,21 @@
 /********************************************************************************************
  * [Function Name]: TWI_init
  *
- * [Description]: 	Function to Initialize the TWI (I2C) Driver
- *					- Decide Bit Rate of the TWI (100k BPS, 400k BPS, 1M BPS)
- * 					- Decide Pre-scaler of the TWI (1, 4, 16, 64)
- * 					- Decide the Address of MCU (If any device need to contact with it)
- * 					- Enable TWI Module
+ * [Description]: Function to Initialize the TWI (I2C) Driver
+ *		  - Decide Bit Rate of the TWI (100k BPS, 400k BPS, 1M BPS)
+ * 		  - Decide Pre-scaler of the TWI (1, 4, 16, 64)
+ * 		  - Decide the Address of MCU (If any device need to contact with it)
+ * 		  - Enable TWI Module
  *
- * [Args]:			Config_Ptr
+ * [Args]:	  Config_Ptr
  *
- * [in]			  	Config_Ptr: Pointer to TWI Configuration Structure
+ * [in]		  Config_Ptr: Pointer to TWI Configuration Structure
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  ********************************************************************************************/
 void TWI_init(const TWI_ConfigType * Config_Ptr)
 {
@@ -55,17 +55,17 @@ void TWI_init(const TWI_ConfigType * Config_Ptr)
 /********************************************************************************************
  * [Function Name]: TWI_start
  *
- * [Description]: 	Function responsible for sending start bit successfully in TWI Bus
+ * [Description]: Function responsible for sending start bit successfully in TWI Bus
  *
- * [Args]:			None
+ * [Args]:	  None
  *
- * [in]			  	None
+ * [in]		  None
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  ********************************************************************************************/
 void TWI_start(void)
 {
@@ -86,21 +86,21 @@ void TWI_start(void)
 /*****************************************************************************************
  * [Function Name]: TWI_stop
  *
- * [Description]: 	Function responsible for sending stop bit successfully in TWI Bus
+ * [Description]: Function responsible for sending stop bit successfully in TWI Bus
  *
- * [Args]:			None
+ * [Args]:	  None
  *
- * [in]			  	None
+ * [in]		  None
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *****************************************************************************************/
 void TWI_stop(void)
 {
-    /* 
+    	/* 
 	 * Clear the TWINT flag before sending the stop bit TWINT = 1
 	 * send the stop bit by TWSTO = 1
 	 * Enable TWI Module TWEN = 1 
@@ -111,24 +111,24 @@ void TWI_stop(void)
 /*****************************************************************************************
  * [Function Name]: TWI_write
  *
- * [Description]: 	Function responsible for writing 1 Byte in the TWI Bus
+ * [Description]: Function responsible for writing 1 Byte in the TWI Bus
  *
- * [Args]:			au8_data
+ * [Args]:	  au8_data
  *
- * [in]			  	au8_data: Unsigned Character (data need to be written in the TWI)
+ * [in]		  au8_data: Unsigned Character (data need to be written in the TWI)
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]	  None
  *****************************************************************************************/
 void TWI_write(uint8_t au8_data)
 {
     /* Put data On TWI data Register */
     TWDR = au8_data;
 
-    /* 
+    	/* 
 	 * Clear the TWINT flag before sending the data TWINT = 1
 	 * Enable TWI Module TWEN = 1 
 	 */ 
@@ -141,17 +141,17 @@ void TWI_write(uint8_t au8_data)
 /*****************************************************************************************
  * [Function Name]: TWI_readWithACK
  *
- * [Description]: 	Function responsible for reading 1 Byte (with ACK) from the TWI Bus
+ * [Description]: Function responsible for reading 1 Byte (with ACK) from the TWI Bus
  *
- * [Args]:			None
+ * [Args]:	  None
  *
- * [in]			  	None
+ * [in]		  None
  *
- * [out]		  	Unsigned Character
+ * [out]	  Unsigned Character
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Data read (with ACK) from the TWI Bus
+ * [Returns]:     Data read (with ACK) from the TWI Bus
  *****************************************************************************************/
 uint8_t TWI_readWithACK(void)
 {
@@ -175,17 +175,17 @@ uint8_t TWI_readWithACK(void)
 /*****************************************************************************************
  * [Function Name]: TWI_readWithNACK
  *
- * [Description]: 	Function responsible for reading 1 Byte (without ACK) from the TWI Bus
+ * [Description]: Function responsible for reading 1 Byte (without ACK) from the TWI Bus
  *
- * [Args]:			None
+ * [Args]:	  None
  *
- * [in]			  	None
+ * [in]		  None
  *
- * [out]		  	Unsigned Character
+ * [out]	  Unsigned Character
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Data read (without ACK) from the TWI Bus
+ * [Returns]:     Data read (without ACK) from the TWI Bus
  *****************************************************************************************/
 uint8_t TWI_readWithNACK(void)
 {
@@ -207,17 +207,17 @@ uint8_t TWI_readWithNACK(void)
 /*****************************************************************************************
  * [Function Name]: TWI_getStatus
  *
- * [Description]: 	Function responsible for getting status of the TWI Bus
+ * [Description]: Function responsible for getting status of the TWI Bus
  *
- * [Args]:			None
+ * [Args]:	  None
  *
- * [in]			  	None
+ * [in]		  None
  *
- * [out]		  	Unsigned Character
+ * [out]	  Unsigned Character
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Status of the TWI Bus
+ * [Returns]:     Status of the TWI Bus
  *****************************************************************************************/
 uint8_t TWI_getStatus(void)
 {
@@ -230,17 +230,17 @@ uint8_t TWI_getStatus(void)
 /*****************************************************************************************
  * [Function Name]: TWI_DeInit
  *
- * [Description]: 	Function to disable the TWI Driver
+ * [Description]: Function to disable the TWI Driver
  *
- * [Args]:			None
+ * [Args]:	  None
  *
- * [in]			  	None
+ * [in]		  None
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]: 	  None
  *****************************************************************************************/
 void TWI_DeInit(void)
 {
