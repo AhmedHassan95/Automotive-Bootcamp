@@ -20,22 +20,22 @@
  * [Function Name]: UART_init
  *
  * [Description]: Function to Initialize the UART Driver
- *		 - Decide UART Mode (Normal, Double Speed)
- * 		 - Decide Baud Rate of the UART Module (100 BPS, 200 BPS, 300 BPS, ..)
- * 		 - Decide Number of Data Bits to be transmitted or Received (5,6,7,8 or 9)
- * 		 - Decide UART Parity Type (Disable, Even, Odd)
- * 		 - Decide Number of Stop Bits (One, Two)
- * 		 - Enable Transmitter & Receiver of the UART Module
+ *		   - Decide UART Mode (Normal, Double Speed)
+ * 		   - Decide Baud Rate of the UART Module (100 BPS, 200 BPS, 300 BPS, ..)
+ * 		   - Decide Number of Data Bits to be transmitted or Received (5,6,7,8 or 9)
+ * 		   - Decide UART Parity Type (Disable, Even, Odd)
+ * 		   - Decide Number of Stop Bits (One, Two)
+ * 		   - Enable Transmitter & Receiver of the UART Module
  *
- * [Args]:	Config_Ptr
+ * [Args]:	  Config_Ptr
  *
- * [in]		Config_Ptr: Pointer to UART Configuration Structure
+ * [in]		  Config_Ptr: Pointer to UART Configuration Structure
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  ******************************************************************************************/
 void UART_init(const UART_ConfigType * Config_Ptr)
 {
@@ -95,15 +95,15 @@ void UART_init(const UART_ConfigType * Config_Ptr)
  *
  * [Description]: Function responsible for sending 1 Byte through UART driver
  *
- * [Args]:	au8_data
+ * [Args]:	  au8_data
  *
- * [in]		au8_data: Unsigned Character (Byte need to be sent through the UART)
+ * [in]		  au8_data: Unsigned Character (Byte need to be sent through the UART)
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  ****************************************************************************************/
 void UART_sendByte(const uint8_t au8_data)
 {
@@ -125,15 +125,15 @@ void UART_sendByte(const uint8_t au8_data)
  *
  * [Description]: Function responsible for receiving 1 Byte through UART driver
  *
- * [Args]:	None
+ * [Args]:	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	Unsigned Character
+ * [out]	  Unsigned Character
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   The Byte that received through the UART
+ * [Returns]:     The Byte that received through the UART
  ****************************************************************************************/
 uint8_t UART_recieveByte(void)
 {
@@ -156,15 +156,15 @@ uint8_t UART_recieveByte(void)
  * [Description]: Function responsible for sending a string (more than 1 character)
  * 		  through UART driver
  *
- * [Args]:	aStr_message
+ * [Args]:	  aStr_message
  *
- * [in]		aStr_message: Pointer to Unsigned Character (String need to be sent through the UART)
+ * [in]		  aStr_message: Pointer to Unsigned Character (String need to be sent through the UART)
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  ****************************************************************************************/
 void UART_sendString(const uint8_t * aStr_message)
 {
@@ -181,17 +181,17 @@ void UART_sendString(const uint8_t * aStr_message)
  * [Function Name]: UART_receiveString
  *
  * [Description]: Function responsible for receiving a string (more than 1 character)
- * 			until receiving a special character ('#') through UART driver
+ * 		  until receiving a special character ('#') through UART driver
  *
- * [Args]:	aStr_message
+ * [Args]:	  aStr_message
  *
- * [in]		aStr_message: Pointer to Unsigned Character (String need to be received through the UART)
+ * [in]		  aStr_message: Pointer to Unsigned Character (String need to be received through the UART)
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  ****************************************************************************************/
 void UART_receiveString(uint8_t * aStr_message)
 {
@@ -211,15 +211,15 @@ void UART_receiveString(uint8_t * aStr_message)
  *
  * [Description]: Function to set the required Parity Type
  *
- * [Args]:	enu_parityType
+ * [Args]:	  enu_parityType
  *
- * [in]		enu_parityType: Enumerator to UART Parity Type
+ * [in]		  enu_parityType: Enumerator to UART Parity Type
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  ****************************************************************************************/
 void UART_setParityType(const enuUART_ParityType_t enu_parityType)
 {
@@ -232,15 +232,15 @@ void UART_setParityType(const enuUART_ParityType_t enu_parityType)
  *
  * [Description]: Function to set the required Stop bit(s)
  *
- * [Args]:	enu_stopBit
+ * [Args]:	  enu_stopBit
  *
- * [in]		enu_stopBit: Enumerator to UART Stop Bit
+ * [in]		  enu_stopBit: Enumerator to UART Stop Bit
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  ****************************************************************************************/
 void UART_setStopBit(const enuUART_StopBit_t enu_stopBit)
 {
@@ -253,15 +253,15 @@ void UART_setStopBit(const enuUART_StopBit_t enu_stopBit)
  *
  * [Description]: Function to disable the UART Driver
  *
- * [Args]:	None
+ * [Args]:	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  ****************************************************************************************/
 void UART_DeInit(void)
 {
