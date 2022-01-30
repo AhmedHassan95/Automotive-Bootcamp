@@ -38,11 +38,11 @@
  *
  * [Description]: Function to Initialize the BUTTON Driver
  *
- * [Args]:	None
+ * [Args]:	  None
  *
  * [in]		 None
  *
- * [out]		None
+ * [out]	None
  *
  * [in/out]	None
  *
