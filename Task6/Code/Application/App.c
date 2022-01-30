@@ -25,24 +25,24 @@ uint8_t gu8_ButtonState;	/* global variable to store the button state */
 /*******************************************************************************
  * [Function Name]: App_init
  *
- * [Description]: 	Function to Initialize the application to test timer compare
- * 					match mode
+ * [Description]: Function to Initialize the application to test timer compare
+ * 		  match mode
  *
- * [Args]:			None
+ * [Args]:	  None
  *
- * [in]			  	None
+ * [in]		  None
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void App_init(void)
 {
 	BUTTON_init(); 			/* BUTTON Driver Initialization */
 
-	LED_init();				/* LED Driver Initialization */
+	LED_init();			/* LED Driver Initialization */
 
 	gu8_ButtonState = BUTTON_read();
 
@@ -59,17 +59,17 @@ void App_init(void)
 /*******************************************************************************
  * [Function Name]: App_update
  *
- * [Description]: 	Function to update the application status
+ * [Description]: Function to update the application status
  *
- * [Args]:			None
+ * [Args]:	  None
  *
- * [in]			  	None
+ * [in]		  None
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void App_update(void)
 {
