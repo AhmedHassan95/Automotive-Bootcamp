@@ -45,7 +45,7 @@ void App_init(void);
  *
  * [Description]: Function to update the application status
  *
- * [Args]    None
+ * [Args]       None
  *
  * [in]		None
  *
