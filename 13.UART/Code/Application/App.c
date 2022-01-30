@@ -27,15 +27,15 @@ uint8_t gStr_message[20];	/* Global variable to store the uart value */
  *
  * [Description]: Function to Initialize the application to test uart Driver
  *
- * [Args]:	None
+ * [Args]:	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  *******************************************************************************/
 void App_init(void)
 {
@@ -48,15 +48,15 @@ void App_init(void)
  *
  * [Description]: Function to update the state of the application
  *
- * [Args]	None
+ * [Args]	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  *******************************************************************************/
 void App_Update(void)
 {
