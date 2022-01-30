@@ -24,7 +24,7 @@
 
 /* LED Pin Configurations */
 #define LED_PORT_NUM 	   DIO_PORTB
-#define LED_PIN_NUM	  PIN_4
+#define LED_PIN_NUM	    PIN_4
 
 /*******************************************************************************
  *                             Functions Prototypes                            *
@@ -37,11 +37,11 @@
  *
  * [Args]: 	  None
  *
- * [in]	    None
+ * [in]	      None
  *
- * [out]     None
+ * [out]       None
  *
- * [in/out]     None
+ * [in/out]      None
  *
  * [Returns]:     None
  *******************************************************************************/
@@ -54,7 +54,7 @@ void LED_init(void);
  *
  * [Args]:	 None
  *
- * [in]	 	None
+ * [in]	  	None
  * 
  * [out]	 None
  *
@@ -71,11 +71,11 @@ void LED_turnOn(void);
  *
  * [Args]:	  None
  *
- * [in]	  None
+ * [in]	     None
  *
- * [out]  	None
+ * [out]  	 None
  *
- * [in/out]  	None
+ * [in/out]  	 None
  *
  * [Returns]:     None
  *******************************************************************************/
@@ -92,9 +92,9 @@ void LED_turnOff(void);
  *
  * [out]	 None
  *
- * [in/out]	None
+ * [in/out]	 None
  *
- * [Returns]:    None
+ * [Returns]:   None
  *******************************************************************************/
 void LED_toggle(void);
 
