@@ -31,13 +31,13 @@
  *
  * [Description]: Function to Initialize the application to test timer
  *
- * [Args]:	None
+ * [Args]:	 None
  *
- * [in]		None
+ * [in]		 None
  *
- * [out]	None
+ * [out]	 None
  *
- * [in/out]	None
+ * [in/out]	 None
  *
  * [Returns]:    None
  *******************************************************************************/
