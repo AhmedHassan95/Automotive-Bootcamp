@@ -57,7 +57,7 @@ void BUTTON_init(void);
  *
  * [Args]:	None
  *
- * [in]	   None
+ * [in]	      None
  *
  * [out]	None
  *
