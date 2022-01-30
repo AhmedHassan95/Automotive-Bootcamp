@@ -45,15 +45,15 @@ void App_init(void);
  *
  * [Description]: Function to update the application status
  *
- * [Args]        None
+ * [Args]         None
  *
- * [in]	 	 None
+ * [in]	 	  None
  *
- * [out]	 None
+ * [out]	  None
  *
- * [in/out]	 None
+ * [in/out]	  None
  *
- * [Returns]:    None
+ * [Returns]:     None
  *******************************************************************************/
 void App_update(void);
 
