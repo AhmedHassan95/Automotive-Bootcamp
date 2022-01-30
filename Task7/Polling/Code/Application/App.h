@@ -32,15 +32,15 @@
  * [Description]: Function to Initialize the application to test timer compare
  * 	          match mode
  *
- * [Args]:	None
+ * [Args]:	 None
  *
  * [in]	         None
  *
- * [out]	None
+ * [out]	 None
  *
- * [in/out]	None
+ * [in/out]	 None
  *
- * [Returns]:   None
+ * [Returns]:    None
  *******************************************************************************/
 void App_init(void);
 
@@ -51,11 +51,11 @@ void App_init(void);
  *
  * [Args]:	None
  *
- * [in]      None
+ * [in]        None
  *
- * [out]      None
+ * [out]       None
  *
- * [in/out]     None
+ * [in/out]      None
  *
  * [Returns]:     None
  *******************************************************************************/
