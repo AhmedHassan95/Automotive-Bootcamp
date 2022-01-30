@@ -52,9 +52,9 @@ void LED_init(void);
  *
  * [Description]: Function to turn on the LED
  *
- * [Args]:  	None
+ * [Args]:  	 None
  *
- * [in]	        None
+ * [in]	         None
  *
  * [out] 	 None
  *
@@ -67,11 +67,11 @@ void LED_turnOn(void);
 /*******************************************************************************
  * [Function Name]: LED_turnOff
  *
- * [Description]:Function to turn off the LED
+ * [Description]: Function to turn off the LED
  *
  * [Args]:	 None
  *
- * [in]	None
+ * [in]    	None
  *
  * [out]	  None
  *
@@ -88,7 +88,7 @@ void LED_turnOff(void);
  *
  * [Args]:	 None
  *
- * [in]      None
+ * [in]          None
  *
  * [out]	 None
  *
