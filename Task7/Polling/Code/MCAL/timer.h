@@ -60,92 +60,92 @@ typedef struct
 /******************************************************************************
  * [Function Name]: TIMER_init
  *
- * [Description]: 	Function to initialize the TIMER Driver
- *					- Decide TIMER ID (TIMER0, TIMER1, TIMER2)
- *					- Decide TIMER Mode (NORMAL, COMPARE)
- * 					- Insert the initial value to start counting from it
- * 					- Insert the compare match value if use this mode (CTC Mode)
- * 					- Enable TIMER Interrupt
+ * [Description]: Function to initialize the TIMER Driver
+ *		  - Decide TIMER ID (TIMER0, TIMER1, TIMER2)
+ *		  - Decide TIMER Mode (NORMAL, COMPARE)
+ * 		  - Insert the initial value to start counting from it
+ * 		  - Insert the compare match value if use this mode (CTC Mode)
+ * 		  - Enable TIMER Interrupt
  *
- * [Args]:			Config_Ptr
+ * [Args]:	  Config_Ptr
  *
- * [in]			  	Config_Ptr: Pointer to TIMER Configuration Structure
+ * [in]		  Config_Ptr: Pointer to TIMER Configuration Structure
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr);
 
 /******************************************************************************
  * [Function Name]: TIMER_start
  *
- * [Description]: 	Function to enable the timer Driver
+ * [Description]: Function to enable the timer Driver
  *
- * [Args]:			enu_timerID, enu_timerClock
+ * [Args]:	  enu_timerID, enu_timerClock
  *
- * [in]			  	enu_timerID: Enumerator to TIMER ID
- * 					enu_timerClock: Enumerator to TIMER CLOCK
+ * [in]		  enu_timerID: Enumerator to TIMER ID
+ * 		  enu_timerClock: Enumerator to TIMER CLOCK
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_start(const enuTIMER_ID_t enu_timerID, const enuTIMER_Clock_t enu_timerClock);
 
 /*************************************************************************************
  * [Function Name]: TIMER_checkStatus
  *
- * [Description]:   Function to check the state of TIMER
+ * [Description]:  Function to check the state of TIMER
  *
- * [Args]:			None
+ * [Args]:	   None
  *
- * [in]				None
+ * [in]		   None
  *
- * [out]		  	None
+ * [out]	   None
  *
- * [in/out]		 	None
+ * [in/out]	   None
  *
- * [Returns]:       Error state
+ * [Returns]:      Error state
  *******************************************************************************/
 enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuTIMER_ModeType_t enu_timerMode,
-								     uint8_t * ptr_flagStatus);
+				     uint8_t * ptr_flagStatus);
 
 /******************************************************************************
  * [Function Name]: TIMER_stop
  *
- * [Description]:   Function to stop the TIMER Driver
+ * [Description]:  Function to stop the TIMER Driver
  *
- * [Args]:			enu_timerID
+ * [Args]:	   enu_timerID
  *
- * [in]				enu_timerID: Enumerator to TIMER ID
+ * [in]		   enu_timerID: Enumerator to TIMER ID
  *
- * [out]		  	None
+ * [out]	   None
  *
- * [in/out]		 	None
+ * [in/out]	   None
  *
- * [Returns]:       Error state
+ * [Returns]:      Error state
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_stop(const enuTIMER_ID_t enu_timerID);
 
 /******************************************************************************
  * [Function Name]: TIMER_DeInit
  *
- * [Description]: 	Function to disable the TIMER Driver
+ * [Description]: Function to disable the TIMER Driver
  *
- * [Args]:			enu_timerID
+ * [Args]:	  enu_timerID
  *
- * [in]				enu_timerID: Enumerator to TIMER ID
+ * [in]		  enu_timerID: Enumerator to TIMER ID
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_DeInit(const enuTIMER_ID_t enu_timerID);
 
