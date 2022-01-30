@@ -57,13 +57,13 @@ void BUTTON_init(void);
  *
  * [Args]:	None
  *
- * [in]	None
+ * [in]	   None
  *
  * [out]	None
  *
  * [in/out]	None
  *
- * [Returns]:     None
+ * [Returns]:   None
  *******************************************************************************/
 uint8_t BUTTON_read(void);
 
