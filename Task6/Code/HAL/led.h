@@ -24,7 +24,7 @@
 
 /* LED Pin Configurations */
 #define LED_PORT_NUM 	   DIO_PORTB
-#define LED_PIN_NUM	   	 PIN_4
+#define LED_PIN_NUM	   PIN_4
 
 /*******************************************************************************
  *                             Functions Prototypes                            *
