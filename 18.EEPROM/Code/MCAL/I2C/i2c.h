@@ -60,20 +60,20 @@ typedef struct
  * [Function Name]: TWI_init
  *
  * [Description]: Function to Initialize the TWI (I2C) Driver
- *		- Decide Bit Rate of the TWI (100k BPS, 400k BPS, 1M BPS)
- * 		- Decide Pre-scaler of the TWI (1, 4, 16, 64)
- * 		- Decide the Address of MCU (If any device need to contact with it)
- * 		- Enable TWI Module
+ *		  - Decide Bit Rate of the TWI (100k BPS, 400k BPS, 1M BPS)
+ * 		  - Decide Pre-scaler of the TWI (1, 4, 16, 64)
+ * 		  - Decide the Address of MCU (If any device need to contact with it)
+ * 		  - Enable TWI Module
  *
- * [Args]:	Config_Ptr
+ * [Args]:	  Config_Ptr
  *
- * [in]		Config_Ptr: Pointer to TWI Configuration Structure
+ * [in]		  Config_Ptr: Pointer to TWI Configuration Structure
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  *****************************************************************************************/
 void TWI_init(const TWI_ConfigType * Config_Ptr);
 
@@ -82,15 +82,15 @@ void TWI_init(const TWI_ConfigType * Config_Ptr);
  *
  * [Description]: Function responsible for sending start bit successfully in TWI Bus
  *
- * [Args]:	None
+ * [Args]:	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  *****************************************************************************************/
 void TWI_start(void);
 
@@ -99,15 +99,15 @@ void TWI_start(void);
  *
  * [Description]: Function responsible for sending stop bit successfully in TWI Bus
  *
- * [Args]:	None
+ * [Args]:	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	None
+ * [out]	  None
+ *  
+ * [in/out]	  None
  *
- * [in/out]	None
- *
- * [Returns]:   None
+ * [Returns]:     None
  *****************************************************************************************/
 void TWI_stop(void);
 
@@ -116,15 +116,15 @@ void TWI_stop(void);
  *
  * [Description]: Function responsible for writing 1 Byte in the TWI Bus
  *
- * [Args]:	data
+ * [Args]:	  data
  *
- * [in]		data: Unsigned Character (data need to be written in the TWI)
+ * [in]		  data: Unsigned Character (data need to be written in the TWI)
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
- *
- * [Returns]:   None
+ * [in/out]	  None
+ * 
+ * [Returns]:     None
  *****************************************************************************************/
 void TWI_write(uint8_t data);
 
@@ -133,15 +133,15 @@ void TWI_write(uint8_t data);
  *
  * [Description]: Function responsible for reading 1 Byte (with ACK) from the TWI Bus
  *
- * [Args]:	None
+ * [Args]:	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	Unsigned Character
+ * [out]	  Unsigned Character
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   Data read (with ACK) from the TWI Bus
+ * [Returns]:     Data read (with ACK) from the TWI Bus
  *****************************************************************************************/
 uint8_t TWI_readWithACK(void);
 
@@ -150,15 +150,15 @@ uint8_t TWI_readWithACK(void);
  *
  * [Description]: Function responsible for reading 1 Byte (without ACK) from the TWI Bus
  *
- * [Args]:	None
+ * [Args]:	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	Unsigned Character
+ * [out]	  Unsigned Character
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   Data read (without ACK) from the TWI Bus
+ * [Returns]:     Data read (without ACK) from the TWI Bus
  *****************************************************************************************/
 uint8_t TWI_readWithNACK(void);
 
@@ -167,15 +167,15 @@ uint8_t TWI_readWithNACK(void);
  *
  * [Description]: Function responsible for getting status of the TWI Bus
  *
- * [Args]:	None
+ * [Args]:	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	Unsigned Character
+ * [out]	  Unsigned Character
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   Status of the TWI Bus
+ * [Returns]:     Status of the TWI Bus
  *****************************************************************************************/
 uint8_t TWI_getStatus(void);
 
@@ -184,15 +184,15 @@ uint8_t TWI_getStatus(void);
  *
  * [Description]: Function to disable the TWI Driver
  *
- * [Args]:	None
+ * [Args]:	  None
  *
- * [in]		None
+ * [in]		  None
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]	None
+ * [in/out]	  None
  *
- * [Returns]:   None
+ * [Returns]:     None
  *****************************************************************************************/
 void TWI_DeInit(void);
 
