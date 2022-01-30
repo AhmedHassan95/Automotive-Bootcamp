@@ -50,9 +50,9 @@
  *				TIMER registers (TIMER0)
  *****************************************************************************
 
-#define TCCR0      	*((volatile uint8_t*)0x53)
-#define TCNT0           *((volatile uint8_t*)0x52)
-#define OCR0     	*((volatile uint8_t*)0x5C)
+#define TCCR0      *((volatile uint8_t*)0x53)
+#define TCNT0          *((volatile uint8_t*)0x52)
+#define OCR0    	*((volatile uint8_t*)0x5C)
 
 #define MCUCR          *((volatile uint8_t*)0x55)
 #define MCUCSR         *((volatile uint8_t*)0x54)
@@ -71,8 +71,8 @@
  *				TIMER registers (TIMER1)
  *****************************************************************************
  
-#define ICR1L      *((volatile uint8_t*)0x46)
-#define ICR1H      *((volatile uint8_t*)0x47)
+#define ICR1L       *((volatile uint8_t*)0x46)
+#define ICR1H       *((volatile uint8_t*)0x47)
 #define OCR1BL      *((volatile uint8_t*)0x48)
 #define OCR1BH      *((volatile uint8_t*)0x49)
 #define OCR1AL      *((volatile uint8_t*)0x4A)
@@ -82,13 +82,13 @@
 #define TCCR1B      *((volatile uint8_t*)0x4E)
 #define TCCR1A      *((volatile uint8_t*)0x4F)
 
-#define SFIOR    *((volatile uint8_t*)0x50)
+#define SFIOR       *((volatile uint8_t*)0x50)
 
 *****************************************************************************
  *				TIMER registers (TIMER2)
  *****************************************************************************
 
-#define TCCR2          *((volatile uint8_t*)0x45)
+#define TCCR2           *((volatile uint8_t*)0x45)
 #define TCNT2      	*((volatile uint8_t*)0x44)
 #define OCR2      	*((volatile uint8_t*)0x43)
 
@@ -96,7 +96,7 @@
  *				TWI registers 
  *****************************************************************************
  
-#define TWDR      	 *((volatile uint8_t*)0x23)
+#define TWDR       *((volatile uint8_t*)0x23)
 #define TWAR       	*((volatile uint8_t*)0x22)
 #define TWSR      	*((volatile uint8_t*)0x21)
 #define TWBR      	*((volatile uint8_t*)0x20)
@@ -121,7 +121,7 @@
  *****************************************************************************
  
 #define UDR      	*((volatile uint8_t*)0x2C)
-#define UCSRA          *((volatile uint8_t*)0x2B)
+#define UCSRA           *((volatile uint8_t*)0x2B)
 #define UCSRB      	*((volatile uint8_t*)0x2A)
 #define UBRRL      	*((volatile uint8_t*)0x29)
 
@@ -134,7 +134,7 @@
 #define SPCR      	*((volatile uint8_t*)0x2D)
 
 *****************************************************************************
- *					EEPROM registers 
+ *		EEPROM registers 
  *****************************************************************************
 
 #define EEARH      	*((volatile uint8_t*)0x3F)
