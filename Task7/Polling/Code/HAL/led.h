@@ -37,7 +37,7 @@
  *
  * [Args]:	 None
  *
- * [in]	    None
+ * [in]	        None
  *
  * [out]	 None
  *
@@ -54,7 +54,7 @@ void LED_init(void);
  *
  * [Args]: 	None
  *
- * [in]	    None
+ * [in]	       None
  *
  * [out] 	None
  *
@@ -84,17 +84,17 @@ void LED_turnOff(void);
 /*******************************************************************************
  * [Function Name]: LED_toggle
  *
- * [Description]:Function to toggle the LED
+ * [Description]: Function to toggle the LED
  *
  * [Args]:	 None
  *
- * [in]		 None
+ * [in] None
  *
  * [out]	 None
  *
  * [in/out]	 None
  *
- * [Returns]:      None
+ * [Returns]:    None
  *******************************************************************************/
 void LED_toggle(void);
 
