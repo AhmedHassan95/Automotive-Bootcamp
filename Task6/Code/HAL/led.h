@@ -35,13 +35,13 @@
  *
  * [Description]: Function to Initialize the LED Driver
  *
- * [Args]:		None
+ * [Args]:	None
  *
- * [in]			  None
+ * [in]		 None
  *
- * [out]		  None
+ * [out]		None
  *
- * [in/out]		 None
+ * [in/out] None
  *
  * [Returns]:      None
  *******************************************************************************/
@@ -52,13 +52,13 @@ void LED_init(void);
  *
  * [Description]: Function to turn on the LED
  *
- * [Args]:		None
+ * [Args]	None
  *
- * [in]				None
+ * [in]		None
  *
- * [out]			None
+ * [out]	None
  *
- * [in/out]		None
+ * [in/out]	None
  *
  * [Returns]:      None
  *******************************************************************************/
@@ -69,13 +69,13 @@ void LED_turnOn(void);
  *
  * [Description]: Function to turn off the LED
  *
- * [Args]:		None
+ * [Args]:	None
  *
- * [in]			 None
+ * [in]		None
  *
- * [out]			None
+ * [out]	None
  *
- * [in/out]		None
+ * [in/out]	None
  *
  * [Returns]:      None
  *******************************************************************************/
