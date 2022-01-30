@@ -25,7 +25,7 @@ int main(void)
 	App_init();	/* Test KEYPAD in simple application */
 
 	/********************************************************************************
-	 *                        APPLICATION	(SUPER LOOP)						    *
+	 *                        APPLICATION	(SUPER LOOP)			        *
 	 ********************************************************************************/
 
 	while(1)
