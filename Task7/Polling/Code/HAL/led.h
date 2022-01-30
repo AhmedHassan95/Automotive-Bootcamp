@@ -69,9 +69,9 @@ void LED_turnOn(void);
  *
  * [Description]: Function to turn off the LED
  *
- * [Args]:	 None
+ * [Args]:	  None
  *
- * [in]     	None
+ * [in]       	None
  *
  * [out]	  None
  *
