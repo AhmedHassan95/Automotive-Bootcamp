@@ -48,11 +48,11 @@ void App_init(void);
  *
  * [Args]:	 None
  *
- * [in]	None
+ * [in]	    None
  *
- * [out]	None
+ * [out]	 None
  *
- * [in/out]	None
+ * [in/out]	 None
  *
  * [Returns]:    None
  *******************************************************************************/
