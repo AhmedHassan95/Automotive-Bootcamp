@@ -26,17 +26,17 @@
 /*******************************************************************************
  * [Function Name]: App_init
  *
- * [Description]: 	Function to Initialize the application to test lcd
+ * [Description]: Function to Initialize the application to test lcd
  *
- * [Args]:			None
+ * [Args]:	 None
  *
- * [in]			  	None
+ * [in]		 None
  *
- * [out]		  	None
+ * [out]	 None
  *
- * [in/out]		 	None
+ * [in/out]	 None
  *
- * [Returns]:       None
+ * [Returns]:    None
  *******************************************************************************/
 void App_init(void);
 
