@@ -24,7 +24,7 @@
 
 /* LED Pin Configurations */
 #define LED_PORT_NUM 	   DIO_PORTB
-#define LED_PIN_NUM	    PIN_4
+#define LED_PIN_NUM	   PIN_4
 
 /*******************************************************************************
  *                             Functions Prototypes                            *
@@ -35,15 +35,15 @@
  *
  * [Description]: Function to Initialize the LED Driver
  *
- * [Args]:	None
+ * [Args]:	 None
  *
- * [in]	None
+ * [in]	    None
  *
- * [out]	None
+ * [out]	 None
  *
- * [in/out]	None
+ * [in/out]	 None
  *
- * [Returns]:   None
+ * [Returns]:    None
  *******************************************************************************/
 void LED_init(void);
 
@@ -52,13 +52,13 @@ void LED_init(void);
  *
  * [Description]: Function to turn on the LED
  *
- * [Args]:	None
+ * [Args]: 	None
  *
- * [in]	None
+ * [in]	    None
  *
- * [out]	None
+ * [out] 	None
  *
- * [in/out]	None
+ * [in/out] 	None
  *
  * [Returns]:    None
  *******************************************************************************/
@@ -71,28 +71,28 @@ void LED_turnOn(void);
  *
  * [Args]:	None
  *
- * [in]				None
+ * [in]			None
  *
- * [out]		 None
+ * [out]	 None
  *
- * [in/out]		None
+ * [in/out]	None
  *
- * [Returns]:      None
+ * [Returns]:     None
  *******************************************************************************/
 void LED_turnOff(void);
 
 /*******************************************************************************
  * [Function Name]: LED_toggle
  *
- * [Description]: Function to toggle the LED
+ * [Description]:Function to toggle the LED
  *
- * [Args]:	None
+ * [Args]:	 None
  *
- * [in]		None
+ * [in]		 None
  *
  * [out]	 None
  *
- * [in/out]	None
+ * [in/out]	 None
  *
  * [Returns]:      None
  *******************************************************************************/
