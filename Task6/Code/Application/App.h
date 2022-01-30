@@ -28,9 +28,9 @@
  *
  * [Description]: Function to Initialize the application to test the DIO Driver
  *
- * [Args]:	None
+ * [Args]:	 None
  *
- * [in]	        None
+ * [in]	         None
  *
  * [out]	 None
  *
