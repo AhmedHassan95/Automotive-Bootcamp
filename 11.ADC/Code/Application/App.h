@@ -29,7 +29,7 @@
  *
  * [Description]: Function to Initialize the application to test adc
  *
- * [Args]:        None
+ * [Args]:         None
  *
  * [in]		  None
  *
