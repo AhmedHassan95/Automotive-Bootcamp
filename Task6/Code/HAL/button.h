@@ -38,15 +38,15 @@
  *
  * [Description]: 	Function to Initialize the BUTTON Driver
  *
- * [Args]:			None
+ * [Args]:		None
  *
- * [in]			  	None
+ * [in]			 None
  *
- * [out]		  	None
+ * [out]		 None
  *
- * [in/out]		 	None
+ * [in/out]		None
  *
- * [Returns]:       None
+ * [Returns]:      None
  *******************************************************************************/
 void BUTTON_init(void);
 
@@ -55,15 +55,15 @@ void BUTTON_init(void);
  *
  * [Description]: 	Function to read the value of the BUTTON
  *
- * [Args]:			None
+ * [Args]:		None
  *
- * [in]			  	None
+ * [in]			None
  *
- * [out]		  	None
+ * [out]		None
  *
- * [in/out]		 	None
+ * [in/out]	None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 uint8_t BUTTON_read(void);
 
