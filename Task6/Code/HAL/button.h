@@ -61,7 +61,7 @@ void BUTTON_init(void);
  *
  * [out]	 None
  *
- * [in/out] 	None
+  * [in/out] 	None
  *
  * [Returns]:    None
  *******************************************************************************/
