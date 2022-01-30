@@ -52,132 +52,132 @@ typedef enum
 /******************************************************************************
  * [Function Name]: DIO_setPortDirection
  *
- * [Description]: 	Function to set the direction of all pins in the port (INPUT, OUTPUT)
+ * [Description]: Function to set the direction of all pins in the port (INPUT, OUTPUT)
  *
- * [Args]:			enu_portID, enu_portDirection
+ * [Args]:	  enu_portID, enu_portDirection
  *
- * [in]			  	enu_portID: Enumerator to DIO port ID
- * 					enu_portDirection: Enumerator to DIO port direction
+ * [in]		  enu_portID: Enumerator to DIO port ID
+ * 		  enu_portDirection: Enumerator to DIO port direction
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_setPortDirection(enuDIO_PortId_t enu_portID, enuDIO_DirectionType_t enu_portDirection);
 
 /******************************************************************************
  * [Function Name]: DIO_setPinDirection
  *
- * [Description]: 	Function to set the direction of a certain pin in a certain port
+ * [Description]: Function to set the direction of a certain pin in a certain port
  *
- * [Args]:			enu_portID, enu_pinID, enu_pinDirection
+ * [Args]:	  enu_portID, enu_pinID, enu_pinDirection
  *
- * [in]			  	enu_portID: Enumerator to DIO port ID
- * 					enu_pinID: Enumerator to DIO pin ID
- * 					enu_portDirection: Enumerator to DIO pin direction
+ * [in]		  enu_portID: Enumerator to DIO port ID
+ * 		  enu_pinID: Enumerator to DIO pin ID
+ * 		  enu_portDirection: Enumerator to DIO pin direction
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_setPinDirection(enuDIO_PortId_t enu_portID , enuDIO_PinId_t enu_pinID,
-								     enuDIO_DirectionType_t enu_pinDirection);
+				     enuDIO_DirectionType_t enu_pinDirection);
 
 /******************************************************************************
  * [Function Name]: DIO_writePort
  *
- * [Description]: 	Function to write (HIGH, LOW) in a certain port
+ * [Description]: Function to write (HIGH, LOW) in a certain port
  *
- * [Args]:			enu_portID, au8_portValue
+ * [Args]:	  enu_portID, au8_portValue
  *
- * [in]			  	enu_portID: Enumerator to DIO port ID
- *					au8_portValue: Unsigned character value to be written in the port
+ * [in]		  enu_portID: Enumerator to DIO port ID
+ *	          au8_portValue: Unsigned character value to be written in the port
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_writePort(enuDIO_PortId_t enu_portID, uint8_t au8_portValue);
 
 /******************************************************************************
  * [Function Name]: DIO_writePin
  *
- * [Description]: 	Function to write (HIGH, LOW) in a certain pin in a certain port
+ * [Description]: Function to write (HIGH, LOW) in a certain pin in a certain port
  *
- * [Args]:			enu_portID, pinID, au8_pinValue
+ * [Args]:	  enu_portID, pinID, au8_pinValue
  *
- * [in]			  	enu_portID: Enumerator to DIO port ID
- *					enu_pinID: Enumerator to DIO pin ID
- *					au8_pinValue: Unsigned character value to be written in the pin
+ * [in]		  enu_portID: Enumerator to DIO port ID
+ *		  enu_pinID: Enumerator to DIO pin ID
+ *		  au8_pinValue: Unsigned character value to be written in the pin
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_writePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinID, uint8_t au8_pinValue);
 
 /******************************************************************************
  * [Function Name]: DIO_readPort
  *
- * [Description]: 	Function to read the value of the certain port
+ * [Description]: Function to read the value of the certain port
  *
- * [Args]:			enu_portID, ptr_portState
+ * [Args]:	  enu_portID, ptr_portState
  *
- * [in]			  	enu_portID: Enumerator to DIO port ID
- *					enu_portState: Pointer to Unsigned character value to return the
- *								state of the port in it
+ * [in]		  enu_portID: Enumerator to DIO port ID
+ *		  enu_portState: Pointer to Unsigned character value to return the
+ *				 state of the port in it
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_readPort(enuDIO_PortId_t enu_portID, uint8_t * ptr_portState);
 
 /******************************************************************************
  * [Function Name]: DIO_readPin
  *
- * [Description]: 	Function to read the value of the certain pin
+ * [Description]: Function to read the value of the certain pin
  *
- * [Args]:			enu_portID, enu_pinID, ptr_pinState
+ * [Args]:	  enu_portID, enu_pinID, ptr_pinState
  *
- * [in]			  	enu_portID: Enumerator to DIO port ID
- *					enu_pinID: Enumerator to DIO pin ID
- *					ptr_pinState: Pointer to Unsigned character value to return the
- *							   state of the pin in it
+ * [in]		  enu_portID: Enumerator to DIO port ID
+ *		  enu_pinID: Enumerator to DIO pin ID
+ *		  ptr_pinState: Pointer to Unsigned character value to return the
+ *				state of the pin in it
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinID, uint8_t * ptr_pinState);
 
 /******************************************************************************
  * [Function Name]: DIO_TogglePin
  *
- * [Description]: 	Function to toggle a pin
+ * [Description]: Function to toggle a pin
  *
- * [Args]:			enu_portID, enu_pinID
+ * [Args]:	  enu_portID, enu_pinID
  *
- * [in]			  	enu_portID: Enumerator to DIO port ID
- *					enu_pinID: Enumerator to DIO pin ID
+ * [in]		  enu_portID: Enumerator to DIO port ID
+ *		  enu_pinID: Enumerator to DIO pin ID
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_TogglePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinID);
 
