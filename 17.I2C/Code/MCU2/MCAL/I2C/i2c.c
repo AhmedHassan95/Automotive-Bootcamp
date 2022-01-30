@@ -69,15 +69,18 @@ void TWI_init(const TWI_ConfigType * Config_Ptr)
  ********************************************************************************************/
 void TWI_start(void)
 {
-    /* 
-	 * Clear the TWINT flag before sending the start bit TWINT = 1
-	 * send the start bit by TWSTA = 1
-	 * Enable TWI Module TWEN = 1 
-	 */
-    TWCR = (1 << TWINT) | (1 << TWEA) | (1 << TWEN);
-    
-    /* Wait for TWINT flag set in TWCR Register (start bit is send successfully) */
-    while(BIT_IS_CLEAR(TWCR,TWINT));
+	while(TWI_getStatus() != TW_SLA_DATA_ACK)
+	{
+		/*
+		 * Clear the TWINT flag before sending the start bit TWINT = 1
+		 * send the start bit by TWSTA = 1
+		 * Enable TWI Module TWEN = 1
+		 */
+		TWCR = (1 << TWINT) | (1 << TWEA) | (1 << TWEN);
+
+		/* Wait for TWINT flag set in TWCR Register (start bit is send successfully) */
+		while(BIT_IS_CLEAR(TWCR,TWINT));
+	}
 }
 
 /*****************************************************************************************
