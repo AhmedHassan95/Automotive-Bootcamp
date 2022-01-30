@@ -132,8 +132,8 @@ void UART_sendByte(const uint8_t data)
  * [out]	  Unsigned Character
  *
  * [in/out]	  None
- *
- * [Returns]:    The Byte that received through the UART
+ * 
+ * [Returns]:     The Byte that received through the UART
  ****************************************************************************************/
 uint8_t UART_recieveByte(void)
 {
