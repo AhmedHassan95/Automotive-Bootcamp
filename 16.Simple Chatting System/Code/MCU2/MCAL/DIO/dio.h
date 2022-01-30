@@ -64,7 +64,7 @@ typedef enum
  *
  * [in/out]	  None
  *
- * [Returns]:    Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_setPortDirection(enuDIO_PortId_t enu_portID, enuDIO_DirectionType_t enu_portDirection);
 
