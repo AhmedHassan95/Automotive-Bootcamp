@@ -139,7 +139,7 @@ enuDIO_E_STATE_t DIO_setPinDirection(enuDIO_PortId_t enu_portID , enuDIO_PinId_t
 				SET_BIT(DDRD_DIR_R, enu_pinID);
 				enu_ErrorState = DIO_E_PARAM_VALID;
 				break;
-		    default:
+		    	default:
 				enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
 				break;
 			}
