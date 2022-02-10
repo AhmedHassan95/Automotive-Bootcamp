@@ -80,17 +80,17 @@ Std_ReturnType KEYPAD_Init(void)
 	TIMER_setCallBack(KEYPAD_CheckDebounce, TIMER_1);
 
 	/* Set columns pins to output initially High */
-	for(au8_counter = 0; au8_counter < N_col; au8_counter++)
+	for(au8_counter = INITIAL_VALUE; au8_counter < N_col; au8_counter++)
 	{
-		DIO_setPinDirection(KEYPAD_PORT, (KEYPAD_COL_PIN | au8_counter), OUTPUT);
-		DIO_writePin(KEYPAD_PORT, (KEYPAD_COL_PIN | au8_counter), HIGH);
+		DIO_setPinDirection(KEYPAD_PORT, (KEYPAD_COL_PIN + au8_counter), OUTPUT);
+		DIO_writePin(KEYPAD_PORT, (KEYPAD_COL_PIN + au8_counter), HIGH);
 	}
 
 	/* Set rows pins to input and set pull up resistors */
-	for(au8_counter = 0; au8_counter < N_row; au8_counter++)
+	for(au8_counter = INITIAL_VALUE; au8_counter < N_row; au8_counter++)
 	{
-		DIO_setPinDirection(KEYPAD_PORT, (KEYPAD_ROW_PIN | au8_counter), INPUT);
-		DIO_writePin(KEYPAD_PORT, (KEYPAD_ROW_PIN | au8_counter), HIGH);
+		DIO_setPinDirection(KEYPAD_PORT, (KEYPAD_ROW_PIN + au8_counter), INPUT);
+		DIO_writePin(KEYPAD_PORT, (KEYPAD_ROW_PIN + au8_counter), HIGH);
 	}
 
 	/* return success status */
@@ -167,25 +167,29 @@ Std_ReturnType KEYPAD_getPressedKey(uint8_t * au8_data)
 	uint8_t au8_Keyflag = NOT_PRESSED;
 
 	/* Loops on every column */
-	for(au8_ColumnCounter = 0; au8_ColumnCounter < N_col; au8_ColumnCounter++)
+	for(au8_ColumnCounter = INITIAL_VALUE; au8_ColumnCounter < N_col; au8_ColumnCounter++)
 	{
 		/* Set column value to low */
-		DIO_writePin(KEYPAD_PORT, (KEYPAD_COL_PIN | au8_ColumnCounter) , LOW);
+		DIO_writePin(KEYPAD_PORT, (KEYPAD_COL_PIN + au8_ColumnCounter) , LOW);
 
 		/* Loops on every row */
-		for(au8_RowCounter = 0; au8_RowCounter < N_row; au8_RowCounter++)
+		for(au8_RowCounter = INITIAL_VALUE; au8_RowCounter < N_row; au8_RowCounter++)
 		{
 			/* Read row value */
-			DIO_readPin(KEYPAD_PORT, (KEYPAD_ROW_PIN | au8_RowCounter), &au8_KeyStatus);
+			DIO_readPin(KEYPAD_PORT, (KEYPAD_ROW_PIN + au8_RowCounter), &au8_KeyStatus);
 			/* Check if row is pressed */
 			if(au8_KeyStatus == PRESSED)
 			{
+				#if (N_col == 3)
 				*au8_data = KeyPad_4x3_adjustKeyNumber((au8_RowCounter * N_col) + (au8_ColumnCounter+1));
+				#elif (N_col == 4)
+				*au8_data = KeyPad_4x4_adjustKeyNumber((au8_RowCounter * N_col) + (au8_ColumnCounter+1));
+				#endif
 				/* Return column value to HIGH */
 				au8_Keyflag = PRESSED;
 			}
 		}
-		DIO_writePin(KEYPAD_PORT, (KEYPAD_COL_PIN | au8_ColumnCounter), HIGH);
+		DIO_writePin(KEYPAD_PORT, (KEYPAD_COL_PIN + au8_ColumnCounter), HIGH);
 	}
 
 	return au8_Keyflag;	/* Return the key flag if it is (PRESSED, NOT_PRESSED) */
@@ -208,11 +212,11 @@ static uint8_t KeyPad_4x3_adjustKeyNumber(uint8_t au8_button_number)
 {
 	switch(au8_button_number)
 	{
-	case 10: return '*'; /* ASCII Code of = */
+	case 10: return BUTTON_PLUS; /* ASCII Code of = */
 	break;
-	case 11: return 0;
+	case 11: return BUTTON_0;
 	break;
-	case 12: return '#'; /* ASCII Code of + */
+	case 12: return BUTTON_HASH; /* ASCII Code of # */
 	break;
 	default: return au8_button_number;
 	}
@@ -234,37 +238,37 @@ static uint8_t KeyPad_4x4_adjustKeyNumber(uint8_t au8_button_number)
 {
 	switch(au8_button_number)
 	{
-	case 1: return 7;
+	case 1: return BUTTON_7;
 	break;
-	case 2: return 8;
+	case 2: return BUTTON_8;
 	break;
-	case 3: return 9;
+	case 3: return BUTTON_9;
 	break;
-	case 4: return '%'; /* ASCII Code of % */
+	case 4: return BUTTON_MOD; /* ASCII Code of % */
 	break;
-	case 5: return 4;
+	case 5: return BUTTON_4;
 	break;
-	case 6: return 5;
+	case 6: return BUTTON_5;
 	break;
-	case 7: return 6;
+	case 7: return BUTTON_6;
 	break;
-	case 8: return '*'; /* ASCII Code of '*' */
+	case 8: return BUTTON_MUL; /* ASCII Code of '*' */
 	break;
-	case 9: return 1;
+	case 9: return BUTTON_1;
 	break;
-	case 10: return 2;
+	case 10: return BUTTON_2;
 	break;
-	case 11: return 3;
+	case 11: return BUTTON_3;
 	break;
-	case 12: return '-'; /* ASCII Code of '-' */
+	case 12: return BUTTON_MINUS; /* ASCII Code of '-' */
 	break;
-	case 13: return 13;  /* ASCII of Enter */
+	case 13: return BUTTON_ENTR;  /* ASCII of Enter */
 	break;
-	case 14: return 0;
+	case 14: return BUTTON_0;
 	break;
-	case 15: return '='; /* ASCII Code of '=' */
+	case 15: return BUTTON_EQL; /* ASCII Code of '=' */
 	break;
-	case 16: return '+'; /* ASCII Code of '+' */
+	case 16: return BUTTON_PLUS; /* ASCII Code of '+' */
 	break;
 	default: return au8_button_number;
 	}

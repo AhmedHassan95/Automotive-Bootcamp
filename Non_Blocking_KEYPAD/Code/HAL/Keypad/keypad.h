@@ -25,12 +25,35 @@
 
 /* Keypad configurations for number of rows and columns */
 #define N_col 3
-#define N_row 4
+#define N_row 3
 
 /* Keypad Port Configurations */
-#define KEYPAD_PORT		DIO_PORTA
-#define KEYPAD_COL_PIN	PIN_4
-#define KEYPAD_ROW_PIN	PIN_0
+#define KEYPAD_PORT		DIO_PORTC
+#define KEYPAD_COL_PIN	PIN_5
+#define KEYPAD_ROW_PIN	PIN_2
+
+/* Keypad Buttons */
+#define BUTTON_0       (0u)
+#define BUTTON_1       (1u)
+#define BUTTON_2       (2u)
+#define BUTTON_3       (3u)
+#define BUTTON_4       (4u)
+#define BUTTON_5       (5u)
+#define BUTTON_6       (6u)
+#define BUTTON_7       (7u)
+#define BUTTON_8       (8u)
+#define BUTTON_9       (9u)
+#define BUTTON_10      (10u)
+#define BUTTON_11      (11u)
+#define BUTTON_12      (12u)
+#define BUTTON_13      (13u)
+#define BUTTON_PLUS    (43u)
+#define BUTTON_MINUS   (45u)
+#define BUTTON_EQL     (61u)
+#define BUTTON_MUL     (42u)
+#define BUTTON_MOD     (37u)
+#define BUTTON_HASH    (35u)
+#define BUTTON_ENTR    (13u)
 
 /* Keypad configurations for state machine */
 #define PRESSED         (0u)

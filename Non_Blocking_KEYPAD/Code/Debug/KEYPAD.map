@@ -153,7 +153,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x3222
+.text           0x00000000     0x3234
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -344,43 +344,43 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00002e28       0x1a ./HAL/Keypad/keypad.o
                 0x00002e28                KEYPAD_CheckDebounce
  .text.KEYPAD_Init
-                0x00002e42       0xce ./HAL/Keypad/keypad.o
+                0x00002e42       0xda ./HAL/Keypad/keypad.o
                 0x00002e42                KEYPAD_Init
  .text.KEYPAD_getStatus
-                0x00002f10       0xac ./HAL/Keypad/keypad.o
-                0x00002f10                KEYPAD_getStatus
+                0x00002f1c       0xac ./HAL/Keypad/keypad.o
+                0x00002f1c                KEYPAD_getStatus
  .text.KEYPAD_getPressedKey
-                0x00002fbc       0xa4 ./HAL/Keypad/keypad.o
+                0x00002fc8       0xaa ./HAL/Keypad/keypad.o
  .text.KeyPad_4x3_adjustKeyNumber
-                0x00003060       0x66 ./HAL/Keypad/keypad.o
+                0x00003072       0x66 ./HAL/Keypad/keypad.o
  .text.App_init
-                0x000030c6       0x18 ./Application/App.o
-                0x000030c6                App_init
+                0x000030d8       0x18 ./Application/App.o
+                0x000030d8                App_init
  .text.App_Update
-                0x000030de       0x36 ./Application/App.o
-                0x000030de                App_Update
- .text.main     0x00003114       0x12 ./keypad_test.o
-                0x00003114                main
- .text.libgcc   0x00003126        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00003126        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00003126        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00003126       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00003126                __prologue_saves__
- .text.libgcc   0x0000315e       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x0000315e                __epilogue_restores__
+                0x000030f0       0x36 ./Application/App.o
+                0x000030f0                App_Update
+ .text.main     0x00003126       0x12 ./keypad_test.o
+                0x00003126                main
+ .text.libgcc   0x00003138        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00003138        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00003138        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00003138       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00003138                __prologue_saves__
+ .text.libgcc   0x00003170       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00003170                __epilogue_restores__
  .text.avr-libc
-                0x00003194       0x42 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
-                0x00003194                itoa
+                0x000031a6       0x42 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+                0x000031a6                itoa
  .text.avr-libc
-                0x000031d6       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x000031d6                strrev
- .text.libgcc   0x000031f6       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x000031f6                __udivmodhi4
-                0x0000321e                . = ALIGN (0x2)
+                0x000031e8       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x000031e8                strrev
+ .text.libgcc   0x00003208       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x00003208                __udivmodhi4
+                0x00003230                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000321e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000321e                exit
-                0x0000321e                _exit
+ .fini9         0x00003230        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00003230                exit
+                0x00003230                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -399,11 +399,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000321e        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00003230        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00003222                _etext = .
+                0x00003234                _etext = .
 
-.data           0x00800060       0x10 load address 0x00003222
+.data           0x00800060       0x10 load address 0x00003234
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -434,7 +434,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .data          0x00800068        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
  .data          0x00800068        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
  *(.data*)
- .data.au8_keypad_Status.1502
+ .data.au8_keypad_Status.1504
                 0x00800068        0x1 ./HAL/Keypad/keypad.o
  .data.gu8_flag
                 0x00800069        0x1 ./Application/App.o
@@ -490,8 +490,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00800077                gu8_key
  *(COMMON)
                 0x00800078                PROVIDE (__bss_end, .)
-                0x00003222                __data_load_start = LOADADDR (.data)
-                0x00003232                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00003234                __data_load_start = LOADADDR (.data)
+                0x00003244                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800078        0x0
                 0x00800078                PROVIDE (__noinit_start, .)
