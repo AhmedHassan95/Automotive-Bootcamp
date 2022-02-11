@@ -32,7 +32,7 @@
 #define N_row 3
 
 /* Macros for Keypad Port configurations */
-#define KEYPAD_PORT		DIO_PORTC
+#define KEYPAD_PORT	DIO_PORTC
 #define KEYPAD_COL_PIN	PIN_5
 #define KEYPAD_ROW_PIN	PIN_2
 
