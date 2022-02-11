@@ -127,32 +127,32 @@ Std_ReturnType KEYPAD_getStatus(uint8_t * data)
 		{
 		case NOT_PRESSED:	au8_keypad_RetValue = KEYPAD_getPressedKey(data);
 
-							if(au8_keypad_RetValue == PRESSED)
-							{
-								au8_keypad_Status = DEBOUNCING;	/* Update the KEYPAD state */
-								TIMER_start(TIMER_1, T1_F_CPU_8);	/* Start timer */
-							}
-							au8_keypad_RetValue = NOT_PRESSED;	/* Update the return value of the keypad */
-							break;
+					if(au8_keypad_RetValue == PRESSED)
+					{
+						au8_keypad_Status = DEBOUNCING;	/* Update the KEYPAD state */
+						TIMER_start(TIMER_1, T1_F_CPU_8);/* Start timer */
+					}
+					au8_keypad_RetValue = NOT_PRESSED;	/* Update the return value of the keypad */
+					break;
 
 		case DEBOUNCING:	if(debounce_Status == TRUE)
-							{
-								KEYPAD_getPressedKey(data);	/* Read the data after denouncing */
-								debounce_Status = FALSE;	/* Reset the denounce flag */
-								au8_keypad_Status = PRESSED;/* Update the KEYPAD state */
-								au8_keypad_RetValue = PRESSED;/* Update the return value of the keypad */
-							}
-							break;
+					{
+						KEYPAD_getPressedKey(data);	/* Read the data after denouncing */
+						debounce_Status = FALSE;	/* Reset the denounce flag */
+						au8_keypad_Status = PRESSED;	/* Update the KEYPAD state */
+						au8_keypad_RetValue = PRESSED;	/* Update the return value of the keypad */
+					}
+					break;
 
 		case PRESSED:		au8_keypad_RetValue = KEYPAD_getPressedKey(data);
 
-							if(au8_keypad_RetValue == NOT_PRESSED)
-							{
-								/* Reset the state machine of the keypad only if the key is released */
-								au8_keypad_Status = NOT_PRESSED;
-							}
-							au8_keypad_RetValue = NOT_PRESSED;	/* Update the return value of the keypad */
-							break;
+					if(au8_keypad_RetValue == NOT_PRESSED)
+					{
+						/* Reset the state machine of the keypad only if the key is released */
+						au8_keypad_Status = NOT_PRESSED;
+					}
+					au8_keypad_RetValue = NOT_PRESSED;	/* Update the return value of the keypad */
+					break;
 		}
 
 		return au8_keypad_RetValue;	/* Return the keypad status if it is (PRESSED, NOT PRESSED) */
