@@ -58,9 +58,9 @@ void AppCompareMatch(void)
  *******************************************************************************/
 void App_init(void)
 {
-	sei();	/* Enable Global Interrupt (I - bit) */
+	sei();		/* Enable Global Interrupt (I - bit) */
 
-	LED_init();		/* LED Driver Initialization */
+	LED_init();	/* LED Driver Initialization */
 
 	/* Configure the timer1 in overflow mode */
 	strTIMER_ConfigType_t timer_Config = {0, 781, TIMER_1, COMPARE};
