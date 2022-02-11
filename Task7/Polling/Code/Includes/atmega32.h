@@ -46,12 +46,12 @@
 #define PIND_INPUT_R		*((volatile uint8_t*)0x30)
 
 /*****************************************************************************
- *							TIMER registers (TIMER0)
+ *			TIMER registers (TIMER0)
  *****************************************************************************/
 
 #define TCCR0_R      		*((volatile uint8_t*)0x53)
 #define TCNT0_R       		*((volatile uint8_t*)0x52)
-#define OCR0_R     			*((volatile uint8_t*)0x5C)
+#define OCR0_R                  *((volatile uint8_t*)0x5C)
 
 #define MCUCR_R       		*((volatile uint8_t*)0x55)
 #define MCUCSR_R      		*((volatile uint8_t*)0x54)
@@ -97,7 +97,7 @@
 #define TOV0_BIT     0
 
 /*****************************************************************************
- *							TIMER registers (TIMER1)
+ *				TIMER registers (TIMER1)
  *****************************************************************************/
  
 #define ICR1L_R      		*((volatile uint8_t*)0x46)
@@ -139,12 +139,12 @@
 #define CS10_BIT    0
 
 /*****************************************************************************
- *							TIMER registers (TIMER2)
+ *			TIMER registers (TIMER2)
  *****************************************************************************/
 
 #define TCCR2_R       		*((volatile uint8_t*)0x45)
 #define TCNT2_R       		*((volatile uint8_t*)0x44)
-#define OCR2_R     	  		*((volatile uint8_t*)0x43)
+#define OCR2_R     		*((volatile uint8_t*)0x43)
 
 /* TCCR2 */
 #define FOC2_BIT    7
