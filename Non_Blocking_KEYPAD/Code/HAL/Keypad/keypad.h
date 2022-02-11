@@ -23,45 +23,49 @@
  *                      Preprocessor Macros                                    *
  *******************************************************************************/
 
-/* Keypad configurations for number of rows and columns */
+/* Macros for keypad Status */
+#define KEYPAD_INITIALIZED          (1U)
+#define KEYPAD_NOT_INITIALIZED      (0U)
+
+/* Macros for Keypad configurations "Number of rows and columns" */
 #define N_col 3
 #define N_row 3
 
-/* Keypad Port Configurations */
+/* Macros for Keypad Port configurations */
 #define KEYPAD_PORT		DIO_PORTC
 #define KEYPAD_COL_PIN	PIN_5
 #define KEYPAD_ROW_PIN	PIN_2
 
-/* Keypad Buttons */
-#define BUTTON_0       (0u)
-#define BUTTON_1       (1u)
-#define BUTTON_2       (2u)
-#define BUTTON_3       (3u)
-#define BUTTON_4       (4u)
-#define BUTTON_5       (5u)
-#define BUTTON_6       (6u)
-#define BUTTON_7       (7u)
-#define BUTTON_8       (8u)
-#define BUTTON_9       (9u)
-#define BUTTON_10      (10u)
-#define BUTTON_11      (11u)
-#define BUTTON_12      (12u)
-#define BUTTON_13      (13u)
-#define BUTTON_PLUS    (43u)
-#define BUTTON_MINUS   (45u)
-#define BUTTON_EQL     (61u)
-#define BUTTON_MUL     (42u)
-#define BUTTON_MOD     (37u)
-#define BUTTON_HASH    (35u)
-#define BUTTON_ENTR    (13u)
+/* Macros for Keypad Buttons */
+#define BUTTON_0       (0U)
+#define BUTTON_1       (1U)
+#define BUTTON_2       (2U)
+#define BUTTON_3       (3U)
+#define BUTTON_4       (4U)
+#define BUTTON_5       (5U)
+#define BUTTON_6       (6U)
+#define BUTTON_7       (7U)
+#define BUTTON_8       (8U)
+#define BUTTON_9       (9U)
+#define BUTTON_10      (10U)
+#define BUTTON_11      (11U)
+#define BUTTON_12      (12U)
+#define BUTTON_13      (13U)
+#define BUTTON_PLUS    (43U)
+#define BUTTON_MINUS   (45U)
+#define BUTTON_EQL     (61U)
+#define BUTTON_MUL     (42U)
+#define BUTTON_MOD     (37U)
+#define BUTTON_HASH    (35U)
+#define BUTTON_ENTR    (13U)
 
-/* Keypad configurations for state machine */
-#define PRESSED         (0u)
-#define NOT_PRESSED     (1u)
-#define DEBOUNCING      (2u)
+/* Macros for Keypad configurations of state machine */
+#define PRESSED         (0U)
+#define NOT_PRESSED     (1U)
+#define DEBOUNCING      (2U)
 
-#define INITIAL_VALUE	(0u)
-#define TWENTY_MS		(20000u)
+#define INITIAL_VALUE	(0U)
+#define TWENTY_MS		(20000U)
 
 /*******************************************************************************
  *                      Functions Prototypes                                   *
@@ -83,7 +87,7 @@ Std_ReturnType KEYPAD_Init(void);
 * Service Name: KEYPAD_getStatus
 * Service ID[hex]: 0x20
 * Sync/Async: Synchronous
-* Reentrancy: reentrant
+* Reentrancy: Reentrant
 * Parameters (in): au8_data
 * Parameters (in/out): None
 * Parameters (out): None

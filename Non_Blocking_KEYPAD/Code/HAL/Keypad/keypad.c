@@ -16,8 +16,11 @@
  *                          Global Variables                                   *
  *******************************************************************************/
 
-/* Global variable to store the debounce_Status modified in the ISR */
+/* Global variable to store the denounce status modified in the ISR */
 volatile static uint8_t debounce_Status = FALSE;
+
+/* Global variable to store the keypad status */
+static uint8_t Keypad_Status = KEYPAD_NOT_INITIALIZED;
 
 /*******************************************************************************
  *                      Functions Prototypes(Private)                          *
@@ -93,15 +96,16 @@ Std_ReturnType KEYPAD_Init(void)
 		DIO_writePin(KEYPAD_PORT, (KEYPAD_ROW_PIN + au8_counter), HIGH);
 	}
 
-	/* return success status */
-	return E_OK;
+	Keypad_Status = KEYPAD_INITIALIZED;	/* Update the status of the keypad */
+
+	return E_OK;	/* return success status */
 }
 
 /*******************************************************************************
 * Service Name: KEYPAD_getStatus
 * Service ID[hex]: 0x20
 * Sync/Async: Synchronous
-* Reentrancy: reentrant
+* Reentrancy: Reentrant
 * Parameters (in): au8_data
 * Parameters (in/out): None
 * Parameters (out): None
@@ -113,46 +117,53 @@ Std_ReturnType KEYPAD_getStatus(uint8_t * data)
 	static uint8_t au8_keypad_Status = NOT_PRESSED;	/* Static variable to retain the state of the keypad */
 	uint8_t au8_keypad_RetValue = NOT_PRESSED;	/* Local variable to return the keypad status */
 
-	switch(au8_keypad_Status)
+	if(Keypad_Status == KEYPAD_NOT_INITIALIZED)
 	{
-	case NOT_PRESSED:	au8_keypad_RetValue = KEYPAD_getPressedKey(data);
-
-						if(au8_keypad_RetValue == PRESSED)
-						{
-							au8_keypad_Status = DEBOUNCING;	/* Update the KEYPAD state */
-							TIMER_start(TIMER_1, T1_F_CPU_8);	/* Start timer */
-						}
-						au8_keypad_RetValue = NOT_PRESSED;	/* Update the return value of the keypad */
-						break;
-
-	case DEBOUNCING:	if(debounce_Status == TRUE)
-						{
-							KEYPAD_getPressedKey(data);	/* Read the data after denouncing */
-							debounce_Status = FALSE;	/* Reset the denounce flag */
-							au8_keypad_Status = PRESSED;/* Update the KEYPAD state */
-							au8_keypad_RetValue = PRESSED;/* Update the return value of the keypad */
-						}
-						break;
-
-	case PRESSED:		au8_keypad_RetValue = KEYPAD_getPressedKey(data);
-
-						if(au8_keypad_RetValue == NOT_PRESSED)
-						{
-							/* Reset the state machine of the keypad only if the key is released */
-							au8_keypad_Status = NOT_PRESSED;
-						}
-						au8_keypad_RetValue = NOT_PRESSED;	/* Update the return value of the keypad */
-						break;
+		return E_NOT_OK;	/* Return error due to we can't use this API without initialize the keypad first */
 	}
+	else
+	{
+		switch(au8_keypad_Status)
+		{
+		case NOT_PRESSED:	au8_keypad_RetValue = KEYPAD_getPressedKey(data);
 
-	return au8_keypad_RetValue;	/* Return the keypad status if it is (PRESSED, NOT PRESSED) */
+							if(au8_keypad_RetValue == PRESSED)
+							{
+								au8_keypad_Status = DEBOUNCING;	/* Update the KEYPAD state */
+								TIMER_start(TIMER_1, T1_F_CPU_8);	/* Start timer */
+							}
+							au8_keypad_RetValue = NOT_PRESSED;	/* Update the return value of the keypad */
+							break;
+
+		case DEBOUNCING:	if(debounce_Status == TRUE)
+							{
+								KEYPAD_getPressedKey(data);	/* Read the data after denouncing */
+								debounce_Status = FALSE;	/* Reset the denounce flag */
+								au8_keypad_Status = PRESSED;/* Update the KEYPAD state */
+								au8_keypad_RetValue = PRESSED;/* Update the return value of the keypad */
+							}
+							break;
+
+		case PRESSED:		au8_keypad_RetValue = KEYPAD_getPressedKey(data);
+
+							if(au8_keypad_RetValue == NOT_PRESSED)
+							{
+								/* Reset the state machine of the keypad only if the key is released */
+								au8_keypad_Status = NOT_PRESSED;
+							}
+							au8_keypad_RetValue = NOT_PRESSED;	/* Update the return value of the keypad */
+							break;
+		}
+
+		return au8_keypad_RetValue;	/* Return the keypad status if it is (PRESSED, NOT PRESSED) */
+	}
 }
 
 /*******************************************************************************
  * Service Name: KEYPAD_getPressedKey
  * Service ID[hex]: 0x30
  * Sync/Async: Synchronous
- * Reentrancy: reentrant
+ * Reentrancy: None reentrant
  * Parameters (in): au8_data
  * Parameters (in/out): None
  * Parameters (out): None
@@ -195,13 +206,12 @@ Std_ReturnType KEYPAD_getPressedKey(uint8_t * au8_data)
 	return au8_Keyflag;	/* Return the key flag if it is (PRESSED, NOT_PRESSED) */
 }
 
-
 #if (N_col == 3) 
 /*******************************************************************************
  * Service Name: KeyPad_4x3_adjustKeyNumber
- * Service ID[hex]: 0x40
+ * Service ID[hex]: 0x04
  * Sync/Async: Synchronous
- * Reentrancy: reentrant
+ * Reentrancy: Reentrant
  * Parameters (in): au8_button_number
  * Parameters (in/out): None
  * Parameters (out): None
@@ -225,9 +235,9 @@ static uint8_t KeyPad_4x3_adjustKeyNumber(uint8_t au8_button_number)
 #elif (N_col == 4)
 /*******************************************************************************
  * Service Name: KeyPad_4x4_adjustKeyNumber
- * Service ID[hex]: 0x40
+ * Service ID[hex]: 0x04
  * Sync/Async: Synchronous
- * Reentrancy: reentrant
+ * Reentrancy: Reentrant
  * Parameters (in): au8_button_number
  * Parameters (in/out): None
  * Parameters (out): None
