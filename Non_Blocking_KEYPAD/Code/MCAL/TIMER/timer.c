@@ -134,22 +134,22 @@ ISR(TIMER2_COMP_vect)
 /************************************************************************************
  * [Function Name]: TIMER_init
  *
- * [Description]: 	Function to initialize the TIMER Driver
- *					- Decide TIMER ID (TIMER0, TIMER1, TIMER2)
- *					- Decide TIMER Mode (NORMAL, COMPARE)
- * 					- Insert the initial value to start counting from it
- * 					- Insert the compare match value if use this mode (CTC Mode)
- * 					- Enable TIMER Interrupt
+ * [Description]: Function to initialize the TIMER Driver
+ *		  - Decide TIMER ID (TIMER0, TIMER1, TIMER2)
+ *		  - Decide TIMER Mode (NORMAL, COMPARE)
+ * 		  - Insert the initial value to start counting from it
+ * 		  - Insert the compare match value if use this mode (CTC Mode)
+ * 		  - Enable TIMER Interrupt
  *
- * [Args]:			Config_Ptr
+ * [Args]:	  Config_Ptr
  *
- * [in]			  	Config_Ptr: Pointer to TIMER Configuration Structure
+ * [in]		  Config_Ptr: Pointer to TIMER Configuration Structure
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *************************************************************************************/
 enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr)
 {
@@ -243,7 +243,7 @@ enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr)
 		 * 	- Normal port operation, OC1A/OC1B disconnected
 		 * 	- Normal Mode (COM1A1 = 0 & COM1A0 = 0) in TCCR1A register
 		 * 	- Normal Mode (COM1B1 = 0 & COM1B0 = 0) in TCCR1A register
-		 *  - Non PWM Mode (FOC1A = 1 & FOC1B = 1)  in TCCR1A register
+		 *  	- Non PWM Mode (FOC1A = 1 & FOC1B = 1)  in TCCR1A register
 		 * 	- Normal  Mode (WGM10 = 0 & WGM11 = 0 & WGM12 = 0 & WGM13 = 0)
 		 * 	- Enable TIMER1 Overflow Interrupt (TOIE1) bit in TIMSK register
 		 */
@@ -260,7 +260,7 @@ enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr)
 		 *	  so mask the compare value with 0xFFFF to ensure that it does not exceed 65535
 		 *	- Normal port operation, OC1A/OC1B disconnected
 		 * 	- Normal Mode (COM1A1 = 0 & COM1A0 = 0) in TCCR1A register
-	     * 	- Normal Mode (COM1B1 = 0 & COM1B0 = 0) in TCCR1A register
+	     	 * 	- Normal Mode (COM1B1 = 0 & COM1B0 = 0) in TCCR1A register
 		 * 	- Non PWM Mode (FOC1A = 1 & FOC1B = 1)  in TCCR1A register
 		 *	- Compare Mode (WGM10 = 0 & WGM11 = 0 & WGM12 = 1 & WGM13 = 0)
 		 * 	- Enable TIMER2 Compare Match Interrupt (OCIE1A) bit in TIMSK register
@@ -294,7 +294,7 @@ enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr)
 		/*
 		 * Insert the required initial value in the TCNT2 register
 		 * TIMER2 is (8-bit), so mask the initial value with 0xFF to ensure that it
-	     * does not exceed 255
+	     	 * does not exceed 255
 		 */
 		TCNT2_R = ( (Config_Ptr -> intialValue) & 0xFF);
 
@@ -349,18 +349,18 @@ enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr)
 /******************************************************************************
  * [Function Name]: TIMER_setCallBack
  *
- * [Description]: 	Function to set the Call Back function address
+ * [Description]: Function to set the Call Back function address
  *
- * [Args]:			a_Ptr, enu_timerID
+ * [Args]:	  a_Ptr, enu_timerID
  *
- * [in]				a_Ptr: Pointer to function (Receive to the address of application function)
- * 					enu_timerID: Enumerator to TIMER ID
+ * [in]		  a_Ptr: Pointer to function (Receive to the address of application function)
+ * 		  enu_timerID: Enumerator to TIMER ID
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_setCallBack(void(*a_ptr)(void), const enuTIMER_ID_t enu_timerID)
 {
@@ -407,18 +407,18 @@ enuTIMER_E_STATE_t TIMER_setCallBack(void(*a_ptr)(void), const enuTIMER_ID_t enu
 /******************************************************************************
  * [Function Name]: TIMER_start
  *
- * [Description]: 	Function to enable the timer Driver
+ * [Description]: Function to enable the timer Driver
  *
- * [Args]:			enu_timerID, enu_timerClock
+ * [Args]:	  enu_timerID, enu_timerClock
  *
- * [in]			  	enu_timerID: Enumerator to TIMER ID
- * 					enu_timerClock: Enumerator to TIMER CLOCK
+ * [in]		  enu_timerID: Enumerator to TIMER ID
+ * 		  enu_timerClock: Enumerator to TIMER CLOCK
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_start(const enuTIMER_ID_t enu_timerID, const enuTIMER_Clock_t enu_timerClock)
 {
@@ -455,17 +455,17 @@ enuTIMER_E_STATE_t TIMER_start(const enuTIMER_ID_t enu_timerID, const enuTIMER_C
 /******************************************************************************
  * [Function Name]: TIMER_stop
  *
- * [Description]:   Function to stop the TIMER from counting
+ * [Description]: Function to stop the TIMER from counting
  *
- * [Args]:			enu_timerID
+ * [Args]:	  enu_timerID
  *
- * [in]				enu_timerID: Enumerator to TIMER ID
+ * [in]		  enu_timerID: Enumerator to TIMER ID
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_stop(const enuTIMER_ID_t enu_timerID)
 {
@@ -502,17 +502,17 @@ enuTIMER_E_STATE_t TIMER_stop(const enuTIMER_ID_t enu_timerID)
 /******************************************************************************
  * [Function Name]: TIMER_DeInit
  *
- * [Description]: 	Function to disable the TIMER Driver
+ * [Description]: Function to disable the TIMER Driver
  *
- * [Args]:			enu_timerID
+ * [Args]:	  enu_timerID
  *
- * [in]				enu_timerID: Enumerator to TIMER ID
+ * [in]		  enu_timerID: Enumerator to TIMER ID
  *
- * [out]		  	None
+ * [out]	  None
  *
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_DeInit(const enuTIMER_ID_t enu_timerID)
 {
