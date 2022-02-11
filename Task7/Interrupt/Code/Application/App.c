@@ -58,7 +58,7 @@ void AppCompareMatch(void)
  *******************************************************************************/
 void App_init(void)
 {
-	SREG_R |= (1<<7);	/* Enable Global Interrupt (I - bit) */
+	sei();	/* Enable Global Interrupt (I - bit) */
 
 	LED_init();		/* LED Driver Initialization */
 

@@ -84,9 +84,9 @@ Disassembly of section .text:
       8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 00000092 <DIO_setPortDirection>:
- * [in/out]		 	None
- *
- * [Returns]:       Error state
+ * [in/out]	  None
+ *  
+ * [Returns]:     Error state
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_setPortDirection(enuDIO_PortId_t enu_portID, enuDIO_DirectionType_t enu_portDirection)
 {
@@ -296,10 +296,10 @@ enuDIO_E_STATE_t DIO_setPortDirection(enuDIO_PortId_t enu_portID, enuDIO_Directi
 
 000001b2 <DIO_setPinDirection>:
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  *******************************************************************************/
 enuDIO_E_STATE_t DIO_setPinDirection(enuDIO_PortId_t enu_portID , enuDIO_PinId_t enu_pinID,
-								     enuDIO_DirectionType_t enu_pinDirection)
+				     enuDIO_DirectionType_t enu_pinDirection)
 {
      1b2:	df 93       	push	r29
      1b4:	cf 93       	push	r28
@@ -465,12 +465,12 @@ enuDIO_E_STATE_t DIO_setPinDirection(enuDIO_PortId_t enu_portID , enuDIO_PinId_t
      2c4:	19 82       	std	Y+1, r1	; 0x01
      2c6:	87 c0       	rjmp	.+270    	; 0x3d6 <DIO_setPinDirection+0x224>
 				break;
-            default:
-            	enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
+		    	default:
+				enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
      2c8:	81 e0       	ldi	r24, 0x01	; 1
      2ca:	89 83       	std	Y+1, r24	; 0x01
      2cc:	84 c0       	rjmp	.+264    	; 0x3d6 <DIO_setPinDirection+0x224>
-                break;
+				break;
 			}
 		}
 		else if (enu_pinDirection == INPUT)
@@ -617,12 +617,12 @@ enuDIO_E_STATE_t DIO_setPinDirection(enuDIO_PortId_t enu_portID , enuDIO_PinId_t
      3c2:	19 82       	std	Y+1, r1	; 0x01
      3c4:	08 c0       	rjmp	.+16     	; 0x3d6 <DIO_setPinDirection+0x224>
 				break;
-            default:
-            	enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
+		    	default:
+				enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
      3c6:	81 e0       	ldi	r24, 0x01	; 1
      3c8:	89 83       	std	Y+1, r24	; 0x01
      3ca:	05 c0       	rjmp	.+10     	; 0x3d6 <DIO_setPinDirection+0x224>
-                break;
+				break;
 			}
 		}
 		else
@@ -653,9 +653,9 @@ enuDIO_E_STATE_t DIO_setPinDirection(enuDIO_PortId_t enu_portID , enuDIO_PinId_t
      3e8:	08 95       	ret
 
 000003ea <DIO_writePort>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_writePort(enuDIO_PortId_t enu_portID, uint8_t au8_portValue)
 {
@@ -764,9 +764,9 @@ enuDIO_E_STATE_t DIO_writePort(enuDIO_PortId_t enu_portID, uint8_t au8_portValue
      482:	08 95       	ret
 
 00000484 <DIO_writePin>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_writePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinID, uint8_t au8_pinValue)
 {
@@ -934,12 +934,12 @@ enuDIO_E_STATE_t DIO_writePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pin
      596:	19 82       	std	Y+1, r1	; 0x01
      598:	87 c0       	rjmp	.+270    	; 0x6a8 <DIO_writePin+0x224>
 				break;
-            default:
-            	enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
+		    	default:
+				enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
      59a:	81 e0       	ldi	r24, 0x01	; 1
      59c:	89 83       	std	Y+1, r24	; 0x01
      59e:	84 c0       	rjmp	.+264    	; 0x6a8 <DIO_writePin+0x224>
-                break;
+				break;
 			}
 		}
 		else if (au8_pinValue == LOW)
@@ -1086,12 +1086,12 @@ enuDIO_E_STATE_t DIO_writePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pin
      694:	19 82       	std	Y+1, r1	; 0x01
      696:	08 c0       	rjmp	.+16     	; 0x6a8 <DIO_writePin+0x224>
 				break;
-            default:
-            	enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
+		   	 default:
+				enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
      698:	81 e0       	ldi	r24, 0x01	; 1
      69a:	89 83       	std	Y+1, r24	; 0x01
      69c:	05 c0       	rjmp	.+10     	; 0x6a8 <DIO_writePin+0x224>
-                break;
+				break;
 			}
 		}
 		else
@@ -1122,9 +1122,9 @@ enuDIO_E_STATE_t DIO_writePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pin
      6ba:	08 95       	ret
 
 000006bc <DIO_readPort>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_readPort(enuDIO_PortId_t enu_portID, uint8_t * ptr_portState)
 {
@@ -1148,7 +1148,7 @@ enuDIO_E_STATE_t DIO_readPort(enuDIO_PortId_t enu_portID, uint8_t * ptr_portStat
      6d6:	9c 81       	ldd	r25, Y+4	; 0x04
      6d8:	00 97       	sbiw	r24, 0x00	; 0
      6da:	19 f4       	brne	.+6      	; 0x6e2 <DIO_readPort+0x26>
-    {
+    	{
 		enu_ErrorState = DIO_E_PARAM_POINTER;	/* Invalid pointer */
      6dc:	85 e0       	ldi	r24, 0x05	; 5
      6de:	89 83       	std	Y+1, r24	; 0x01
@@ -1258,9 +1258,9 @@ enuDIO_E_STATE_t DIO_readPort(enuDIO_PortId_t enu_portID, uint8_t * ptr_portStat
      776:	08 95       	ret
 
 00000778 <DIO_readPin>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinID, uint8_t * ptr_pinState)
 {
@@ -1288,7 +1288,7 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      79a:	9d 81       	ldd	r25, Y+5	; 0x05
      79c:	00 97       	sbiw	r24, 0x00	; 0
      79e:	19 f4       	brne	.+6      	; 0x7a6 <DIO_readPin+0x2e>
-    {
+   	 {
 		enu_ErrorState = DIO_E_PARAM_POINTER;
      7a0:	85 e0       	ldi	r24, 0x05	; 5
      7a2:	89 83       	std	Y+1, r24	; 0x01
@@ -1296,13 +1296,13 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
 	}
 	else
 	{
-        if((enu_pinID >= PIN_0) && (enu_pinID <= PIN_7))
+		if((enu_pinID >= PIN_0) && (enu_pinID <= PIN_7))
      7a6:	8b 81       	ldd	r24, Y+3	; 0x03
      7a8:	88 30       	cpi	r24, 0x08	; 8
      7aa:	08 f0       	brcs	.+2      	; 0x7ae <DIO_readPin+0x36>
      7ac:	a9 c0       	rjmp	.+338    	; 0x900 <__stack+0xa1>
-        {
-            switch (enu_portID)
+		{
+		    switch (enu_portID)
      7ae:	8a 81       	ldd	r24, Y+2	; 0x02
      7b0:	28 2f       	mov	r18, r24
      7b2:	30 e0       	ldi	r19, 0x00	; 0
@@ -1337,9 +1337,9 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      7ec:	09 f4       	brne	.+2      	; 0x7f0 <DIO_readPin+0x78>
      7ee:	64 c0       	rjmp	.+200    	; 0x8b8 <__stack+0x59>
      7f0:	84 c0       	rjmp	.+264    	; 0x8fa <__stack+0x9b>
-            {
-            case DIO_PORTA:
-                *ptr_pinState = READ_BIT(PINA_INPUT_R, enu_pinID);
+		    {
+		    case DIO_PORTA:
+			*ptr_pinState = READ_BIT(PINA_INPUT_R, enu_pinID);
      7f2:	e9 e3       	ldi	r30, 0x39	; 57
      7f4:	f0 e0       	ldi	r31, 0x00	; 0
      7f6:	80 81       	ld	r24, Z
@@ -1371,12 +1371,12 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      82a:	ec 81       	ldd	r30, Y+4	; 0x04
      82c:	fd 81       	ldd	r31, Y+5	; 0x05
      82e:	80 83       	st	Z, r24
-                enu_ErrorState = DIO_E_PARAM_VALID;
+			enu_ErrorState = DIO_E_PARAM_VALID;
      830:	19 82       	std	Y+1, r1	; 0x01
      832:	68 c0       	rjmp	.+208    	; 0x904 <__stack+0xa5>
-                break;
-            case DIO_PORTB:
-                *ptr_pinState = READ_BIT(PINB_INPUT_R, enu_pinID);
+			break;
+		    case DIO_PORTB:
+			*ptr_pinState = READ_BIT(PINB_INPUT_R, enu_pinID);
      834:	e6 e3       	ldi	r30, 0x36	; 54
      836:	f0 e0       	ldi	r31, 0x00	; 0
      838:	80 81       	ld	r24, Z
@@ -1408,12 +1408,12 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      86c:	ec 81       	ldd	r30, Y+4	; 0x04
      86e:	fd 81       	ldd	r31, Y+5	; 0x05
      870:	80 83       	st	Z, r24
-                enu_ErrorState = DIO_E_PARAM_VALID;
+			enu_ErrorState = DIO_E_PARAM_VALID;
      872:	19 82       	std	Y+1, r1	; 0x01
      874:	47 c0       	rjmp	.+142    	; 0x904 <__stack+0xa5>
-                break;
-            case DIO_PORTC:
-                *ptr_pinState = READ_BIT(PINC_INPUT_R, enu_pinID);
+			break;
+		    case DIO_PORTC:
+			*ptr_pinState = READ_BIT(PINC_INPUT_R, enu_pinID);
      876:	e3 e3       	ldi	r30, 0x33	; 51
      878:	f0 e0       	ldi	r31, 0x00	; 0
      87a:	80 81       	ld	r24, Z
@@ -1445,12 +1445,12 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      8ae:	ec 81       	ldd	r30, Y+4	; 0x04
      8b0:	fd 81       	ldd	r31, Y+5	; 0x05
      8b2:	80 83       	st	Z, r24
-                enu_ErrorState = DIO_E_PARAM_VALID;
+			enu_ErrorState = DIO_E_PARAM_VALID;
      8b4:	19 82       	std	Y+1, r1	; 0x01
      8b6:	26 c0       	rjmp	.+76     	; 0x904 <__stack+0xa5>
-                break;
-            case DIO_PORTD:
-                *ptr_pinState = READ_BIT(PIND_INPUT_R, enu_pinID);
+			break;
+		    case DIO_PORTD:
+			*ptr_pinState = READ_BIT(PIND_INPUT_R, enu_pinID);
      8b8:	e0 e3       	ldi	r30, 0x30	; 48
      8ba:	f0 e0       	ldi	r31, 0x00	; 0
      8bc:	80 81       	ld	r24, Z
@@ -1482,24 +1482,24 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      8f0:	ec 81       	ldd	r30, Y+4	; 0x04
      8f2:	fd 81       	ldd	r31, Y+5	; 0x05
      8f4:	80 83       	st	Z, r24
-                enu_ErrorState = DIO_E_PARAM_VALID;
+			enu_ErrorState = DIO_E_PARAM_VALID;
      8f6:	19 82       	std	Y+1, r1	; 0x01
      8f8:	05 c0       	rjmp	.+10     	; 0x904 <__stack+0xa5>
-                break;
-            default:
-            	enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
+			break;
+		    default:
+			enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
      8fa:	81 e0       	ldi	r24, 0x01	; 1
      8fc:	89 83       	std	Y+1, r24	; 0x01
      8fe:	02 c0       	rjmp	.+4      	; 0x904 <__stack+0xa5>
-                break;
-            }
-        }
-        else
-        {
-        	enu_ErrorState = DIO_E_PARAM_INVALID_PIN_ID;	/* Invalid pin id */
+			break;
+		    }
+		}
+		else
+		{
+			enu_ErrorState = DIO_E_PARAM_INVALID_PIN_ID;	/* Invalid pin id */
      900:	82 e0       	ldi	r24, 0x02	; 2
      902:	89 83       	std	Y+1, r24	; 0x01
-        }
+		}
 	}
     return enu_ErrorState;
      904:	89 81       	ldd	r24, Y+1	; 0x01
@@ -1515,9 +1515,9 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      916:	08 95       	ret
 
 00000918 <DIO_TogglePin>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_TogglePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinID)
 {
@@ -1702,9 +1702,9 @@ enuDIO_E_STATE_t DIO_TogglePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pi
      a38:	08 95       	ret
 
 00000a3a <TIMER_init>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *************************************************************************************/
 enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr)
 {
@@ -1897,7 +1897,7 @@ enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr)
      b3e:	31 05       	cpc	r19, r1
      b40:	39 f0       	breq	.+14     	; 0xb50 <TIMER_init+0x116>
      b42:	1c c0       	rjmp	.+56     	; 0xb7c <TIMER_init+0x142>
-		 *  - Non PWM Mode (FOC1A = 1 & FOC1B = 1)  in TCCR1A register
+		 *  	- Non PWM Mode (FOC1A = 1 & FOC1B = 1)  in TCCR1A register
 		 * 	- Normal  Mode (WGM10 = 0 & WGM11 = 0 & WGM12 = 0 & WGM13 = 0)
 		 */
 		case NORMAL:
@@ -1968,7 +1968,7 @@ enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr)
 		/*
 		 * Insert the required initial value in the TCNT2 register
 		 * TIMER2 is (8-bit), so mask the initial value with 0xFF to ensure that it
-	     * does not exceed 255
+	    	 * does not exceed 255
 		 */
 		TCNT2_R = ( (Config_Ptr -> intialValue) & 0xFF);
      b94:	a4 e4       	ldi	r26, 0x44	; 68
@@ -2063,9 +2063,9 @@ enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr)
      c06:	08 95       	ret
 
 00000c08 <TIMER_start>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_start(const enuTIMER_ID_t enu_timerID, const enuTIMER_Clock_t enu_timerClock)
 {
@@ -2178,10 +2178,10 @@ enuTIMER_E_STATE_t TIMER_start(const enuTIMER_ID_t enu_timerID, const enuTIMER_C
 
 00000ca2 <TIMER_checkStatus>:
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  *******************************************************************************/
 enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuTIMER_ModeType_t enu_timerMode,
-								     uint8_t * ptr_flagStatus)
+				     uint8_t * ptr_flagStatus)
 {
      ca2:	df 93       	push	r29
      ca4:	cf 93       	push	r28
@@ -2245,7 +2245,7 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      d0a:	34 c0       	rjmp	.+104    	; 0xd74 <TIMER_checkStatus+0xd2>
 		{
 		case NORMAL:
-					if(BIT_IS_SET(TIFR_R, TOV0_BIT))
+				if(BIT_IS_SET(TIFR_R, TOV0_BIT))
      d0c:	e8 e5       	ldi	r30, 0x58	; 88
      d0e:	f0 e0       	ldi	r31, 0x00	; 0
      d10:	80 81       	ld	r24, Z
@@ -2255,13 +2255,13 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      d18:	90 70       	andi	r25, 0x00	; 0
      d1a:	88 23       	and	r24, r24
      d1c:	61 f0       	breq	.+24     	; 0xd36 <TIMER_checkStatus+0x94>
-					{
-						*ptr_flagStatus = TRUE;
+				{
+					*ptr_flagStatus = TRUE;
      d1e:	ec 81       	ldd	r30, Y+4	; 0x04
      d20:	fd 81       	ldd	r31, Y+5	; 0x05
      d22:	81 e0       	ldi	r24, 0x01	; 1
      d24:	80 83       	st	Z, r24
-						SET_BIT(TIFR_R, TOV0_BIT);
+					SET_BIT(TIFR_R, TOV0_BIT);
      d26:	a8 e5       	ldi	r26, 0x58	; 88
      d28:	b0 e0       	ldi	r27, 0x00	; 0
      d2a:	e8 e5       	ldi	r30, 0x58	; 88
@@ -2270,21 +2270,21 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      d30:	81 60       	ori	r24, 0x01	; 1
      d32:	8c 93       	st	X, r24
      d34:	03 c0       	rjmp	.+6      	; 0xd3c <TIMER_checkStatus+0x9a>
-					}
-					else
-					{
-						*ptr_flagStatus = FALSE;
+				}
+				else
+				{
+					*ptr_flagStatus = FALSE;
      d36:	ec 81       	ldd	r30, Y+4	; 0x04
      d38:	fd 81       	ldd	r31, Y+5	; 0x05
      d3a:	10 82       	st	Z, r1
-					}
-					enu_ErrorState = TIMER_E_PARAM_VALID;
+				}
+				enu_ErrorState = TIMER_E_PARAM_VALID;
      d3c:	19 82       	std	Y+1, r1	; 0x01
      d3e:	a7 c0       	rjmp	.+334    	; 0xe8e <TIMER_checkStatus+0x1ec>
-					break;
+				break;
 
 		case COMPARE:
-					if(BIT_IS_SET(TIFR_R, OCF0_BIT))
+				if(BIT_IS_SET(TIFR_R, OCF0_BIT))
      d40:	e8 e5       	ldi	r30, 0x58	; 88
      d42:	f0 e0       	ldi	r31, 0x00	; 0
      d44:	80 81       	ld	r24, Z
@@ -2294,13 +2294,13 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      d4c:	90 70       	andi	r25, 0x00	; 0
      d4e:	00 97       	sbiw	r24, 0x00	; 0
      d50:	61 f0       	breq	.+24     	; 0xd6a <TIMER_checkStatus+0xc8>
-					{
-						*ptr_flagStatus = TRUE;
+				{
+					*ptr_flagStatus = TRUE;
      d52:	ec 81       	ldd	r30, Y+4	; 0x04
      d54:	fd 81       	ldd	r31, Y+5	; 0x05
      d56:	81 e0       	ldi	r24, 0x01	; 1
      d58:	80 83       	st	Z, r24
-						SET_BIT(TIFR_R, OCF0_BIT);
+					SET_BIT(TIFR_R, OCF0_BIT);
      d5a:	a8 e5       	ldi	r26, 0x58	; 88
      d5c:	b0 e0       	ldi	r27, 0x00	; 0
      d5e:	e8 e5       	ldi	r30, 0x58	; 88
@@ -2309,20 +2309,20 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      d64:	82 60       	ori	r24, 0x02	; 2
      d66:	8c 93       	st	X, r24
      d68:	03 c0       	rjmp	.+6      	; 0xd70 <TIMER_checkStatus+0xce>
-					}
-					else
-					{
-						*ptr_flagStatus = FALSE;
+				}
+				else
+				{
+					*ptr_flagStatus = FALSE;
      d6a:	ec 81       	ldd	r30, Y+4	; 0x04
      d6c:	fd 81       	ldd	r31, Y+5	; 0x05
      d6e:	10 82       	st	Z, r1
-					}
-					enu_ErrorState = TIMER_E_PARAM_VALID;
+				}
+				enu_ErrorState = TIMER_E_PARAM_VALID;
      d70:	19 82       	std	Y+1, r1	; 0x01
      d72:	8d c0       	rjmp	.+282    	; 0xe8e <TIMER_checkStatus+0x1ec>
-					break;
+				break;
 		default :
-					enu_ErrorState = TIMER_E_PARAM_INVALID_MODE;	/* Invalid timer mode */
+				enu_ErrorState = TIMER_E_PARAM_INVALID_MODE;	/* Invalid timer mode */
      d74:	82 e0       	ldi	r24, 0x02	; 2
      d76:	89 83       	std	Y+1, r24	; 0x01
      d78:	8a c0       	rjmp	.+276    	; 0xe8e <TIMER_checkStatus+0x1ec>
@@ -2349,7 +2349,7 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      d96:	34 c0       	rjmp	.+104    	; 0xe00 <TIMER_checkStatus+0x15e>
 		{
 		case NORMAL:
-					if(BIT_IS_SET(TIFR_R, TOV1_BIT))
+				if(BIT_IS_SET(TIFR_R, TOV1_BIT))
      d98:	e8 e5       	ldi	r30, 0x58	; 88
      d9a:	f0 e0       	ldi	r31, 0x00	; 0
      d9c:	80 81       	ld	r24, Z
@@ -2359,13 +2359,13 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      da4:	90 70       	andi	r25, 0x00	; 0
      da6:	00 97       	sbiw	r24, 0x00	; 0
      da8:	61 f0       	breq	.+24     	; 0xdc2 <TIMER_checkStatus+0x120>
-					{
-						*ptr_flagStatus = TRUE;
+				{
+					*ptr_flagStatus = TRUE;
      daa:	ec 81       	ldd	r30, Y+4	; 0x04
      dac:	fd 81       	ldd	r31, Y+5	; 0x05
      dae:	81 e0       	ldi	r24, 0x01	; 1
      db0:	80 83       	st	Z, r24
-						SET_BIT(TIFR_R, TOV1_BIT);
+					SET_BIT(TIFR_R, TOV1_BIT);
      db2:	a8 e5       	ldi	r26, 0x58	; 88
      db4:	b0 e0       	ldi	r27, 0x00	; 0
      db6:	e8 e5       	ldi	r30, 0x58	; 88
@@ -2374,21 +2374,21 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      dbc:	84 60       	ori	r24, 0x04	; 4
      dbe:	8c 93       	st	X, r24
      dc0:	03 c0       	rjmp	.+6      	; 0xdc8 <TIMER_checkStatus+0x126>
-					}
-					else
-					{
-						*ptr_flagStatus = FALSE;
+				}
+				else
+				{
+					*ptr_flagStatus = FALSE;
      dc2:	ec 81       	ldd	r30, Y+4	; 0x04
      dc4:	fd 81       	ldd	r31, Y+5	; 0x05
      dc6:	10 82       	st	Z, r1
-					}
-					enu_ErrorState = TIMER_E_PARAM_VALID;
+				}
+				enu_ErrorState = TIMER_E_PARAM_VALID;
      dc8:	19 82       	std	Y+1, r1	; 0x01
      dca:	61 c0       	rjmp	.+194    	; 0xe8e <TIMER_checkStatus+0x1ec>
-					break;
+				break;
 
 		case COMPARE:
-					if(BIT_IS_SET(TIFR_R, OCF1A_BIT))
+				if(BIT_IS_SET(TIFR_R, OCF1A_BIT))
      dcc:	e8 e5       	ldi	r30, 0x58	; 88
      dce:	f0 e0       	ldi	r31, 0x00	; 0
      dd0:	80 81       	ld	r24, Z
@@ -2398,13 +2398,13 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      dd8:	90 70       	andi	r25, 0x00	; 0
      dda:	00 97       	sbiw	r24, 0x00	; 0
      ddc:	61 f0       	breq	.+24     	; 0xdf6 <TIMER_checkStatus+0x154>
-					{
-						*ptr_flagStatus = TRUE;
+				{
+					*ptr_flagStatus = TRUE;
      dde:	ec 81       	ldd	r30, Y+4	; 0x04
      de0:	fd 81       	ldd	r31, Y+5	; 0x05
      de2:	81 e0       	ldi	r24, 0x01	; 1
      de4:	80 83       	st	Z, r24
-						SET_BIT(TIFR_R, OCF1A_BIT);
+					SET_BIT(TIFR_R, OCF1A_BIT);
      de6:	a8 e5       	ldi	r26, 0x58	; 88
      de8:	b0 e0       	ldi	r27, 0x00	; 0
      dea:	e8 e5       	ldi	r30, 0x58	; 88
@@ -2413,20 +2413,20 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      df0:	80 61       	ori	r24, 0x10	; 16
      df2:	8c 93       	st	X, r24
      df4:	03 c0       	rjmp	.+6      	; 0xdfc <TIMER_checkStatus+0x15a>
-					}
-					else
-					{
-						*ptr_flagStatus = FALSE;
+				}
+				else
+				{
+					*ptr_flagStatus = FALSE;
      df6:	ec 81       	ldd	r30, Y+4	; 0x04
      df8:	fd 81       	ldd	r31, Y+5	; 0x05
      dfa:	10 82       	st	Z, r1
-					}
-					enu_ErrorState = TIMER_E_PARAM_VALID;
+				}
+				enu_ErrorState = TIMER_E_PARAM_VALID;
      dfc:	19 82       	std	Y+1, r1	; 0x01
      dfe:	47 c0       	rjmp	.+142    	; 0xe8e <TIMER_checkStatus+0x1ec>
-					break;
+				break;
 		default :
-					enu_ErrorState = TIMER_E_PARAM_INVALID_MODE;	/* Invalid timer mode */
+				enu_ErrorState = TIMER_E_PARAM_INVALID_MODE;	/* Invalid timer mode */
      e00:	82 e0       	ldi	r24, 0x02	; 2
      e02:	89 83       	std	Y+1, r24	; 0x01
      e04:	44 c0       	rjmp	.+136    	; 0xe8e <TIMER_checkStatus+0x1ec>
@@ -2453,7 +2453,7 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      e22:	30 c0       	rjmp	.+96     	; 0xe84 <TIMER_checkStatus+0x1e2>
 		{
 		case NORMAL:
-					if(BIT_IS_SET(TIFR_R, TOV2_BIT))
+				if(BIT_IS_SET(TIFR_R, TOV2_BIT))
      e24:	e8 e5       	ldi	r30, 0x58	; 88
      e26:	f0 e0       	ldi	r31, 0x00	; 0
      e28:	80 81       	ld	r24, Z
@@ -2463,13 +2463,13 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      e30:	90 70       	andi	r25, 0x00	; 0
      e32:	00 97       	sbiw	r24, 0x00	; 0
      e34:	61 f0       	breq	.+24     	; 0xe4e <TIMER_checkStatus+0x1ac>
-					{
-						*ptr_flagStatus = TRUE;
+				{
+					*ptr_flagStatus = TRUE;
      e36:	ec 81       	ldd	r30, Y+4	; 0x04
      e38:	fd 81       	ldd	r31, Y+5	; 0x05
      e3a:	81 e0       	ldi	r24, 0x01	; 1
      e3c:	80 83       	st	Z, r24
-						SET_BIT(TIFR_R, TOV2_BIT);
+					SET_BIT(TIFR_R, TOV2_BIT);
      e3e:	a8 e5       	ldi	r26, 0x58	; 88
      e40:	b0 e0       	ldi	r27, 0x00	; 0
      e42:	e8 e5       	ldi	r30, 0x58	; 88
@@ -2478,33 +2478,33 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      e48:	80 64       	ori	r24, 0x40	; 64
      e4a:	8c 93       	st	X, r24
      e4c:	03 c0       	rjmp	.+6      	; 0xe54 <TIMER_checkStatus+0x1b2>
-					}
-					else
-					{
-						*ptr_flagStatus = FALSE;
+				}
+				else
+				{
+					*ptr_flagStatus = FALSE;
      e4e:	ec 81       	ldd	r30, Y+4	; 0x04
      e50:	fd 81       	ldd	r31, Y+5	; 0x05
      e52:	10 82       	st	Z, r1
-					}
-					enu_ErrorState = TIMER_E_PARAM_VALID;
+				}
+				enu_ErrorState = TIMER_E_PARAM_VALID;
      e54:	19 82       	std	Y+1, r1	; 0x01
      e56:	1b c0       	rjmp	.+54     	; 0xe8e <TIMER_checkStatus+0x1ec>
-					break;
+				break;
 
 		case COMPARE:
-					if(BIT_IS_SET(TIFR_R, OCF2_BIT))
+				if(BIT_IS_SET(TIFR_R, OCF2_BIT))
      e58:	e8 e5       	ldi	r30, 0x58	; 88
      e5a:	f0 e0       	ldi	r31, 0x00	; 0
      e5c:	80 81       	ld	r24, Z
      e5e:	88 23       	and	r24, r24
      e60:	64 f4       	brge	.+24     	; 0xe7a <TIMER_checkStatus+0x1d8>
-					{
-						*ptr_flagStatus = TRUE;
+				{
+					*ptr_flagStatus = TRUE;
      e62:	ec 81       	ldd	r30, Y+4	; 0x04
      e64:	fd 81       	ldd	r31, Y+5	; 0x05
      e66:	81 e0       	ldi	r24, 0x01	; 1
      e68:	80 83       	st	Z, r24
-						SET_BIT(TIFR_R, OCF2_BIT);
+					SET_BIT(TIFR_R, OCF2_BIT);
      e6a:	a8 e5       	ldi	r26, 0x58	; 88
      e6c:	b0 e0       	ldi	r27, 0x00	; 0
      e6e:	e8 e5       	ldi	r30, 0x58	; 88
@@ -2513,24 +2513,24 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      e74:	80 68       	ori	r24, 0x80	; 128
      e76:	8c 93       	st	X, r24
      e78:	03 c0       	rjmp	.+6      	; 0xe80 <TIMER_checkStatus+0x1de>
-					}
-					else
-					{
-						*ptr_flagStatus = FALSE;
+				}
+				else
+				{
+					*ptr_flagStatus = FALSE;
      e7a:	ec 81       	ldd	r30, Y+4	; 0x04
      e7c:	fd 81       	ldd	r31, Y+5	; 0x05
      e7e:	10 82       	st	Z, r1
-					}
-					enu_ErrorState = TIMER_E_PARAM_VALID;
+				}
+				enu_ErrorState = TIMER_E_PARAM_VALID;
      e80:	19 82       	std	Y+1, r1	; 0x01
      e82:	05 c0       	rjmp	.+10     	; 0xe8e <TIMER_checkStatus+0x1ec>
-					break;
+				break;
 		default:
-					enu_ErrorState = TIMER_E_PARAM_INVALID_MODE;	/* Invalid timer mode */
+				enu_ErrorState = TIMER_E_PARAM_INVALID_MODE;	/* Invalid timer mode */
      e84:	82 e0       	ldi	r24, 0x02	; 2
      e86:	89 83       	std	Y+1, r24	; 0x01
      e88:	02 c0       	rjmp	.+4      	; 0xe8e <TIMER_checkStatus+0x1ec>
-					break;
+				break;
 		}
 	break;	/* END CASE OF TIMER2 */
 
@@ -2554,9 +2554,9 @@ enuTIMER_E_STATE_t TIMER_checkStatus(const enuTIMER_ID_t enu_timerID, const enuT
      ea0:	08 95       	ret
 
 00000ea2 <TIMER_stop>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  *******************************************************************************/
 enuTIMER_E_STATE_t TIMER_stop(const enuTIMER_ID_t enu_timerID)
 {
@@ -2656,9 +2656,9 @@ enuTIMER_E_STATE_t TIMER_stop(const enuTIMER_ID_t enu_timerID)
      f22:	08 95       	ret
 
 00000f24 <TIMER_DeInit>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ****************************************************************************************/
 enuTIMER_E_STATE_t TIMER_DeInit(const enuTIMER_ID_t enu_timerID)
 {
@@ -2848,9 +2848,9 @@ enuTIMER_E_STATE_t TIMER_DeInit(const enuTIMER_ID_t enu_timerID)
     1010:	08 95       	ret
 
 00001012 <LED_init>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void LED_init(void)
 {
@@ -2876,9 +2876,9 @@ void LED_init(void)
     1032:	08 95       	ret
 
 00001034 <LED_turnOn>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void LED_turnOn(void)
 {
@@ -2897,9 +2897,9 @@ void LED_turnOn(void)
     104a:	08 95       	ret
 
 0000104c <LED_turnOff>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void LED_turnOff(void)
 {
@@ -2918,9 +2918,9 @@ void LED_turnOff(void)
     1062:	08 95       	ret
 
 00001064 <LED_toggle>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void LED_toggle(void)
 {
@@ -2938,9 +2938,9 @@ void LED_toggle(void)
     1078:	08 95       	ret
 
 0000107a <App_init>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void App_init(void)
 {
@@ -3014,9 +3014,9 @@ void App_init(void)
     10f2:	08 95       	ret
 
 000010f4 <App_Update>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void App_Update(void)
 {
@@ -3088,7 +3088,7 @@ int main(void)
 
 	App_init();	/* Initialize the application */
     114c:	0e 94 3d 08 	call	0x107a	; 0x107a <App_init>
-	 *                        APPLICATION	(SUPER LOOP)						    *
+	 *                        APPLICATION	(SUPER LOOP)				*
 	 ********************************************************************************/
 
 	while(1)

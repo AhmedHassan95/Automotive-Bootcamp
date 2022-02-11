@@ -3,15 +3,15 @@ TIMER.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000012a0  00000000  00000000  00000094  2**1
+  0 .text         0000128e  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000006  00800060  000012a0  00001334  2**0
+  1 .data         00000006  00800060  0000128e  00001322  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000007  00800066  00800066  0000133a  2**0
+  2 .bss          00000007  00800066  00800066  00001328  2**0
                   ALLOC
-  3 .stab         00001e3c  00000000  00000000  0000133c  2**2
+  3 .stab         00001e30  00000000  00000000  00001328  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      000017aa  00000000  00000000  00003178  2**0
+  4 .stabstr      000017aa  00000000  00000000  00003158  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -51,7 +51,7 @@ Disassembly of section .text:
       60:	10 e0       	ldi	r17, 0x00	; 0
       62:	a0 e6       	ldi	r26, 0x60	; 96
       64:	b0 e0       	ldi	r27, 0x00	; 0
-      66:	e0 ea       	ldi	r30, 0xA0	; 160
+      66:	ee e8       	ldi	r30, 0x8E	; 142
       68:	f2 e1       	ldi	r31, 0x12	; 18
       6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
@@ -77,16 +77,16 @@ Disassembly of section .text:
       80:	ad 36       	cpi	r26, 0x6D	; 109
       82:	b1 07       	cpc	r27, r17
       84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
-      86:	0e 94 47 09 	call	0x128e	; 0x128e <main>
-      8a:	0c 94 4e 09 	jmp	0x129c	; 0x129c <_exit>
+      86:	0e 94 3e 09 	call	0x127c	; 0x127c <main>
+      8a:	0c 94 45 09 	jmp	0x128a	; 0x128a <_exit>
 
 0000008e <__bad_interrupt>:
       8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 00000092 <DIO_setPortDirection>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_setPortDirection(enuDIO_PortId_t enu_portID, enuDIO_DirectionType_t enu_portDirection)
 {
@@ -296,10 +296,10 @@ enuDIO_E_STATE_t DIO_setPortDirection(enuDIO_PortId_t enu_portID, enuDIO_Directi
 
 000001b2 <DIO_setPinDirection>:
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  *******************************************************************************/
 enuDIO_E_STATE_t DIO_setPinDirection(enuDIO_PortId_t enu_portID , enuDIO_PinId_t enu_pinID,
-								     enuDIO_DirectionType_t enu_pinDirection)
+				     enuDIO_DirectionType_t enu_pinDirection)
 {
      1b2:	df 93       	push	r29
      1b4:	cf 93       	push	r28
@@ -465,12 +465,12 @@ enuDIO_E_STATE_t DIO_setPinDirection(enuDIO_PortId_t enu_portID , enuDIO_PinId_t
      2c4:	19 82       	std	Y+1, r1	; 0x01
      2c6:	87 c0       	rjmp	.+270    	; 0x3d6 <DIO_setPinDirection+0x224>
 				break;
-            default:
-            	enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
+		    	default:
+				enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
      2c8:	81 e0       	ldi	r24, 0x01	; 1
      2ca:	89 83       	std	Y+1, r24	; 0x01
      2cc:	84 c0       	rjmp	.+264    	; 0x3d6 <DIO_setPinDirection+0x224>
-                break;
+				break;
 			}
 		}
 		else if (enu_pinDirection == INPUT)
@@ -617,12 +617,12 @@ enuDIO_E_STATE_t DIO_setPinDirection(enuDIO_PortId_t enu_portID , enuDIO_PinId_t
      3c2:	19 82       	std	Y+1, r1	; 0x01
      3c4:	08 c0       	rjmp	.+16     	; 0x3d6 <DIO_setPinDirection+0x224>
 				break;
-            default:
-            	enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
+		    	default:
+				enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
      3c6:	81 e0       	ldi	r24, 0x01	; 1
      3c8:	89 83       	std	Y+1, r24	; 0x01
      3ca:	05 c0       	rjmp	.+10     	; 0x3d6 <DIO_setPinDirection+0x224>
-                break;
+				break;
 			}
 		}
 		else
@@ -653,9 +653,9 @@ enuDIO_E_STATE_t DIO_setPinDirection(enuDIO_PortId_t enu_portID , enuDIO_PinId_t
      3e8:	08 95       	ret
 
 000003ea <DIO_writePort>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_writePort(enuDIO_PortId_t enu_portID, uint8_t au8_portValue)
 {
@@ -764,9 +764,9 @@ enuDIO_E_STATE_t DIO_writePort(enuDIO_PortId_t enu_portID, uint8_t au8_portValue
      482:	08 95       	ret
 
 00000484 <DIO_writePin>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_writePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinID, uint8_t au8_pinValue)
 {
@@ -934,12 +934,12 @@ enuDIO_E_STATE_t DIO_writePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pin
      596:	19 82       	std	Y+1, r1	; 0x01
      598:	87 c0       	rjmp	.+270    	; 0x6a8 <DIO_writePin+0x224>
 				break;
-            default:
-            	enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
+		    	default:
+				enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
      59a:	81 e0       	ldi	r24, 0x01	; 1
      59c:	89 83       	std	Y+1, r24	; 0x01
      59e:	84 c0       	rjmp	.+264    	; 0x6a8 <DIO_writePin+0x224>
-                break;
+				break;
 			}
 		}
 		else if (au8_pinValue == LOW)
@@ -1086,16 +1086,16 @@ enuDIO_E_STATE_t DIO_writePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pin
      694:	19 82       	std	Y+1, r1	; 0x01
      696:	08 c0       	rjmp	.+16     	; 0x6a8 <DIO_writePin+0x224>
 				break;
-            default:
-            	enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
+		   	default:
+				enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
      698:	81 e0       	ldi	r24, 0x01	; 1
      69a:	89 83       	std	Y+1, r24	; 0x01
      69c:	05 c0       	rjmp	.+10     	; 0x6a8 <DIO_writePin+0x224>
-                break;
+				break;
 			}
 		}
 		else
-        {
+        	{
 			enu_ErrorState = DIO_E_PARAM_INVALID_PORT_DIR;	/* Invalid port direction */
      69e:	84 e0       	ldi	r24, 0x04	; 4
      6a0:	89 83       	std	Y+1, r24	; 0x01
@@ -1122,9 +1122,9 @@ enuDIO_E_STATE_t DIO_writePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pin
      6ba:	08 95       	ret
 
 000006bc <DIO_readPort>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_readPort(enuDIO_PortId_t enu_portID, uint8_t * ptr_portState)
 {
@@ -1148,7 +1148,7 @@ enuDIO_E_STATE_t DIO_readPort(enuDIO_PortId_t enu_portID, uint8_t * ptr_portStat
      6d6:	9c 81       	ldd	r25, Y+4	; 0x04
      6d8:	00 97       	sbiw	r24, 0x00	; 0
      6da:	19 f4       	brne	.+6      	; 0x6e2 <DIO_readPort+0x26>
-    {
+    	{
 		enu_ErrorState = DIO_E_PARAM_POINTER;	/* Invalid pointer */
      6dc:	85 e0       	ldi	r24, 0x05	; 5
      6de:	89 83       	std	Y+1, r24	; 0x01
@@ -1258,9 +1258,9 @@ enuDIO_E_STATE_t DIO_readPort(enuDIO_PortId_t enu_portID, uint8_t * ptr_portStat
      776:	08 95       	ret
 
 00000778 <DIO_readPin>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinID, uint8_t * ptr_pinState)
 {
@@ -1288,7 +1288,7 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      79a:	9d 81       	ldd	r25, Y+5	; 0x05
      79c:	00 97       	sbiw	r24, 0x00	; 0
      79e:	19 f4       	brne	.+6      	; 0x7a6 <DIO_readPin+0x2e>
-    {
+    	{
 		enu_ErrorState = DIO_E_PARAM_POINTER;
      7a0:	85 e0       	ldi	r24, 0x05	; 5
      7a2:	89 83       	std	Y+1, r24	; 0x01
@@ -1296,13 +1296,13 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
 	}
 	else
 	{
-        if((enu_pinID >= PIN_0) && (enu_pinID <= PIN_7))
+		if((enu_pinID >= PIN_0) && (enu_pinID <= PIN_7))
      7a6:	8b 81       	ldd	r24, Y+3	; 0x03
      7a8:	88 30       	cpi	r24, 0x08	; 8
      7aa:	08 f0       	brcs	.+2      	; 0x7ae <DIO_readPin+0x36>
      7ac:	a9 c0       	rjmp	.+338    	; 0x900 <__stack+0xa1>
-        {
-            switch (enu_portID)
+		{
+		    switch (enu_portID)
      7ae:	8a 81       	ldd	r24, Y+2	; 0x02
      7b0:	28 2f       	mov	r18, r24
      7b2:	30 e0       	ldi	r19, 0x00	; 0
@@ -1337,9 +1337,9 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      7ec:	09 f4       	brne	.+2      	; 0x7f0 <DIO_readPin+0x78>
      7ee:	64 c0       	rjmp	.+200    	; 0x8b8 <__stack+0x59>
      7f0:	84 c0       	rjmp	.+264    	; 0x8fa <__stack+0x9b>
-            {
-            case DIO_PORTA:
-                *ptr_pinState = READ_BIT(PINA_INPUT_R, enu_pinID);
+		    {
+		    case DIO_PORTA:
+			*ptr_pinState = READ_BIT(PINA_INPUT_R, enu_pinID);
      7f2:	e9 e3       	ldi	r30, 0x39	; 57
      7f4:	f0 e0       	ldi	r31, 0x00	; 0
      7f6:	80 81       	ld	r24, Z
@@ -1371,12 +1371,12 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      82a:	ec 81       	ldd	r30, Y+4	; 0x04
      82c:	fd 81       	ldd	r31, Y+5	; 0x05
      82e:	80 83       	st	Z, r24
-                enu_ErrorState = DIO_E_PARAM_VALID;
+			enu_ErrorState = DIO_E_PARAM_VALID;
      830:	19 82       	std	Y+1, r1	; 0x01
      832:	68 c0       	rjmp	.+208    	; 0x904 <__stack+0xa5>
-                break;
-            case DIO_PORTB:
-                *ptr_pinState = READ_BIT(PINB_INPUT_R, enu_pinID);
+			break;
+		    case DIO_PORTB:
+			*ptr_pinState = READ_BIT(PINB_INPUT_R, enu_pinID);
      834:	e6 e3       	ldi	r30, 0x36	; 54
      836:	f0 e0       	ldi	r31, 0x00	; 0
      838:	80 81       	ld	r24, Z
@@ -1408,12 +1408,12 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      86c:	ec 81       	ldd	r30, Y+4	; 0x04
      86e:	fd 81       	ldd	r31, Y+5	; 0x05
      870:	80 83       	st	Z, r24
-                enu_ErrorState = DIO_E_PARAM_VALID;
+			enu_ErrorState = DIO_E_PARAM_VALID;
      872:	19 82       	std	Y+1, r1	; 0x01
      874:	47 c0       	rjmp	.+142    	; 0x904 <__stack+0xa5>
-                break;
-            case DIO_PORTC:
-                *ptr_pinState = READ_BIT(PINC_INPUT_R, enu_pinID);
+			break;
+		    case DIO_PORTC:
+			*ptr_pinState = READ_BIT(PINC_INPUT_R, enu_pinID);
      876:	e3 e3       	ldi	r30, 0x33	; 51
      878:	f0 e0       	ldi	r31, 0x00	; 0
      87a:	80 81       	ld	r24, Z
@@ -1445,12 +1445,12 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      8ae:	ec 81       	ldd	r30, Y+4	; 0x04
      8b0:	fd 81       	ldd	r31, Y+5	; 0x05
      8b2:	80 83       	st	Z, r24
-                enu_ErrorState = DIO_E_PARAM_VALID;
+			enu_ErrorState = DIO_E_PARAM_VALID;
      8b4:	19 82       	std	Y+1, r1	; 0x01
      8b6:	26 c0       	rjmp	.+76     	; 0x904 <__stack+0xa5>
-                break;
-            case DIO_PORTD:
-                *ptr_pinState = READ_BIT(PIND_INPUT_R, enu_pinID);
+			break;
+		    case DIO_PORTD:
+			*ptr_pinState = READ_BIT(PIND_INPUT_R, enu_pinID);
      8b8:	e0 e3       	ldi	r30, 0x30	; 48
      8ba:	f0 e0       	ldi	r31, 0x00	; 0
      8bc:	80 81       	ld	r24, Z
@@ -1482,24 +1482,24 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      8f0:	ec 81       	ldd	r30, Y+4	; 0x04
      8f2:	fd 81       	ldd	r31, Y+5	; 0x05
      8f4:	80 83       	st	Z, r24
-                enu_ErrorState = DIO_E_PARAM_VALID;
+			enu_ErrorState = DIO_E_PARAM_VALID;
      8f6:	19 82       	std	Y+1, r1	; 0x01
      8f8:	05 c0       	rjmp	.+10     	; 0x904 <__stack+0xa5>
-                break;
-            default:
-            	enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
+			break;
+		    default:
+			enu_ErrorState = DIO_E_PARAM_INVALID_PORT_ID;	/* Invalid port id */
      8fa:	81 e0       	ldi	r24, 0x01	; 1
      8fc:	89 83       	std	Y+1, r24	; 0x01
      8fe:	02 c0       	rjmp	.+4      	; 0x904 <__stack+0xa5>
-                break;
-            }
-        }
-        else
-        {
-        	enu_ErrorState = DIO_E_PARAM_INVALID_PIN_ID;	/* Invalid pin id */
+			break;
+		    }
+		}
+		else
+		{
+			enu_ErrorState = DIO_E_PARAM_INVALID_PIN_ID;	/* Invalid pin id */
      900:	82 e0       	ldi	r24, 0x02	; 2
      902:	89 83       	std	Y+1, r24	; 0x01
-        }
+		}
 	}
     return enu_ErrorState;
      904:	89 81       	ldd	r24, Y+1	; 0x01
@@ -1515,9 +1515,9 @@ enuDIO_E_STATE_t DIO_readPin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinI
      916:	08 95       	ret
 
 00000918 <DIO_TogglePin>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_TogglePin(enuDIO_PortId_t enu_portID, enuDIO_PinId_t enu_pinID)
 {
@@ -2083,9 +2083,9 @@ ISR(TIMER2_COMP_vect)
      c9c:	18 95       	reti
 
 00000c9e <TIMER_init>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *************************************************************************************/
 enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr)
 {
@@ -2381,7 +2381,7 @@ enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr)
 		/*
 		 * Insert the required initial value in the TCNT2 register
 		 * TIMER2 is (8-bit), so mask the initial value with 0xFF to ensure that it
-	     * does not exceed 255
+	     	 * does not exceed 255
 		 */
 		TCNT2_R = ( (Config_Ptr -> intialValue) & 0xFF);
      e30:	a4 e4       	ldi	r26, 0x44	; 68
@@ -2492,9 +2492,9 @@ enuTIMER_E_STATE_t TIMER_init(const strTIMER_ConfigType_t * Config_Ptr)
      ebe:	08 95       	ret
 
 00000ec0 <TIMER_setCallBack>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_setCallBack(void(*a_ptr)(void), const enuTIMER_ID_t enu_timerID)
 {
@@ -2602,9 +2602,9 @@ enuTIMER_E_STATE_t TIMER_setCallBack(void(*a_ptr)(void), const enuTIMER_ID_t enu
      f4c:	08 95       	ret
 
 00000f4e <TIMER_start>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_start(const enuTIMER_ID_t enu_timerID, const enuTIMER_Clock_t enu_timerClock)
 {
@@ -2716,9 +2716,9 @@ enuTIMER_E_STATE_t TIMER_start(const enuTIMER_ID_t enu_timerID, const enuTIMER_C
      fe6:	08 95       	ret
 
 00000fe8 <TIMER_stop>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_stop(const enuTIMER_ID_t enu_timerID)
 {
@@ -2818,9 +2818,9 @@ enuTIMER_E_STATE_t TIMER_stop(const enuTIMER_ID_t enu_timerID)
     1068:	08 95       	ret
 
 0000106a <TIMER_DeInit>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       Error state
+ * [Returns]:     Error state
  ******************************************************************************/
 enuTIMER_E_STATE_t TIMER_DeInit(const enuTIMER_ID_t enu_timerID)
 {
@@ -3010,9 +3010,9 @@ enuTIMER_E_STATE_t TIMER_DeInit(const enuTIMER_ID_t enu_timerID)
     1156:	08 95       	ret
 
 00001158 <LED_init>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void LED_init(void)
 {
@@ -3038,9 +3038,9 @@ void LED_init(void)
     1178:	08 95       	ret
 
 0000117a <LED_turnOn>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void LED_turnOn(void)
 {
@@ -3059,9 +3059,9 @@ void LED_turnOn(void)
     1190:	08 95       	ret
 
 00001192 <LED_turnOff>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void LED_turnOff(void)
 {
@@ -3080,9 +3080,9 @@ void LED_turnOff(void)
     11a8:	08 95       	ret
 
 000011aa <LED_toggle>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void LED_toggle(void)
 {
@@ -3140,9 +3140,9 @@ void AppCompareMatch(void)
     11f4:	08 95       	ret
 
 000011f6 <App_init>:
- * [in/out]		 	None
+ * [in/out]	  None
  *
- * [Returns]:       None
+ * [Returns]:     None
  *******************************************************************************/
 void App_init(void)
 {
@@ -3156,106 +3156,96 @@ void App_init(void)
     1204:	de bf       	out	0x3e, r29	; 62
     1206:	0f be       	out	0x3f, r0	; 63
     1208:	cd bf       	out	0x3d, r28	; 61
-	SREG_R |= (1<<7);	/* Enable Global Interrupt (I - bit) */
-    120a:	af e5       	ldi	r26, 0x5F	; 95
-    120c:	b0 e0       	ldi	r27, 0x00	; 0
-    120e:	ef e5       	ldi	r30, 0x5F	; 95
-    1210:	f0 e0       	ldi	r31, 0x00	; 0
-    1212:	80 81       	ld	r24, Z
-    1214:	80 68       	ori	r24, 0x80	; 128
-    1216:	8c 93       	st	X, r24
-
-	TIMER_DeInit(TIMER_1);	/* Return timer1 to it's initial value */
-    1218:	81 e0       	ldi	r24, 0x01	; 1
-    121a:	0e 94 35 08 	call	0x106a	; 0x106a <TIMER_DeInit>
+	sei();	/* Enable Global Interrupt (I - bit) */
+    120a:	78 94       	sei
 
 	LED_init();		/* LED Driver Initialization */
-    121e:	0e 94 ac 08 	call	0x1158	; 0x1158 <LED_init>
+    120c:	0e 94 ac 08 	call	0x1158	; 0x1158 <LED_init>
 
 	/* Configure the timer1 in overflow mode */
 	strTIMER_ConfigType_t timer_Config = {0, 781, TIMER_1, COMPARE};
-    1222:	ce 01       	movw	r24, r28
-    1224:	01 96       	adiw	r24, 0x01	; 1
-    1226:	98 87       	std	Y+8, r25	; 0x08
-    1228:	8f 83       	std	Y+7, r24	; 0x07
-    122a:	e0 e6       	ldi	r30, 0x60	; 96
-    122c:	f0 e0       	ldi	r31, 0x00	; 0
-    122e:	fa 87       	std	Y+10, r31	; 0x0a
-    1230:	e9 87       	std	Y+9, r30	; 0x09
-    1232:	f6 e0       	ldi	r31, 0x06	; 6
-    1234:	fb 87       	std	Y+11, r31	; 0x0b
-    1236:	e9 85       	ldd	r30, Y+9	; 0x09
-    1238:	fa 85       	ldd	r31, Y+10	; 0x0a
-    123a:	00 80       	ld	r0, Z
-    123c:	89 85       	ldd	r24, Y+9	; 0x09
-    123e:	9a 85       	ldd	r25, Y+10	; 0x0a
-    1240:	01 96       	adiw	r24, 0x01	; 1
-    1242:	9a 87       	std	Y+10, r25	; 0x0a
-    1244:	89 87       	std	Y+9, r24	; 0x09
-    1246:	ef 81       	ldd	r30, Y+7	; 0x07
-    1248:	f8 85       	ldd	r31, Y+8	; 0x08
-    124a:	00 82       	st	Z, r0
-    124c:	8f 81       	ldd	r24, Y+7	; 0x07
-    124e:	98 85       	ldd	r25, Y+8	; 0x08
-    1250:	01 96       	adiw	r24, 0x01	; 1
-    1252:	98 87       	std	Y+8, r25	; 0x08
-    1254:	8f 83       	std	Y+7, r24	; 0x07
-    1256:	9b 85       	ldd	r25, Y+11	; 0x0b
-    1258:	91 50       	subi	r25, 0x01	; 1
-    125a:	9b 87       	std	Y+11, r25	; 0x0b
-    125c:	eb 85       	ldd	r30, Y+11	; 0x0b
-    125e:	ee 23       	and	r30, r30
-    1260:	51 f7       	brne	.-44     	; 0x1236 <App_init+0x40>
+    1210:	ce 01       	movw	r24, r28
+    1212:	01 96       	adiw	r24, 0x01	; 1
+    1214:	98 87       	std	Y+8, r25	; 0x08
+    1216:	8f 83       	std	Y+7, r24	; 0x07
+    1218:	e0 e6       	ldi	r30, 0x60	; 96
+    121a:	f0 e0       	ldi	r31, 0x00	; 0
+    121c:	fa 87       	std	Y+10, r31	; 0x0a
+    121e:	e9 87       	std	Y+9, r30	; 0x09
+    1220:	f6 e0       	ldi	r31, 0x06	; 6
+    1222:	fb 87       	std	Y+11, r31	; 0x0b
+    1224:	e9 85       	ldd	r30, Y+9	; 0x09
+    1226:	fa 85       	ldd	r31, Y+10	; 0x0a
+    1228:	00 80       	ld	r0, Z
+    122a:	89 85       	ldd	r24, Y+9	; 0x09
+    122c:	9a 85       	ldd	r25, Y+10	; 0x0a
+    122e:	01 96       	adiw	r24, 0x01	; 1
+    1230:	9a 87       	std	Y+10, r25	; 0x0a
+    1232:	89 87       	std	Y+9, r24	; 0x09
+    1234:	ef 81       	ldd	r30, Y+7	; 0x07
+    1236:	f8 85       	ldd	r31, Y+8	; 0x08
+    1238:	00 82       	st	Z, r0
+    123a:	8f 81       	ldd	r24, Y+7	; 0x07
+    123c:	98 85       	ldd	r25, Y+8	; 0x08
+    123e:	01 96       	adiw	r24, 0x01	; 1
+    1240:	98 87       	std	Y+8, r25	; 0x08
+    1242:	8f 83       	std	Y+7, r24	; 0x07
+    1244:	9b 85       	ldd	r25, Y+11	; 0x0b
+    1246:	91 50       	subi	r25, 0x01	; 1
+    1248:	9b 87       	std	Y+11, r25	; 0x0b
+    124a:	eb 85       	ldd	r30, Y+11	; 0x0b
+    124c:	ee 23       	and	r30, r30
+    124e:	51 f7       	brne	.-44     	; 0x1224 <App_init+0x2e>
 
 	TIMER_init(&timer_Config);	/* Initialize the timer */
-    1262:	ce 01       	movw	r24, r28
-    1264:	01 96       	adiw	r24, 0x01	; 1
-    1266:	0e 94 4f 06 	call	0xc9e	; 0xc9e <TIMER_init>
+    1250:	ce 01       	movw	r24, r28
+    1252:	01 96       	adiw	r24, 0x01	; 1
+    1254:	0e 94 4f 06 	call	0xc9e	; 0xc9e <TIMER_init>
 
 	/* Set the function to be called when interrupt is fired */
 	TIMER_setCallBack(AppCompareMatch, TIMER_1);
-    126a:	80 ee       	ldi	r24, 0xE0	; 224
-    126c:	98 e0       	ldi	r25, 0x08	; 8
-    126e:	61 e0       	ldi	r22, 0x01	; 1
-    1270:	0e 94 60 07 	call	0xec0	; 0xec0 <TIMER_setCallBack>
+    1258:	80 ee       	ldi	r24, 0xE0	; 224
+    125a:	98 e0       	ldi	r25, 0x08	; 8
+    125c:	61 e0       	ldi	r22, 0x01	; 1
+    125e:	0e 94 60 07 	call	0xec0	; 0xec0 <TIMER_setCallBack>
 
 	/* State the timer */
 	TIMER_start(TIMER_1, T1_F_CPU_1024);
-    1274:	81 e0       	ldi	r24, 0x01	; 1
-    1276:	65 e0       	ldi	r22, 0x05	; 5
-    1278:	0e 94 a7 07 	call	0xf4e	; 0xf4e <TIMER_start>
+    1262:	81 e0       	ldi	r24, 0x01	; 1
+    1264:	65 e0       	ldi	r22, 0x05	; 5
+    1266:	0e 94 a7 07 	call	0xf4e	; 0xf4e <TIMER_start>
 }
-    127c:	2b 96       	adiw	r28, 0x0b	; 11
-    127e:	0f b6       	in	r0, 0x3f	; 63
-    1280:	f8 94       	cli
-    1282:	de bf       	out	0x3e, r29	; 62
-    1284:	0f be       	out	0x3f, r0	; 63
-    1286:	cd bf       	out	0x3d, r28	; 61
-    1288:	cf 91       	pop	r28
-    128a:	df 91       	pop	r29
-    128c:	08 95       	ret
+    126a:	2b 96       	adiw	r28, 0x0b	; 11
+    126c:	0f b6       	in	r0, 0x3f	; 63
+    126e:	f8 94       	cli
+    1270:	de bf       	out	0x3e, r29	; 62
+    1272:	0f be       	out	0x3f, r0	; 63
+    1274:	cd bf       	out	0x3d, r28	; 61
+    1276:	cf 91       	pop	r28
+    1278:	df 91       	pop	r29
+    127a:	08 95       	ret
 
-0000128e <main>:
+0000127c <main>:
 /*****************************************************************************************
  *                                MAIN FUNCTION                                          *
  *****************************************************************************************/
 
 int main(void)
 {
-    128e:	df 93       	push	r29
-    1290:	cf 93       	push	r28
-    1292:	cd b7       	in	r28, 0x3d	; 61
-    1294:	de b7       	in	r29, 0x3e	; 62
+    127c:	df 93       	push	r29
+    127e:	cf 93       	push	r28
+    1280:	cd b7       	in	r28, 0x3d	; 61
+    1282:	de b7       	in	r29, 0x3e	; 62
 	/********************************************************************************
 	 *                           SYSTEM INITIALIZATION                              *
 	 ********************************************************************************/
 
 	App_init();	/* Test timer in simple application */
-    1296:	0e 94 fb 08 	call	0x11f6	; 0x11f6 <App_init>
-    129a:	ff cf       	rjmp	.-2      	; 0x129a <main+0xc>
+    1284:	0e 94 fb 08 	call	0x11f6	; 0x11f6 <App_init>
+    1288:	ff cf       	rjmp	.-2      	; 0x1288 <main+0xc>
 
-0000129c <_exit>:
-    129c:	f8 94       	cli
+0000128a <_exit>:
+    128a:	f8 94       	cli
 
-0000129e <__stop_program>:
-    129e:	ff cf       	rjmp	.-2      	; 0x129e <__stop_program>
+0000128c <__stop_program>:
+    128c:	ff cf       	rjmp	.-2      	; 0x128c <__stop_program>

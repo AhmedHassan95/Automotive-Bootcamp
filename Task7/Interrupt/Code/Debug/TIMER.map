@@ -120,7 +120,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x12a0
+.text           0x00000000     0x128e
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -271,18 +271,18 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x000011c0       0x36 ./Application/App.o
                 0x000011c0                AppCompareMatch
  .text.App_init
-                0x000011f6       0x98 ./Application/App.o
+                0x000011f6       0x86 ./Application/App.o
                 0x000011f6                App_init
- .text.main     0x0000128e        0xe ./timer_test.o
-                0x0000128e                main
- .text.libgcc   0x0000129c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000129c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000129c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x0000129c                . = ALIGN (0x2)
+ .text.main     0x0000127c        0xe ./timer_test.o
+                0x0000127c                main
+ .text.libgcc   0x0000128a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x0000128a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000128a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x0000128a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000129c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000129c                exit
-                0x0000129c                _exit
+ .fini9         0x0000128a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000128a                exit
+                0x0000128a                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -301,11 +301,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000129c        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000128a        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000012a0                _etext = .
+                0x0000128e                _etext = .
 
-.data           0x00800060        0x6 load address 0x000012a0
+.data           0x00800060        0x6 load address 0x0000128e
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -320,7 +320,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.data*)
  *(.rodata)
  *(.rodata*)
- .rodata.C.4.1352
+ .rodata.C.4.1348
                 0x00800060        0x6 ./Application/App.o
  *(.gnu.linkonce.d*)
                 0x00800066                . = ALIGN (0x2)
@@ -349,8 +349,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .bss.gu8_tick  0x0080006c        0x1 ./Application/App.o
  *(COMMON)
                 0x0080006d                PROVIDE (__bss_end, .)
-                0x000012a0                __data_load_start = LOADADDR (.data)
-                0x000012a6                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000128e                __data_load_start = LOADADDR (.data)
+                0x00001294                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080006d        0x0
                 0x0080006d                PROVIDE (__noinit_start, .)
@@ -375,16 +375,16 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x1e3c
+.stab           0x00000000     0x1e30
  *(.stab)
  .stab          0x00000000      0xcb4 ./MCAL/dio.o
  .stab          0x00000cb4      0x9a8 ./MCAL/timer.o
                                 0xb94 (size before relaxing)
  .stab          0x0000165c      0x2b8 ./HAL/led.o
                                 0x480 (size before relaxing)
- .stab          0x00001914      0x39c ./Application/App.o
-                                0x564 (size before relaxing)
- .stab          0x00001cb0      0x18c ./timer_test.o
+ .stab          0x00001914      0x390 ./Application/App.o
+                                0x558 (size before relaxing)
+ .stab          0x00001ca4      0x18c ./timer_test.o
                                 0x474 (size before relaxing)
 
 .stabstr        0x00000000     0x17aa
