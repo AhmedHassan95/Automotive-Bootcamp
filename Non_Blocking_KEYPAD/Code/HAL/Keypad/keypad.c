@@ -131,32 +131,32 @@ Std_ReturnType KEYPAD_getStatus(uint8_t * au8_data)
 		{
 		case NOT_PRESSED:	au8_keypad_RetValue = KEYPAD_getPressedKey(au8_data);
 
-							if(au8_keypad_RetValue == PRESSED)
-							{
-								au8_keypad_Status = DEBOUNCING;	/* Update the KEYPAD state */
-								TIMER_start(TIMER_1, T1_F_CPU_8);	/* Start timer */
-							}
-							au8_keypad_RetValue = NOT_PRESSED;	/* Update the return value of the keypad */
-							break;
+					if(au8_keypad_RetValue == PRESSED)
+					{
+						au8_keypad_Status = DEBOUNCING;	/* Update the KEYPAD state */
+						TIMER_start(TIMER_1, T1_F_CPU_8);	/* Start timer */
+					}
+					au8_keypad_RetValue = NOT_PRESSED;	/* Update the return value of the keypad */
+					break;
 
 		case DEBOUNCING:	if(debounce_Status == TRUE)
-							{
-								KEYPAD_getPressedKey(au8_data);	/* Read the data after denouncing */
-								debounce_Status = FALSE;	/* Reset the denounce flag */
-								au8_keypad_Status = PRESSED;/* Update the KEYPAD state */
-								au8_keypad_RetValue = PRESSED;/* Update the return value of the keypad */
-							}
-							break;
+					{
+						KEYPAD_getPressedKey(au8_data);	/* Read the data after denouncing */
+						debounce_Status = FALSE;	/* Reset the denounce flag */
+						au8_keypad_Status = PRESSED;	/* Update the KEYPAD state */
+						au8_keypad_RetValue = PRESSED;	/* Update the return value of the keypad */
+					}
+					break;
 
 		case PRESSED:		au8_keypad_RetValue = KEYPAD_getPressedKey(au8_data);
 
-							if(au8_keypad_RetValue == NOT_PRESSED)
-							{
-								/* Reset the state machine of the keypad only if the key is released */
-								au8_keypad_Status = NOT_PRESSED;
-							}
-							au8_keypad_RetValue = NOT_PRESSED;	/* Update the return value of the keypad */
-							break;
+					if(au8_keypad_RetValue == NOT_PRESSED)
+					{
+						/* Reset the state machine of the keypad only if the key is released */
+						au8_keypad_Status = NOT_PRESSED;
+					}
+					au8_keypad_RetValue = NOT_PRESSED;	/* Update the return value of the keypad */
+					break;
 		}
 
 		return au8_keypad_RetValue;	/* Return the keypad status if it is (PRESSED, NOT PRESSED) */
@@ -258,7 +258,7 @@ static uint8_t KeyPad_4x4_adjustKeyNumber(uint8_t au8_button_number)
 	break;
 	case 3: return BUTTON_9;
 	break;
-	case 4: return BUTTON_MOD; /* ASCII Code of % */
+	case 4: return BUTTON_MOD;	 /* ASCII Code of % */
 	break;
 	case 5: return BUTTON_4;
 	break;
@@ -266,7 +266,7 @@ static uint8_t KeyPad_4x4_adjustKeyNumber(uint8_t au8_button_number)
 	break;
 	case 7: return BUTTON_6;
 	break;
-	case 8: return BUTTON_MUL; /* ASCII Code of '*' */
+	case 8: return BUTTON_MUL; 	/* ASCII Code of '*' */
 	break;
 	case 9: return BUTTON_1;
 	break;
@@ -274,15 +274,15 @@ static uint8_t KeyPad_4x4_adjustKeyNumber(uint8_t au8_button_number)
 	break;
 	case 11: return BUTTON_3;
 	break;
-	case 12: return BUTTON_MINUS; /* ASCII Code of '-' */
+	case 12: return BUTTON_MINUS; 	/* ASCII Code of '-' */
 	break;
-	case 13: return BUTTON_ENTR;  /* ASCII of Enter */
+	case 13: return BUTTON_ENTR;  	/* ASCII of Enter */
 	break;
 	case 14: return BUTTON_0;
 	break;
-	case 15: return BUTTON_EQL; /* ASCII Code of '=' */
+	case 15: return BUTTON_EQL;	/* ASCII Code of '=' */
 	break;
-	case 16: return BUTTON_PLUS; /* ASCII Code of '+' */
+	case 16: return BUTTON_PLUS; 	/* ASCII Code of '+' */
 	break;
 	default: return au8_button_number;
 	}
