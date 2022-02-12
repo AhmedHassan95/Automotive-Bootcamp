@@ -10,11 +10,12 @@ keypad_test.o keypad_test.o: ../keypad_test.c ../Application/App.h \
   ../Application/../HAL/KEYPAD/../../Library/std_types.h \
   ../Application/../HAL/KEYPAD/../../Library/common_macros.h \
   ../Application/../HAL/KEYPAD/../../Library/micro_config.h \
-  ../Application/../MCAL/dio.h \
-  ../Application/../MCAL/../Library/micro_config.h \
-  ../Application/../MCAL/../Library/std_types.h \
-  ../Application/../MCAL/../Library/common_macros.h \
-  ../Application/../MCAL/../Library/atmega32.h
+  ../Application/../HAL/KEYPAD/../../MCAL/dio.h \
+  ../Application/../HAL/KEYPAD/../../MCAL/../Library/micro_config.h \
+  ../Application/../HAL/KEYPAD/../../MCAL/../Library/std_types.h \
+  ../Application/../HAL/KEYPAD/../../MCAL/../Library/common_macros.h \
+  ../Application/../HAL/KEYPAD/../../MCAL/../Library/atmega32.h \
+  ../Application/../MCAL/dio.h
 
 ../Application/App.h:
 
@@ -40,12 +41,14 @@ keypad_test.o keypad_test.o: ../keypad_test.c ../Application/App.h \
 
 ../Application/../HAL/KEYPAD/../../Library/micro_config.h:
 
+../Application/../HAL/KEYPAD/../../MCAL/dio.h:
+
+../Application/../HAL/KEYPAD/../../MCAL/../Library/micro_config.h:
+
+../Application/../HAL/KEYPAD/../../MCAL/../Library/std_types.h:
+
+../Application/../HAL/KEYPAD/../../MCAL/../Library/common_macros.h:
+
+../Application/../HAL/KEYPAD/../../MCAL/../Library/atmega32.h:
+
 ../Application/../MCAL/dio.h:
-
-../Application/../MCAL/../Library/micro_config.h:
-
-../Application/../MCAL/../Library/std_types.h:
-
-../Application/../MCAL/../Library/common_macros.h:
-
-../Application/../MCAL/../Library/atmega32.h:
