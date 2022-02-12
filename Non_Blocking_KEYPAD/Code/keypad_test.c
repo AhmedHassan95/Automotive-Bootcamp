@@ -7,7 +7,7 @@
  * [DATE CREATED]: February 8, 2022
  *
  * [DESCRIPTION]: This Project is to design a simple test application for KEYPAD
- * 				  non-blocking driver
+ * 	          non-blocking driver
  *
  *****************************************************************************************/
 
