@@ -73,17 +73,17 @@ enuDIO_E_STATE_t DIO_setPortDirection(enuDIO_PortId_t enu_portID, enuDIO_Directi
  *
  * [Description]: Function to set the direction of a certain pin in a certain port
  *
- * [Args]:	port_ID, pin_ID, pin_Direction
+ * [Args]:	  port_ID, pin_ID, pin_Direction
  *
- * [in]		port_ID: Enumerator to DIO port ID
- * 	pin_ID: Enumerator to DIO pin ID
- * 			port_Direction: Enumerator to DIO pin direction
+ * [in]		  port_ID: Enumerator to DIO port ID
+ * 		  pin_ID: Enumerator to DIO pin ID
+ * 		  port_Direction: Enumerator to DIO pin direction
  *
- * [out]	None
+ * [out]	  None
  *
- * [in/out]None
+ * [in/out]	  None
  *
- * [Returns]:      Error State
+ * [Returns]:     Error State
  ******************************************************************************/
 enuDIO_E_STATE_t DIO_setPinDirection(enuDIO_PortId_t enu_portID , enuDIO_PinId_t enu_pinID,
 				     enuDIO_DirectionType_t enu_pinDirection);
