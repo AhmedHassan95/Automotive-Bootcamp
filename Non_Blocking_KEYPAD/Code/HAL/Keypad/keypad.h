@@ -65,7 +65,7 @@
 #define DEBOUNCING      (2U)
 
 #define INITIAL_VALUE	(0U)
-#define TWENTY_MS		(20000U)
+#define TWENTY_MS	(20000U)
 
 /*******************************************************************************
  *                      Functions Prototypes                                   *
