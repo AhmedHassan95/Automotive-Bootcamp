@@ -32,7 +32,7 @@
 #define N_row 3
 
 /* Macros for Keypad Port configurations */
-#define KEYPAD_PORT	DIO_PORTC
+#define KEYPAD_PORT		DIO_PORTC
 #define KEYPAD_COL_PIN	PIN_5
 #define KEYPAD_ROW_PIN	PIN_2
 
@@ -94,6 +94,6 @@ Std_ReturnType KEYPAD_Init(void);
 * Return value: Std_ReturnType
 * Description: Function responsible for getting the status of the KEYPAD
 ********************************************************************************/
-Std_ReturnType KEYPAD_getStatus(uint8_t * data);
+Std_ReturnType KEYPAD_getStatus(uint8_t * au8_data);
 
 #endif /* KEYPAD_H_ */

@@ -26,17 +26,17 @@ uint8_t gu8_flag = NOT_PRESSED;	/* Global variable to store the status of the ke
 /*******************************************************************************
  * [Function Name]: App_init
  *
- * [Description]: Function to Initialize the application to test keypad Driver
+ * [Description]: 	Function to Initialize the application to test keypad Driver
  *
- * [Args]:	  None
+ * [Args]:			None
  *
- * [in]		  None
+ * [in]			  	None
  *
- * [out]	  None
+ * [out]		  	None
  *
- * [in/out]	  None
+ * [in/out]		 	None
  *
- * [Returns]:     None
+ * [Returns]:       None
  *******************************************************************************/
 void App_init(void)
 {
@@ -44,23 +44,23 @@ void App_init(void)
 
 	KEYPAD_Init();	/* KEYPAD Initialization */
 
-	LCD_init();	/* LCD Initialization */
+	LCD_init();		/* LCD Initialization */
 }
 
 /*******************************************************************************
  * [Function Name]: App_Update
  *
- * [Description]: Function to update the state of the application
+ * [Description]: 	Function to update the state of the application
  *
- * [Args]:	  None
+ * [Args]:			None
  *
- * [in]		  None
+ * [in]			  	None
  *
- * [out]	  None
+ * [out]		  	None
  *
- * [in/out]	  None
+ * [in/out]		 	None
  *
- * [Returns]:     None
+ * [Returns]:       None
  *******************************************************************************/
 void App_Update(void)
 {
