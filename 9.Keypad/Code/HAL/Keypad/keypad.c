@@ -109,7 +109,7 @@ static uint8_t KeyPad_4x4_adjustKeyNumber(uint8_t au8_button_number)
 				break;
 		case 7: return BUTTON_6;
 				break;
-		case 8: return BUTTON_MUL; 	/* ASCII Code of '*' */
+		case 8: return BUTTON_MUL; /* ASCII Code of '*' */
 				break;
 		case 9: return BUTTON_1;
 				break;
@@ -119,11 +119,11 @@ static uint8_t KeyPad_4x4_adjustKeyNumber(uint8_t au8_button_number)
 				break;
 		case 12: return BUTTON_MINUS; 	/* ASCII Code of '-' */
 				break;
-		case 13: return BUTTON_ENTR; 	/* ASCII of Enter */
+		case 13: return BUTTON_ENTR;  	/* ASCII of Enter */
 				break;
 		case 14: return BUTTON_0;
 				break;
-		case 15: return BUTTON_EQL;	/* ASCII Code of '=' */
+		case 15: return BUTTON_EQL;		/* ASCII Code of '=' */
 				break;
 		case 16: return BUTTON_PLUS;	/* ASCII Code of '+' */
 				break;
