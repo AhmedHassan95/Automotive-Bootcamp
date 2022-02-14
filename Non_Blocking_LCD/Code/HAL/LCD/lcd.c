@@ -224,7 +224,7 @@ Std_ReturnType LCD_displayCharacter(uint8_t au8_data)
 	}
 	if(au8_prevData != au8_data)
 	{
-		return E_NOT_OK;
+		au8_retValue = E_NOT_OK;
 	}
 	else
 	{
@@ -280,8 +280,8 @@ Std_ReturnType LCD_displayCharacter(uint8_t au8_data)
 					}
 					break;
 		}
-		return au8_retValue;
 	}
+	return au8_retValue;
 }
 
 /********************************************************************************
