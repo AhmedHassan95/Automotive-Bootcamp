@@ -36,12 +36,12 @@
 #define LCD_DATA_OUTPUT PORTA
 
 /* LCD Commands */
-#define CLEAR_COMMAND 				          (0x01U)
-#define FOUR_BITS_DATA_MODE 	      	(0x02U)
-#define TWO_LINE_LCD_Four_BIT_MODE 	(0x28U)
+#define CLEAR_COMMAND               (0x01U)
+#define FOUR_BITS_DATA_MODE         (0x02U)
+#define TWO_LINE_LCD_Four_BIT_MODE  (0x28U)
 #define TWO_LINE_LCD_Eight_BIT_MODE (0x38U)
-#define CURSOR_OFF 				            	(0x0CU)
-#define CURSOR_ON 					             (0x0EU)
+#define CURSOR_OFF                  (0x0CU)
+#define CURSOR_ON                   (0x0EU)
 #define SET_CURSOR_LOCATION         (0x80U)
 
 #define FIRST_ROW  (0x40U)
