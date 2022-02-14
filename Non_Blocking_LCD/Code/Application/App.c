@@ -13,17 +13,21 @@
 #include "App.h"
 
 /*******************************************************************************
- *                           Functions Definitions                             *
+ *                           Global Variables                                  *
  *******************************************************************************/
 
 uint8_t gu8_lcdInit = E_NOT_OK;	/* Global variable to store the value of LCD initialization */
-uint8_t gu8_lcdState = E_NOT_OK;/* Global variable to store the value  LCD state */
+uint8_t gu8_lcdState = E_NOT_OK;/* Global variable to store the value LCD state */
 
-uint8_t gu8_clrFlage = E_NOT_OK;
-uint8_t gu8_clrdis = E_NOT_OK;
+uint8_t gu8_lcdDisChar1 = E_NOT_OK;
+uint8_t gu8_lcdDisChar2 = E_NOT_OK;
+uint8_t gu8_lcdDisStr   = E_NOT_OK;
+uint8_t gu8_lcdDisNum   = E_NOT_OK;
+uint8_t gu8_lcdDisCM    = E_NOT_OK;
 
-uint8_t gu8_intFlage = E_NOT_OK;
-uint8_t gu8_intdis = E_NOT_OK;
+/*******************************************************************************
+ *                           Functions Definitions                             *
+ *******************************************************************************/
 
 /*******************************************************************************
  * [Function Name]: App_init
@@ -69,20 +73,38 @@ void App_Update(void)
 		if(gu8_lcdState == E_OK)
 		{
 			gu8_lcdInit = E_OK;	/* Update the LCD Flag (LCD INIT) */
-
-			LCD_displayString("LCD NON-BLOCKING");
 		}
 	}
-	else if(gu8_lcdInit == E_OK)
+	else
 	{
-		if(gu8_clrFlage == E_NOT_OK)
+		/* Display a string */
+		if(gu8_lcdDisStr == E_NOT_OK)
 		{
-			gu8_clrdis  = LCD_displayStringRowColumn(1, 3 , "123456789");
+			gu8_lcdDisStr = LCD_displayStringRowColumn(0, 0, "LCD NON BLOCKING");
+		}
 
-			if(gu8_clrdis  == E_OK)
-			{
-				gu8_clrFlage = E_OK;
-			}
+		/* Perform a command */
+		if(gu8_lcdDisCM == E_NOT_OK)
+		{
+			gu8_lcdDisCM = LCD_goToRowColumn(1,0);
+		}
+
+		/* Display a character */
+		if(gu8_lcdDisChar1 == E_NOT_OK)
+		{
+			gu8_lcdDisChar1 = LCD_displayCharacter('A');
+		}
+
+		/* Display another character */
+		if(gu8_lcdDisChar2 == E_NOT_OK)
+		{
+			gu8_lcdDisChar2 = LCD_displayCharacter(' ');
+		}
+
+		/* Display an integer number */
+		if(gu8_lcdDisNum == E_NOT_OK)
+		{
+			gu8_lcdDisNum = LCD_intgerToString(123);
 		}
 	}
 }

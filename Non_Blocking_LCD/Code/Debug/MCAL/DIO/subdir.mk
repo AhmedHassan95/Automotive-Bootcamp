@@ -4,20 +4,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../MCAL/TIMER/timer.c \
-../MCAL/TIMER/timer_Lcfg.c 
+../MCAL/DIO/dio.c 
 
 OBJS += \
-./MCAL/TIMER/timer.o \
-./MCAL/TIMER/timer_Lcfg.o 
+./MCAL/DIO/dio.o 
 
 C_DEPS += \
-./MCAL/TIMER/timer.d \
-./MCAL/TIMER/timer_Lcfg.d 
+./MCAL/DIO/dio.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-MCAL/TIMER/%.o: ../MCAL/TIMER/%.c MCAL/TIMER/subdir.mk
+MCAL/DIO/%.o: ../MCAL/DIO/%.c MCAL/DIO/subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR Compiler'
 	avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"

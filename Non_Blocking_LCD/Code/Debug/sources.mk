@@ -23,6 +23,6 @@ SUBDIRS := \
 Application \
 HAL/LCD \
 . \
+MCAL/DIO \
 MCAL/TIMER \
-MCAL \
 
