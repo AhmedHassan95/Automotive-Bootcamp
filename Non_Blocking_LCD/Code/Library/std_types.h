@@ -28,10 +28,10 @@ typedef unsigned char Std_ReturnType;
 
 #define NULL_PTR    ((void*)0)
 
-#define HIGH        (1u)						/* Standard HIGH */
-#define LOW         (0u)						/* Standard LOW */
+#define HIGH        (1u)	/* Standard HIGH */
+#define LOW         (0u)	/* Standard LOW */
 
-#define E_OK        (0u)						/* Function Return OK */
-#define E_NOT_OK    (1u)						/* Function Return NOT OK */
+#define E_OK        (0u)	/* Function Return OK */
+#define E_NOT_OK    (1u)	/* Function Return NOT OK */
 
 #endif /* STD_TYPE_H_ */
