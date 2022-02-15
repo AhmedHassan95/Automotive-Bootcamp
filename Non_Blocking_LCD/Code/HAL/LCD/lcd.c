@@ -164,6 +164,7 @@ Std_ReturnType LCD_sendCommand(uint8_t au8_command)
 		switch(au8_lcdState)
 		{
 		case LCD_SEND_MODE:
+				
 				DIO_writePin(LCD_CTRL_PORT, RS, LOW);	/* Instruction Mode RS = 0 */
 				DIO_writePin(LCD_CTRL_PORT, RW, LOW);	/* Write data to LCD so RW = 0 */
 				TIMER_start(TIMER_0, T0_F_CPU_1024);	/* Start timer to count 1 ms */
@@ -171,12 +172,13 @@ Std_ReturnType LCD_sendCommand(uint8_t au8_command)
 				break;
 
 		case LCD_WAIT_SEND_MODE:
+				
 				if(gu8_lcdStatus == TRUE)
 				{
 					DIO_writePin(LCD_CTRL_PORT, E, HIGH);	/* Enable LCD E = 1 */
-					gu8_lcdStatus = FALSE;					/* Clear the status flag for the next time */
+					gu8_lcdStatus = FALSE;			/* Clear the status flag for the next time */
 					TIMER_start(TIMER_0, T0_F_CPU_1024);	/* Start the timer */
-					au8_lcdState = LCD_SEND_DATA_HIGH;		/* Update the command state */
+					au8_lcdState = LCD_SEND_DATA_HIGH;	/* Update the command state */
 				}
 				break;
 				
@@ -201,6 +203,7 @@ Std_ReturnType LCD_sendCommand(uint8_t au8_command)
 					au8_lcdState = LCD_SEND_DATA_LOW;	/* Update the command state */
 				}
 				break;
+				
 		case LCD_SEND_DATA_LOW:
 				
 				if(gu8_lcdStatus == TRUE)
@@ -429,17 +432,17 @@ Std_ReturnType LCD_goToRowColumn(uint8_t row, uint8_t col)
 	switch(row)
 	{
 		case 0:
-				Address = col;
-				break;
+			Address = col;
+			break;
 		case 1:
-				Address = col+FIRST_ROW;
-				break;
+			Address = col+FIRST_ROW;
+			break;
 		case 2:
-				Address = col+SECOND_ROW;
-				break;
+			Address = col+SECOND_ROW;
+			break;
 		case 3:
-				Address = col+THIRD_ROW;
-				break;
+			Address = col+THIRD_ROW;
+			break;
 	}
 
 	/*
