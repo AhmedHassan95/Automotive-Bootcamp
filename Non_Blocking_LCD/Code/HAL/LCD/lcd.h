@@ -36,21 +36,21 @@
 #define LCD_DATA_OUTPUT PORTA
 
 /* LCD Commands */
-#define CLEAR_COMMAND               (0x01U)
-#define FOUR_BITS_DATA_MODE         (0x02U)
-#define TWO_LINE_LCD_Four_BIT_MODE 	(0x28U)
-#define TWO_LINE_LCD_Eight_BIT_MODE (0x38U)
-#define CURSOR_OFF 					            (0x0CU)
-#define CURSOR_ON 					             (0x0EU)
-#define SET_CURSOR_LOCATION 		      (0x80U)
+#define CLEAR_COMMAND(0x01U)
+#define FOUR_BITS_DATA_MODE          (0x02U)
+#define TWO_LINE_LCD_Four_BIT_MODE   (0x28U)
+#define TWO_LINE_LCD_Eight_BIT_MODE  (0x38U)
+#define CURSOR_OFF                   (0x0CU)
+#define CURSOR_ON                    (0x0EU)
+#define SET_CURSOR_LOCATION          (0x80U)
 
-#define FIRST_ROW  					(0x40U)
-#define SECOND_ROW 					(0x10U)
-#define THIRD_ROW  					(0x50U)
+#define FIRST_ROW                    (0x40U)
+#define SECOND_ROW                   (0x10U)
+#define THIRD_ROW                    (0x50U)
 
 /* Macros for LCD Operations */
-#define MASK_FOUR_HIGH_PINS  		     (0x0FU)
-#define MASK_FOUR_LOW_PINS   		     (0xF0U)
+#define MASK_FOUR_HIGH_PINS          (0x0FU)
+#define MASK_FOUR_LOW_PINS           (0xF0U)
 
 /*******************************************************************************
  *                      Functions Prototypes                                   *
