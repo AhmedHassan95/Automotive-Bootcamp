@@ -24,8 +24,8 @@
  *******************************************************************************/
 
 /* Macros for LCD Status */
-#define BUSY             (0x00U)
-#define AVAILABLE        (0xFFU)
+#define BUSY                         (0x00U)
+#define AVAILABLE                    (0xFFU)
 
 /* LCD HW Pins */
 #define RS PIN_1
