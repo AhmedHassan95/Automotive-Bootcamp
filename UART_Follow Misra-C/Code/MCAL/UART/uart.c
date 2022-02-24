@@ -1,0 +1,276 @@
+/******************************************************************************************
+ *
+ * [MODULE]: UART
+ *
+ * [FILE NAME]: uart.c
+ *
+ * [DESCRIPTION]: Source file for the UART AVR driver
+ *
+ * [AUTHOR]: Ahmed Hassan
+ *
+ ******************************************************************************************/
+
+#include "uart.h"
+
+/******************************************************************************************
+ *                  		        Functions Definitions                             *
+ ******************************************************************************************/
+
+/******************************************************************************************
+ * [Function Name]: uart_init
+ *
+ * [Description]: Function to Initialize the UART Driver
+ *		   - Decide UART Mode (Normal, Double Speed)
+ * 		   - Decide Baud Rate of the UART Module (100 BPS, 200 BPS, 300 BPS, ..)
+ * 		   - Decide Number of Data Bits to be transmitted or Received (5,6,7,8 or 9)
+ * 		   - Decide UART Parity Type (Disable, Even, Odd)
+ * 		   - Decide Number of Stop Bits (One, Two)
+ * 		   - Enable Transmitter & Receiver of the UART Module
+ *
+ * [Args]:	  Config_Ptr
+ *
+ * [in]		  Config_Ptr: Pointer to UART Configuration Structure
+ *
+ * [out]	  None
+ *
+ * [in/out]	  None
+ *
+ * [Returns]:     None
+ ******************************************************************************************/
+void uart_init(const UART_ConfigType * Config_Ptr)
+{
+	/* Insert the required Mode in U2X bit in UCSRA Register */
+	UCSRA = (UCSRA & MODE_MASK) | ( (Config_Ptr->uart_Mode) << 1);
+
+	/* In Case of Nine Bit Data */
+	if((Config_Ptr->uart_DataBits) == NINE_BITS)
+	{
+		/* Insert the last bit of required data bits in bit UCSZ2 in UCSRB Register */
+		UCSRB = (UCSRB & NINE_DATA_BITS_MASK) | ( (Config_Ptr->uart_DataBits) & NINE_DATA_BITS_SHIFT);
+
+		/* Two bits RXB8 & TXB8 must be Enabled in UCSRB Register */
+		UCSRB |= (1<<RXB8) | (1<<TXB8);
+	}
+
+	/*
+	 * Enable Transmitter & Receiver to be able to transmit and receive thought
+	 * the UART driver
+	 */
+	UCSRB |= (1<<RXEN) | (1<<TXEN);
+
+	/* URSEL must be one when writing the UCSRC */
+	UCSRC |= (1<<URSEL);
+
+	/*
+	 * Insert the First two bits of required data bits in bits (UCSZ0, UCSZ1)
+	 * in UCSRC Register in case of (5,6,7 or 8) Data bits
+	 */
+	UCSRC = (UCSRC & DATA_BITS_MASK) | ( (Config_Ptr->uart_DataBits & DATA_BITS_SHIFT) << 1);
+
+	/* Insert the required parity type in bits (UPM0, UPM1) in UCSRC Register */
+	UCSRC = (UCSRC & PARITY_MASK) | ( (Config_Ptr->uart_Parity) << PARITY_SHIFT);
+
+	/* Insert the required number of stop bit(s) in bit USBS in UCSRC Register */
+	UCSRC = (UCSRC & STOP_MASK) | ( (Config_Ptr->uart_StopBit) << STOP_SHIFT);
+
+	/*
+	 * This switch case is to choose between two Modes (Normal, Double Speed),
+	 * then calculate and insert the required Baud rate in First 8 bits from the
+	 * BAUD_PRESCALE inside UBRRL and last 4 bits in UBRRH
+	 */
+	switch(Config_Ptr -> uart_Mode)
+	{
+	case NORMAL_SPEED:	UBRRH = ( (((F_CPU / (Config_Ptr->uart_BaudRate * NORMAL_SPEED_DIVISOR))) - 1) >> SPEED_SHIFT);
+						UBRRL = ( ((F_CPU / (Config_Ptr->uart_BaudRate *  NORMAL_SPEED_DIVISOR))) - 1);
+						break;
+
+	case DOUBLE_SPEED:	UBRRH = ( (((F_CPU / (Config_Ptr->uart_BaudRate * DOUBLE_SPEED_DIVISOR))) - 1) >> SPEED_SHIFT);
+						UBRRL = ( ((F_CPU / (Config_Ptr->uart_BaudRate * DOUBLE_SPEED_DIVISOR))) - 1);
+						break;
+	}
+}
+
+/***************************************************************************************
+ * [Function Name]: uart_sendByte
+ *
+ * [Description]: Function responsible for sending 1 Byte through UART driver
+ *
+ * [Args]:	  au8_data
+ *
+ * [in]		  au8_data: Unsigned Character (Byte need to be sent through the UART)
+ *
+ * [out]	  None
+ *
+ * [in/out]	  None
+ *
+ * [Returns]:     None
+ ****************************************************************************************/
+void uart_sendByte(const uint8_t au8_data)
+{
+	/*
+	 * UDRE flag is set when the TX buffer (UDR) is empty and ready for
+	 * transmitting a new byte so wait until this flag is set to one
+	 */
+	while(BIT_IS_CLEAR(UCSRA,UDRE)){}
+
+	/*
+	 * Put the required data in the UDR register and it also clear the UDRE
+	 * flag as the UDR register is not empty now
+	 */
+	UDR = au8_data;
+}
+
+/****************************************************************************************
+ * [Function Name]: uart_recieveByte
+ *
+ * [Description]: Function responsible for receiving 1 Byte through UART driver
+ *
+ * [Args]:	  None
+ *
+ * [in]		  None
+ *
+ * [out]	  Unsigned Character
+ *
+ * [in/out]	  None
+ *
+ * [Returns]:     The Byte that received through the UART
+ ****************************************************************************************/
+uint8_t uart_recieveByte(void)
+{
+	/*
+	 * RXC flag is set when the UART receive data so wait until this
+	 * flag is set to one
+	 */
+	while(BIT_IS_CLEAR(UCSRA,RXC)){}
+
+	/*
+	 * Read the received data from the RX buffer (UDR) and the RXC flag
+	 * will be cleared after read this data
+	 */
+	return UDR;
+}
+
+/****************************************************************************************
+ * [Function Name]: uart_sendString
+ *
+ * [Description]: Function responsible for sending a string (more than 1 character)
+ * 		  through UART driver
+ *
+ * [Args]:	  aStr_message
+ *
+ * [in]		  aStr_message: Pointer to Unsigned Character (String need to be sent through the UART)
+ *
+ * [out]	  None
+ *
+ * [in/out]	  None
+ *
+ * [Returns]:     None
+ ****************************************************************************************/
+void uart_sendString(const uint8_t * aStr_message)
+{
+	uint8_t i = 0;
+
+	while(aStr_message[i] != '\0')
+	{
+		uart_sendByte(aStr_message[i]);
+		i++;
+	}
+}
+
+/****************************************************************************************
+ * [Function Name]: uart_receiveString
+ *
+ * [Description]: Function responsible for receiving a string (more than 1 character)
+ * 		  until receiving a special character ('#') through UART driver
+ *
+ * [Args]:	  aStr_message
+ *
+ * [in]		  aStr_message: Pointer to Unsigned Character (String need to be received through the UART)
+ *
+ * [out]	  None
+ *
+ * [in/out]	  None
+ *
+ * [Returns]:     None
+ ****************************************************************************************/
+void uart_receiveString(uint8_t * aStr_message)
+{
+	uint8_t i = 0;
+
+	aStr_message[i] = uart_recieveByte();
+	while(aStr_message[i] != '\r')
+	{
+		i++;
+		aStr_message[i] = uart_recieveByte();
+	}
+	aStr_message[i] = '\0';
+}
+
+/****************************************************************************************
+ * [Function Name]: uart_setParityType
+ *
+ * [Description]: Function to set the required Parity Type
+ *
+ * [Args]:	  enu_parityType
+ *
+ * [in]		  enu_parityType: Enumerator to UART Parity Type
+ *
+ * [out]	  None
+ *
+ * [in/out]	  None
+ *
+ * [Returns]:     None
+ ****************************************************************************************/
+void uart_setParityType(const enuUART_ParityType_t enu_parityType)
+{
+	/* Insert the required parity type in bits (UPM0, UPM1) in UCSRC Register */
+	UCSRC = (UCSRC & PARITY_MASK) | (enu_parityType << PARITY_SHIFT);
+}
+
+/****************************************************************************************
+ * [Function Name]: uart_setStopBit
+ *
+ * [Description]: Function to set the required Stop bit(s)
+ *
+ * [Args]:	  enu_stopBit
+ *
+ * [in]		  enu_stopBit: Enumerator to UART Stop Bit
+ *
+ * [out]	  None
+ *
+ * [in/out]	  None
+ *
+ * [Returns]:     None
+ ****************************************************************************************/
+void uart_setStopBit(const enuUART_StopBit_t enu_stopBit)
+{
+	/* Insert the required number of stop bit(s) in bit USBS in UCSRC Register */
+	UCSRC = (UCSRC & STOP_MASK) | (enu_stopBit << STOP_SHIFT);
+}
+
+/****************************************************************************************
+ * [Function Name]: uart_DeInit
+ *
+ * [Description]: Function to disable the UART Driver
+ *
+ * [Args]:	  None
+ *
+ * [in]		  None
+ *
+ * [out]	  None
+ *
+ * [in/out]	  None
+ *
+ * [Returns]:     None
+ ****************************************************************************************/
+void uart_DeInit(void)
+{
+	/* Reset All UART Registers to its initial value */
+	UCSRA = USCRA_INITIAL_VALUE;
+	UCSRB = 0;
+	UCSRC = USCRC_INITIAL_VALUE;
+
+	/* Clear UART Baud Rate Registers */
+	UBRRH = 0;
+	UBRRL = 0;
+}
