@@ -18,13 +18,13 @@
 #include "../../Library/micro_config.h"
 
 /*******************************************************************************
- *                            		Macros                                     *
+ *                            		Macros                                 *
  *******************************************************************************/
 
-#define MODE_MASK  				(0xFD)
+#define MODE_MASK  			(0xFD)
 
-#define NINE_DATA_BITS_MASK 	(0xFB)
-#define NINE_DATA_BITS_SHIFT 	(0x04)
+#define NINE_DATA_BITS_MASK 		(0xFB)
+#define NINE_DATA_BITS_SHIFT 		(0x04)
 
 #define DATA_BITS_MASK 			(0xF9)
 #define DATA_BITS_SHIFT 		(0x03)
@@ -32,15 +32,15 @@
 #define PARITY_MASK  			(0xCF)
 #define PARITY_SHIFT  			(4UL)
 
-#define STOP_MASK 				(0xF7)
+#define STOP_MASK 			(0xF7)
 #define STOP_SHIFT  			(3UL)
 
-#define NORMAL_SPEED_DIVISOR	(16UL)
-#define DOUBLE_SPEED_DIVISOR	(8UL)
-#define SPEED_SHIFT				(8UL)
+#define NORMAL_SPEED_DIVISOR		(16UL)
+#define DOUBLE_SPEED_DIVISOR		(8UL)
+#define SPEED_SHIFT			(8UL)
 
-#define USCRA_INITIAL_VALUE 	(0x20)
-#define USCRC_INITIAL_VALUE  	(0x86)
+#define USCRA_INITIAL_VALUE 		(0x20)
+#define USCRC_INITIAL_VALUE  		(0x86)
 
  /******************************************************************************
  *                            Types Declaration                                *
