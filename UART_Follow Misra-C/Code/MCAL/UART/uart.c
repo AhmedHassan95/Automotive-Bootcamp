@@ -81,12 +81,12 @@ void uart_init(const UART_ConfigType * Config_Ptr)
 	switch(Config_Ptr -> uart_Mode)
 	{
 	case NORMAL_SPEED:	UBRRH = ( (((F_CPU / (Config_Ptr->uart_BaudRate * NORMAL_SPEED_DIVISOR))) - 1) >> SPEED_SHIFT);
-						UBRRL = ( ((F_CPU / (Config_Ptr->uart_BaudRate *  NORMAL_SPEED_DIVISOR))) - 1);
-						break;
+				UBRRL = ( ((F_CPU / (Config_Ptr->uart_BaudRate *  NORMAL_SPEED_DIVISOR))) - 1);
+				break;
 
 	case DOUBLE_SPEED:	UBRRH = ( (((F_CPU / (Config_Ptr->uart_BaudRate * DOUBLE_SPEED_DIVISOR))) - 1) >> SPEED_SHIFT);
-						UBRRL = ( ((F_CPU / (Config_Ptr->uart_BaudRate * DOUBLE_SPEED_DIVISOR))) - 1);
-						break;
+				UBRRL = ( ((F_CPU / (Config_Ptr->uart_BaudRate * DOUBLE_SPEED_DIVISOR))) - 1);
+				break;
 	}
 }
 
