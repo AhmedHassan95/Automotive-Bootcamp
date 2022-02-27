@@ -51,7 +51,7 @@ signature        0x00840000         0x00000400         rw !x
 Linker script and memory map
 
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
-LOAD ./MCAL/dio.o
+LOAD ./MCAL/DIO/dio.o
 LOAD ./HAL/LCD/lcd.o
 LOAD ./Application/App.o
 LOAD ./LCD_test.o
@@ -149,7 +149,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x292e
+.text           0x00000000     0x2910
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -224,7 +224,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x0000007e                __vector_16
                 0x0000007e                __vector_18
                 0x0000007e                __vector_20
- .text          0x00000082        0x0 ./MCAL/dio.o
+ .text          0x00000082        0x0 ./MCAL/DIO/dio.o
  .text          0x00000082        0x0 ./HAL/LCD/lcd.o
  .text          0x00000082        0x0 ./Application/App.o
  .text          0x00000082        0x0 ./LCD_test.o
@@ -260,74 +260,74 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00000b36                . = ALIGN (0x2)
  *(.text.*)
  .text.DIO_setPortDirection
-                0x00000b36      0x120 ./MCAL/dio.o
+                0x00000b36      0x120 ./MCAL/DIO/dio.o
                 0x00000b36                DIO_setPortDirection
  .text.DIO_setPinDirection
-                0x00000c56      0x238 ./MCAL/dio.o
+                0x00000c56      0x238 ./MCAL/DIO/dio.o
                 0x00000c56                DIO_setPinDirection
  .text.DIO_writePort
-                0x00000e8e       0x9a ./MCAL/dio.o
+                0x00000e8e       0x9a ./MCAL/DIO/dio.o
                 0x00000e8e                DIO_writePort
  .text.DIO_writePin
-                0x00000f28      0x238 ./MCAL/dio.o
+                0x00000f28      0x238 ./MCAL/DIO/dio.o
                 0x00000f28                DIO_writePin
  .text.DIO_readPort
-                0x00001160       0xbc ./MCAL/dio.o
+                0x00001160       0xbc ./MCAL/DIO/dio.o
                 0x00001160                DIO_readPort
  .text.DIO_readPin
-                0x0000121c      0x1a0 ./MCAL/dio.o
+                0x0000121c      0x1a0 ./MCAL/DIO/dio.o
                 0x0000121c                DIO_readPin
  .text.DIO_TogglePin
-                0x000013bc      0x122 ./MCAL/dio.o
+                0x000013bc      0x122 ./MCAL/DIO/dio.o
                 0x000013bc                DIO_TogglePin
  .text.LCD_init
-                0x000014de       0x42 ./HAL/LCD/lcd.o
+                0x000014de       0x6c ./HAL/LCD/lcd.o
                 0x000014de                LCD_init
  .text.LCD_sendCommand
-                0x00001520      0x83a ./HAL/LCD/lcd.o
-                0x00001520                LCD_sendCommand
+                0x0000154a      0x816 ./HAL/LCD/lcd.o
+                0x0000154a                LCD_sendCommand
  .text.LCD_displayCharacter
-                0x00001d5a      0x83a ./HAL/LCD/lcd.o
-                0x00001d5a                LCD_displayCharacter
+                0x00001d60      0x816 ./HAL/LCD/lcd.o
+                0x00001d60                LCD_displayCharacter
  .text.LCD_displayString
-                0x00002594       0x52 ./HAL/LCD/lcd.o
-                0x00002594                LCD_displayString
+                0x00002576       0x52 ./HAL/LCD/lcd.o
+                0x00002576                LCD_displayString
  .text.LCD_goToRowColumn
-                0x000025e6       0x84 ./HAL/LCD/lcd.o
-                0x000025e6                LCD_goToRowColumn
+                0x000025c8       0x84 ./HAL/LCD/lcd.o
+                0x000025c8                LCD_goToRowColumn
  .text.LCD_displayStringRowColumn
-                0x0000266a       0x32 ./HAL/LCD/lcd.o
-                0x0000266a                LCD_displayStringRowColumn
+                0x0000264c       0x32 ./HAL/LCD/lcd.o
+                0x0000264c                LCD_displayStringRowColumn
  .text.LCD_intgerToString
-                0x0000269c       0x4a ./HAL/LCD/lcd.o
-                0x0000269c                LCD_intgerToString
+                0x0000267e       0x4a ./HAL/LCD/lcd.o
+                0x0000267e                LCD_intgerToString
  .text.LCD_clearScreen
-                0x000026e6       0x14 ./HAL/LCD/lcd.o
-                0x000026e6                LCD_clearScreen
+                0x000026c8       0x14 ./HAL/LCD/lcd.o
+                0x000026c8                LCD_clearScreen
  .text.App_init
-                0x000026fa      0x12a ./Application/App.o
-                0x000026fa                App_init
- .text.main     0x00002824        0xe ./LCD_test.o
-                0x00002824                main
- .text.libgcc   0x00002832        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00002832        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00002832       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00002832                __prologue_saves__
- .text.libgcc   0x0000286a       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x0000286a                __epilogue_restores__
+                0x000026dc      0x12a ./Application/App.o
+                0x000026dc                App_init
+ .text.main     0x00002806        0xe ./LCD_test.o
+                0x00002806                main
+ .text.libgcc   0x00002814        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00002814        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00002814       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00002814                __prologue_saves__
+ .text.libgcc   0x0000284c       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x0000284c                __epilogue_restores__
  .text.avr-libc
-                0x000028a0       0x42 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
-                0x000028a0                itoa
+                0x00002882       0x42 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+                0x00002882                itoa
  .text.avr-libc
-                0x000028e2       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x000028e2                strrev
- .text.libgcc   0x00002902       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x00002902                __udivmodhi4
-                0x0000292a                . = ALIGN (0x2)
+                0x000028c4       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x000028c4                strrev
+ .text.libgcc   0x000028e4       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x000028e4                __udivmodhi4
+                0x0000290c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000292a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000292a                exit
-                0x0000292a                _exit
+ .fini9         0x0000290c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000290c                exit
+                0x0000290c                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -346,15 +346,15 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000292a        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000290c        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000292e                _etext = .
+                0x00002910                _etext = .
 
-.data           0x00800060       0x2a load address 0x0000292e
+.data           0x00800060       0x2a load address 0x00002910
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .data          0x00800060        0x0 ./MCAL/dio.o
+ .data          0x00800060        0x0 ./MCAL/DIO/dio.o
  .data          0x00800060        0x0 ./HAL/LCD/lcd.o
  .data          0x00800060       0x22 ./Application/App.o
  .data          0x00800082        0x0 ./LCD_test.o
@@ -389,7 +389,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x0080008a                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x0080008a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x0080008a        0x0 ./MCAL/dio.o
+ .bss           0x0080008a        0x0 ./MCAL/DIO/dio.o
  .bss           0x0080008a        0x0 ./HAL/LCD/lcd.o
  .bss           0x0080008a        0x0 ./Application/App.o
  .bss           0x0080008a        0x0 ./LCD_test.o
@@ -414,8 +414,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.bss*)
  *(COMMON)
                 0x0080008a                PROVIDE (__bss_end, .)
-                0x0000292e                __data_load_start = LOADADDR (.data)
-                0x00002958                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00002910                __data_load_start = LOADADDR (.data)
+                0x0000293a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080008a        0x0
                 0x0080008a                PROVIDE (__noinit_start, .)
@@ -440,19 +440,19 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x2088
+.stab           0x00000000     0x2160
  *(.stab)
- .stab          0x00000000      0xd08 ./MCAL/dio.o
- .stab          0x00000d08      0xf0c ./HAL/LCD/lcd.o
-                               0x111c (size before relaxing)
- .stab          0x00001c14      0x2f4 ./Application/App.o
-                                0x504 (size before relaxing)
- .stab          0x00001f08      0x180 ./LCD_test.o
-                                0x42c (size before relaxing)
+ .stab          0x00000000      0xd08 ./MCAL/DIO/dio.o
+ .stab          0x00000d08      0xfc0 ./HAL/LCD/lcd.o
+                               0x11d0 (size before relaxing)
+ .stab          0x00001cc8      0x30c ./Application/App.o
+                                0x51c (size before relaxing)
+ .stab          0x00001fd4      0x18c ./LCD_test.o
+                                0x444 (size before relaxing)
 
-.stabstr        0x00000000     0x1046
+.stabstr        0x00000000     0x12a8
  *(.stabstr)
- .stabstr       0x00000000     0x1046 ./MCAL/dio.o
+ .stabstr       0x00000000     0x12a8 ./MCAL/DIO/dio.o
 
 .stab.excl
  *(.stab.excl)

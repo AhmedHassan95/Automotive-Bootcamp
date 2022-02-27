@@ -12,7 +12,6 @@ FLASH_IMAGE :=
 ELFS := 
 OBJS := 
 ASM_DEPS := 
-AVRDUDEDUMMY := 
 S_DEPS := 
 SIZEDUMMY := 
 S_UPPER_DEPS := 
@@ -24,5 +23,5 @@ SUBDIRS := \
 Application \
 HAL/LCD \
 . \
-MCAL \
+MCAL/DIO \
 

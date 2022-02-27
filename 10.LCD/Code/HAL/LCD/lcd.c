@@ -17,150 +17,125 @@
  *******************************************************************************/
 void LCD_init(void)
 {
-	LCD_CTRL_PORT_DIR |= (1<<E) | (1<<RS) | (1<<RW); /* Configure the control pins(E,RS,RW) as output pins */
+	/* Configure the control pins(E,RS,RW) as output pins */
+	DIO_setPinDirection(LCD_CTRL_PORT, E, OUTPUT);
+	DIO_setPinDirection(LCD_CTRL_PORT, RS, OUTPUT);
+	DIO_setPinDirection(LCD_CTRL_PORT, RW, OUTPUT);
+
+	/* Configure the highest 4 bits of the data port as output pins */
+	DIO_setPinDirection(LCD_DATA_PORT, PIN_4, OUTPUT);
+	DIO_setPinDirection(LCD_DATA_PORT, PIN_5, OUTPUT);
+	DIO_setPinDirection(LCD_DATA_PORT, PIN_6, OUTPUT);
+	DIO_setPinDirection(LCD_DATA_PORT, PIN_7, OUTPUT);
 	
-	#if (DATA_BITS_MODE == 4)
-		#ifdef UPPER_PORT_PINS
-			LCD_DATA_PORT_DIR |= 0xF0; /* Configure the highest 4 bits of the data port as output pins */
-		#else
-			LCD_DATA_PORT_DIR |= 0x0F; /* Configure the lowest 4 bits of the data port as output pins */
-		#endif		 
-		LCD_sendCommand(FOUR_BITS_DATA_MODE); /* Initialize LCD in 4-bit mode */
-		LCD_sendCommand(TWO_LINE_LCD_Four_BIT_MODE); /* Use 2-line lcd + 4-bit Data Mode + 5*7 dot display Mode */
-	#elif (DATA_BITS_MODE == 8)
-		LCD_DATA_PORT_DIR = 0xFF; /* Configure the data port as output port */ 
-		LCD_sendCommand(TWO_LINE_LCD_Eight_BIT_MODE); /* Use 2-line lcd + 8-bit Data Mode + 5*7 dot display Mode */
-	#endif
-	
-	LCD_sendCommand(CURSOR_OFF); /* Cursor off */
-	LCD_sendCommand(CLEAR_COMMAND); /* Clear LCD at the beginning */
+	LCD_sendCommand(FOUR_BITS_DATA_MODE); 		 /* Initialize LCD in 4-bit mode */
+	LCD_sendCommand(TWO_LINE_LCD_Four_BIT_MODE); /* Use 2-line LCD + 4-bit Data Mode + 5*7 dot display Mode */
+	LCD_sendCommand(CURSOR_OFF); 				 /* Cursor off */
+	LCD_sendCommand(CLEAR_COMMAND); 			 /* Clear LCD at the beginning */
 }
 
-void LCD_sendCommand(uint8_t command)
+void LCD_sendCommand(uint8_t au8_command)
 {
-	CLEAR_BIT(LCD_CTRL_PORT,RS); /* Instruction Mode RS = 0 */
-	CLEAR_BIT(LCD_CTRL_PORT,RW); /* Write data to LCD so RW = 0 */
-	_delay_ms(1); /* Delay for processing Tas = 50ns */
-	SET_BIT(LCD_CTRL_PORT,E); /* Enable LCD E = 1 */
-	_delay_ms(1); /* Delay for processing Tpw - Tdws = 190ns */
-#if (DATA_BITS_MODE == 4)
-	/* Out the highest 4 bits of the required command to the data bus D4 --> D7 */
-#ifdef UPPER_PORT_PINS
-	LCD_DATA_PORT = (LCD_DATA_PORT & 0x0F) | (command & 0xF0);
-#else
-	LCD_DATA_PORT = (LCD_DATA_PORT & 0xF0) | ((command & 0xF0) >> 4);
-#endif
+	DIO_writePin(LCD_CTRL_PORT, RS, LOW);	/* Instruction Mode RS = 0 */
+	DIO_writePin(LCD_CTRL_PORT, RW, LOW);	/* Write data to LCD so RW = 0 */
+	_delay_ms(1); 							/* Delay for processing Tas = 50ns */
 
+	DIO_writePin(LCD_CTRL_PORT, E, HIGH);	/* Enable LCD E = 1 */
+	_delay_ms(1); /* Delay for processing Tpw - Tdws = 190ns */
+
+	/* Out the highest 4 bits of the required command to the data bus D4 --> D7 */
+	LCD_DATA_OUTPUT = (LCD_DATA_OUTPUT & MASK_FOUR_HIGH_PINS) | (au8_command & MASK_FOUR_LOW_PINS);
 	_delay_ms(1); /* Delay for processing Tdsw = 100ns */
-	CLEAR_BIT(LCD_CTRL_PORT,E); /* disable LCD E = 0 */
+
+	DIO_writePin(LCD_CTRL_PORT, E, LOW);	/* Disable LCD E = 0 */
 	_delay_ms(1); /* Delay for processing Th = 13ns */
-	SET_BIT(LCD_CTRL_PORT,E); /* Enable LCD E = 1 */
+
+	DIO_writePin(LCD_CTRL_PORT, E, HIGH);	/* Enable LCD E = 1 */
 	_delay_ms(1); /* Delay for processing Tpw - Tdws = 190ns */
 
 	/* Out the lowest 4 bits of the required command to the data bus D4 --> D7 */
-#ifdef UPPER_PORT_PINS
-	LCD_DATA_PORT = (LCD_DATA_PORT & 0x0F) | ((command & 0x0F) << 4);
-#else
-	LCD_DATA_PORT = (LCD_DATA_PORT & 0xF0) | (command & 0x0F);
-#endif
+	LCD_DATA_OUTPUT = (LCD_DATA_OUTPUT & MASK_FOUR_HIGH_PINS) | ((au8_command & MASK_FOUR_HIGH_PINS) << 4);
+	_delay_ms(1); /* Delay for processing Tdsw = 100ns */
 
-	_delay_ms(1); /* Delay for processing Tdsw = 100ns */
-	CLEAR_BIT(LCD_CTRL_PORT,E); /* Disable LCD E = 0 */
+	DIO_writePin(LCD_CTRL_PORT, E, LOW);	/* Disable LCD E = 0 */
 	_delay_ms(1); /* Delay for processing Th = 13ns */
-#elif (DATA_BITS_MODE == 8)
-	LCD_DATA_PORT = command; /* Out the required command to the data bus D0 --> D7 */
-	_delay_ms(1); /* Delay for processing Tdsw = 100ns */
-	CLEAR_BIT(LCD_CTRL_PORT,E); /* disable LCD E = 0 */
-	_delay_ms(1); /* Delay for processing Th = 13ns */
-#endif
 }
 
-void LCD_displayCharacter(uint8_t data)
+void LCD_displayCharacter(uint8_t au8_data)
 {
-	SET_BIT(LCD_CTRL_PORT,RS); /* Data Mode RS = 1 */
-	CLEAR_BIT(LCD_CTRL_PORT,RW); /* Write data to LCD so RW = 0 */
-	_delay_ms(1); /* Delay for processing Tas = 50ns */
-	SET_BIT(LCD_CTRL_PORT,E); /* Enable LCD E = 1 */
-	_delay_ms(1); /* Delay for processing Tpw - Tdws = 190ns */
-#if (DATA_BITS_MODE == 4)
-	/* Out the highest 4 bits of the required data to the data bus D4 --> D7 */
-#ifdef UPPER_PORT_PINS
-	LCD_DATA_PORT = (LCD_DATA_PORT & 0x0F) | (data & 0xF0);
-#else
-	LCD_DATA_PORT = (LCD_DATA_PORT & 0xF0) | ((data & 0xF0) >> 4);
-#endif
+	DIO_writePin(DIO_PORTA, RS, HIGH);	/* Data Mode RS = 1 */
+	DIO_writePin(DIO_PORTA, RW, LOW);	/* Write data to LCD so RW = 0 */
+	_delay_ms(1); 						/* Delay for processing Tas = 50ns */
 
+	DIO_writePin(DIO_PORTA, E, HIGH);	/* Enable LCD E = 1 */
+	_delay_ms(1); /* Delay for processing Tpw - Tdws = 190ns */
+
+	/* Out the highest 4 bits of the required data to the data bus D4 --> D7 */
+	LCD_DATA_OUTPUT = (LCD_DATA_OUTPUT & MASK_FOUR_HIGH_PINS) | (au8_data & MASK_FOUR_LOW_PINS);
 	_delay_ms(1); /* Delay for processing Tdsw = 100ns */
-	CLEAR_BIT(LCD_CTRL_PORT,E); /* Disable LCD E = 0 */
+
+	DIO_writePin(DIO_PORTA, E, LOW);	/* Disable LCD E = 0 */
 	_delay_ms(1); /* Delay for processing Th = 13ns */
-	SET_BIT(LCD_CTRL_PORT,E); /* Enable LCD E=1 */
+
+	DIO_writePin(DIO_PORTA, E, HIGH);	/* Enable LCD E = 0 */
 	_delay_ms(1); /* Delay for processing Tpw - Tdws = 190ns */
 
 	/* Out the lowest 4 bits of the required data to the data bus D4 --> D7 */
-#ifdef UPPER_PORT_PINS
-	LCD_DATA_PORT = (LCD_DATA_PORT & 0x0F) | ((data & 0x0F) << 4);
-#else
-	LCD_DATA_PORT = (LCD_DATA_PORT & 0xF0) | (data & 0x0F);
-#endif
+	LCD_DATA_OUTPUT = (LCD_DATA_OUTPUT & MASK_FOUR_HIGH_PINS) | ((au8_data & MASK_FOUR_HIGH_PINS) << 4);
+	_delay_ms(1); /* Delay for processing Tdsw = 100ns */
 
-	_delay_ms(1); /* Delay for processing Tdsw = 100ns */
-	CLEAR_BIT(LCD_CTRL_PORT,E); /* disable LCD E = 0 */
+	DIO_writePin(DIO_PORTA, E, LOW);	/* Disable LCD E = 0 */
 	_delay_ms(1); /* Delay for processing Th = 13ns */
-#elif (DATA_BITS_MODE == 8)
-	LCD_DATA_PORT = data; /* Out the required command to the data bus D0 --> D7 */
-	_delay_ms(1); /* Delay for processing Tdsw = 100ns */
-	CLEAR_BIT(LCD_CTRL_PORT,E); /* Disable LCD E = 0 */
-	_delay_ms(1); /* Delay for processing Th = 13ns */
-#endif
 }
 
-void LCD_displayString(const uint8_t *Str)
+void LCD_displayString(const uint8_t * Str)
 {
-	uint8_t i = 0;
-	while(Str[i] != '\0')
+	uint8_t au8_index = 0;
+
+	while(Str[au8_index] != '\0')
 	{
-		LCD_displayCharacter(Str[i]);
-		i++;
+		LCD_displayCharacter(Str[au8_index]);
+		au8_index++;
 	}
 }
 
-void LCD_goToRowColumn(uint8_t row, uint8_t col)
+void LCD_goToRowColumn(uint8_t au8_row, uint8_t au8_col)
 {
-	uint8_t Address;
+	uint8_t au8_address;
 	
 	/* First of all calculate the required address */
-	switch(row)
+	switch(au8_row)
 	{
 		case 0:
-			Address=col;
+			au8_address = au8_col;
 			break;
 		case 1:
-			Address=col+0x40;
+			au8_address = au8_col + FIRST_ROW;
 			break;
 		case 2:
-			Address=col+0x10;
+			au8_address = au8_col + SECOND_ROW;
 			break;
 		case 3:
-			Address=col+0x50;
+			au8_address = au8_col + THIRD_ROW;
 			break;
 	}					
 	/* 
 	 * To write to a specific address in the LCD 
 	 * we need to apply the corresponding command 0b10000000+Address 
 	 */
-	LCD_sendCommand(Address | SET_CURSOR_LOCATION); 
+	LCD_sendCommand(au8_address | SET_CURSOR_LOCATION);
 }
 
-void LCD_displayStringRowColumn(uint8_t row, uint8_t col, const char * Str)
+void LCD_displayStringRowColumn(uint8_t au8_row, uint8_t au8_col, const char * Str)
 {
-	LCD_goToRowColumn(row, col); /* Go to to the required LCD position */
-	LCD_displayString(Str); /* Display the string */
+	LCD_goToRowColumn(au8_row, au8_col); /* Go to to the required LCD position */
+	LCD_displayString(Str); 	 /* Display the string */
 }
 
-void LCD_intgerToString(int32_t data)
+void LCD_intgerToString(int32_t s32_data)
 {
-   char buff[16]; /* String to hold the ASCII result */
-   itoa(data,buff,10); /* 10 for decimal */
+   char buff[16]; 	   /* String to hold the ASCII result */
+   itoa(s32_data,buff,10); /* 10 for decimal */
    LCD_displayString(buff);
 }
 
