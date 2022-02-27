@@ -44,8 +44,8 @@
 #define THIRD_ROW                   (0x50U)
 
 /* Macros for LCD Operations */
-#define MASK_FOUR_HIGH_PINS  		     (0x0FU)
-#define MASK_FOUR_LOW_PINS   		     (0xF0U)
+#define MASK_FOUR_HIGH_PINS         (0x0FU)
+#define MASK_FOUR_LOW_PINS          (0xF0U)
 
 /*******************************************************************************
  *                      Functions Prototypes                                   *
