@@ -28,17 +28,17 @@ void LCD_init(void)
 	DIO_setPinDirection(LCD_DATA_PORT, PIN_6, OUTPUT);
 	DIO_setPinDirection(LCD_DATA_PORT, PIN_7, OUTPUT);
 	
-	LCD_sendCommand(FOUR_BITS_DATA_MODE); 		 /* Initialize LCD in 4-bit mode */
-	LCD_sendCommand(TWO_LINE_LCD_Four_BIT_MODE); /* Use 2-line LCD + 4-bit Data Mode + 5*7 dot display Mode */
-	LCD_sendCommand(CURSOR_OFF); 				 /* Cursor off */
-	LCD_sendCommand(CLEAR_COMMAND); 			 /* Clear LCD at the beginning */
+	LCD_sendCommand(FOUR_BITS_DATA_MODE); 		/* Initialize LCD in 4-bit mode */
+	LCD_sendCommand(TWO_LINE_LCD_Four_BIT_MODE); 	/* Use 2-line LCD + 4-bit Data Mode + 5*7 dot display Mode */
+	LCD_sendCommand(CURSOR_OFF); 			/* Cursor off */
+	LCD_sendCommand(CLEAR_COMMAND); 		/* Clear LCD at the beginning */
 }
 
 void LCD_sendCommand(uint8_t au8_command)
 {
 	DIO_writePin(LCD_CTRL_PORT, RS, LOW);	/* Instruction Mode RS = 0 */
 	DIO_writePin(LCD_CTRL_PORT, RW, LOW);	/* Write data to LCD so RW = 0 */
-	_delay_ms(1); 							/* Delay for processing Tas = 50ns */
+	_delay_ms(1); 				/* Delay for processing Tas = 50ns */
 
 	DIO_writePin(LCD_CTRL_PORT, E, HIGH);	/* Enable LCD E = 1 */
 	_delay_ms(1); /* Delay for processing Tpw - Tdws = 190ns */
@@ -65,7 +65,7 @@ void LCD_displayCharacter(uint8_t au8_data)
 {
 	DIO_writePin(DIO_PORTA, RS, HIGH);	/* Data Mode RS = 1 */
 	DIO_writePin(DIO_PORTA, RW, LOW);	/* Write data to LCD so RW = 0 */
-	_delay_ms(1); 						/* Delay for processing Tas = 50ns */
+	_delay_ms(1); 				/* Delay for processing Tas = 50ns */
 
 	DIO_writePin(DIO_PORTA, E, HIGH);	/* Enable LCD E = 1 */
 	_delay_ms(1); /* Delay for processing Tpw - Tdws = 190ns */
@@ -128,8 +128,8 @@ void LCD_goToRowColumn(uint8_t au8_row, uint8_t au8_col)
 
 void LCD_displayStringRowColumn(uint8_t au8_row, uint8_t au8_col, const char * Str)
 {
-	LCD_goToRowColumn(au8_row, au8_col); /* Go to to the required LCD position */
-	LCD_displayString(Str); 	 /* Display the string */
+	LCD_goToRowColumn(au8_row, au8_col); 	/* Go to to the required LCD position */
+	LCD_displayString(Str); 	 	/* Display the string */
 }
 
 void LCD_intgerToString(int32_t s32_data)
