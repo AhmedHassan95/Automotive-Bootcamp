@@ -101,7 +101,7 @@ static uint8_t KeyPad_4x4_adjustKeyNumber(uint8_t au8_button_number)
 				break;
 		case 3: return BUTTON_9;
 				break;
-		case 4: return BUTTON_MOD; /* ASCII Code of % */
+		case 4: return BUTTON_MOD; 	/* ASCII Code of % */
 				break;
 		case 5: return BUTTON_4;
 				break;
