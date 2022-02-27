@@ -17,7 +17,6 @@
 #include "../Library/common_macros.h"
 #include "../Library/micro_config.h"
 #include "../HAL/LCD/lcd.h"
-#include "../MCAL/dio.h"
 
 /*******************************************************************************
  *                             Functions Prototypes                            *

@@ -13,10 +13,10 @@
 #ifndef DIO_H_
 #define DIO_H_
 
-#include "../Library/micro_config.h"
-#include "../Library/std_types.h"
-#include "../Library/common_macros.h"
-#include "../Library/atmega32.h"
+#include "../../Library/micro_config.h"
+#include "../../Library/std_types.h"
+#include "../../Library/common_macros.h"
+#include "../../Library/atmega32.h"
 
 #define INPUT_PORT  0x00
 #define OUTPUT_PORT 0xFF
